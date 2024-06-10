@@ -12,7 +12,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.378.0",
+    "lucide-react": "^0.390.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
@@ -27,9 +27,9 @@
     "eslint": "^9",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3",
+    "prettier": "^3.3.1",
+    "prettier-plugin-tailwindcss": "^0.6.2",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5"
   }
 }
