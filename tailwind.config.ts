@@ -1,44 +1,47 @@
-import type { Config } from 'tailwindcss'
-import * as Colors from 'tailwindcss/colors'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   theme: {
     colors: {
+      transparent: 'transparent',
       background: {
         neutral: {
-          default: Colors.white,
-          faded: Colors.neutral[50],
-          subtle: Colors.neutral[100],
-          strong: Colors.neutral[200],
+          default: 'hsl(var(--color-background-neutral-default))',
+          faded: 'hsl(var(--color-background-neutral-faded))',
+          subtle: 'hsl(var(--color-background-neutral-subtle))',
+          strong: 'hsl(var(--color-background-neutral-strong))',
         },
         brand: {
-          default: Colors.black,
+          default: 'hsl(var(--color-background-brand-default))',
+        },
+        positive: {
+          default: 'hsl(var(--color-background-positive-default))',
         },
       },
       foreground: {
         neutral: {
-          default: Colors.neutral[950],
-          faded: Colors.neutral[500],
-          subtle: Colors.neutral[600],
-          strong: Colors.neutral[800],
+          default: 'hsl(var(--color-foreground-neutral-default))',
+          faded: 'hsl(var(--color-foreground-neutral-faded))',
+          subtle: 'hsl(var(--color-foreground-neutral-subtle))',
+          strong: 'hsl(var(--color-foreground-neutral-strong))',
         },
         brand: {
-          default: Colors.white,
+          default: 'hsl(var(--color-foreground-brand-default))',
         },
       },
       border: {
         neutral: {
-          default: Colors.neutral[300],
-          faded: Colors.neutral[100],
-          subtle: Colors.neutral[200],
-          strong: Colors.neutral[400],
+          default: 'hsl(var(--color-border-neutral-default))',
+          faded: 'hsl(var(--color-border-neutral-faded))',
+          subtle: 'hsl(var(--color-border-neutral-subtle))',
+          strong: 'hsl(var(--color-border-neutral-strong))',
         },
         brand: {
-          default: Colors.black,
+          default: 'hsl(var(--color-border-brand-default))',
         },
       },
     },
   },
-}
-export default config
+};
+export default config;
