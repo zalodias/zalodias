@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer color {
+  :root {
+    --hue: 35;
+
+    --color-white: 0 0% 100%;
+    --color-black: 0 0% 0%;
+
+    --color-gray-50: var(--hue) 8% 96%;
+    --color-gray-100: var(--hue) 8% 92%;
+    --color-gray-200: var(--hue) 8% 88%;
+    --color-gray-300: var(--hue) 8% 80%;
+    --color-gray-400: var(--hue) 8% 64%;
+    --color-gray-500: var(--hue) 8% 48%;
+    --color-gray-600: var(--hue) 8% 32%;
+    --color-gray-700: var(--hue) 8% 16%;
+    --color-gray-800: var(--hue) 8% 12%;
+    --color-gray-900: var(--hue) 8% 8%;
+    --color-gray-950: var(--hue) 8% 4%;
+
+    --color-green-500: 160 80% 48%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+
+      --color-background-neutral-default: var(--color-gray-950);
+      --color-background-neutral-strong: var(--color-gray-700);
+      --color-background-neutral-subtle: var(--color-gray-800);
+      --color-background-neutral-faded: var(--color-gray-900);
+      --color-background-positive-default: var(--color-green-500);
+
+      --color-foreground-neutral-default: var(--color-gray-50);
+      --color-foreground-neutral-strong: var(--color-gray-100);
+      --color-foreground-neutral-subtle: var(--color-gray-300);
+      --color-foreground-neutral-faded: var(--color-gray-400);
+
+      --color-border-neutral-default: var(--color-gray-700);
+      --color-border-neutral-strong: var(--color-gray-500);
+      --color-border-neutral-subtle: var(--color-gray-600);
+      --color-border-neutral-faded: var(--color-gray-800);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+
+      --color-background-neutral-default: var(--color-white);
+      --color-background-neutral-strong: var(--color-gray-300);
+      --color-background-neutral-subtle: var(--color-gray-100);
+      --color-background-neutral-faded: var(--color-gray-50);
+
+      --color-foreground-neutral-default: var(--color-gray-900);
+      --color-foreground-neutral-strong: var(--color-gray-800);
+      --color-foreground-neutral-subtle: var(--color-gray-700);
+      --color-foreground-neutral-faded: var(--color-gray-600);
+
+      --color-border-neutral-default: var(--color-gray-300);
+      --color-border-neutral-strong: var(--color-gray-400);
+      --color-border-neutral-subtle: var(--color-gray-200);
+      --color-border-neutral-faded: var(--color-gray-100);
+    }
+  }
+}
