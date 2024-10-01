@@ -14,7 +14,7 @@ export function Navigation() {
           <div className="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-background-positive-default" />
         </div>
         <div className="flex flex-col">
-          <p>{profile.name}</p>
+          <p className="text-body-large-strong">{profile.name}</p>
           <p className="text-foreground-neutral-faded">{profile.title}</p>
         </div>
       </div>
