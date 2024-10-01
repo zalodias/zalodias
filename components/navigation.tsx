@@ -1,6 +1,5 @@
-import { navigation } from '@/data/navigation';
+import { NavigationTabs } from '@/components/navigation-tabs';
 import { profile } from '@/data/profile';
-import Link from 'next/link';
 
 export function Navigation() {
   return (
@@ -12,25 +11,14 @@ export function Navigation() {
             alt={profile.name}
             className="h-12 w-12 rounded-full border border-border-neutral-default"
           />
-          <div className="bg-background-positive-default absolute bottom-1 right-1 h-2 w-2 rounded-full" />
+          <div className="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-background-positive-default" />
         </div>
         <div className="flex flex-col">
           <p>{profile.name}</p>
           <p className="text-foreground-neutral-faded">{profile.title}</p>
         </div>
       </div>
-      <div className="flex flex-grow flex-col gap-2">
-        {navigation.map((item) => (
-          <Link
-            key={item.path}
-            href={item.path}
-            className="border-transparent flex gap-3 rounded-lg border px-3 py-2 text-foreground-neutral-strong hover:border-border-neutral-default hover:bg-background-neutral-subtle hover:text-foreground-neutral-default"
-          >
-            {item.icon}
-            {item.label}
-          </Link>
-        ))}
-      </div>
+      <NavigationTabs />
       <div className="flex flex-col gap-5">
         <p className="text-foreground-neutral-faded">{profile.bio}</p>
         <div className="flex gap-2">
