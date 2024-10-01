@@ -22,7 +22,7 @@ export function NavigationTabs() {
             }`}
           >
             {item.icon}
-            {item.label}
+            <p className="text-body-large-subtle">{item.label}</p>
           </Link>
         );
       })}
