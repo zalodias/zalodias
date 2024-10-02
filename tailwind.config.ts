@@ -64,6 +64,13 @@ const config: Config = {
           fontWeight: '500',
         },
       ],
+      'body-medium-strong': [
+        '14px',
+        {
+          lineHeight: '20px',
+          fontWeight: '600',
+        },
+      ],
       'body-large-default': [
         '16px',
         {
