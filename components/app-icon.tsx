@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { mergeTailwindClassNames as cn } from '@/lib/utils';
 
 interface AppIconProps {
   icon: React.ReactNode;
