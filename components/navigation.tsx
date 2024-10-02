@@ -3,8 +3,12 @@ import { profile } from '@/data/profile';
 import { Dribbble } from '@/icons/Dribbble';
 import { LinkedIn } from '@/icons/LinkedIn';
 import { X } from '@/icons/X';
+import { getCurrentCity, getCurrentTime } from '@/lib/utils';
 
 export function Navigation() {
+  const city = getCurrentCity();
+  const time = getCurrentTime();
+
   return (
     <aside className="flex w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4">
       <div className="flex gap-4">
@@ -24,6 +28,12 @@ export function Navigation() {
       <NavigationTabs />
       <div className="flex flex-col gap-5">
         <p className="text-foreground-neutral-faded">{profile.bio}</p>
+        <div className="flex items-center gap-2">
+          <div className="h-1.5 w-1.5 rounded-full bg-background-positive-default" />
+          <p className="text-foreground-neutral-faded">
+            <span>{city}</span>, <span>{time}</span>
+          </p>
+        </div>
         <div className="flex gap-2">
           <a
             href={`https://x.com/${profile.handle}`}
