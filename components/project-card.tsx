@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface ProjectCardProps {
@@ -18,8 +19,13 @@ export function ProjectCard({
       href={link}
       className="relative overflow-hidden rounded-xl border border-border-neutral-faded bg-background-neutral-faded"
     >
-      <div className="overflow-hidden">
-        <img src={image} alt={title} className="duration-200 hover:scale-105" />
+      <div className="relative aspect-[3/2] overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          className="object-cover duration-200 hover:scale-105"
+          fill
+        />
       </div>
       <div className="gap-4 p-4">
         <h2 className="text-body-large-strong">{title}</h2>
