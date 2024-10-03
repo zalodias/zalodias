@@ -37,7 +37,7 @@ export function Navigation() {
   }, []);
 
   return (
-    <aside className="flex w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4">
+    <aside className="sticky top-0 flex h-screen w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4">
       <div className="flex gap-4">
         <div className="relative">
           <img
