@@ -1,4 +1,5 @@
 import { AppIcon } from '@/components/app-icon';
+import { BookmarkCard } from '@/components/bookmark-card';
 import { Container } from '@/components/container';
 import { ProjectCard } from '@/components/project-card';
 import { Arc } from '@/icons/Arc';
@@ -74,10 +75,29 @@ export default function Home() {
           </div>
           <Link
             href="/dissections"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-5 py-3 text-body-medium-subtle text-foreground-neutral-faded duration-200 hover:bg-background-neutral-subtle hover:text-foreground-neutral-default disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-5 py-3 text-body-medium-subtle text-foreground-neutral-faded hover:bg-background-neutral-subtle hover:text-foreground-neutral-default disabled:pointer-events-none disabled:opacity-50"
           >
             View Dissections
           </Link>
+        </div>
+        <div className="flex flex-col gap-5">
+          <div className="flex gap-4">
+            <h1 className="flex-grow text-title-small-strong">Bookmarks</h1>
+            <Link
+              href="/projects"
+              className="flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+            >
+              View All
+              <ArrowUpRight width={16} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
+            <BookmarkCard />
+            <BookmarkCard />
+            <BookmarkCard />
+            <BookmarkCard />
+            <BookmarkCard />
+          </div>
         </div>
       </section>
     </Container>
