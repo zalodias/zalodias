@@ -4,6 +4,8 @@ export interface Profile {
   title: string;
   avatar: string;
   bio: string;
+  location: string;
+  timezone: string;
 }
 
 export const profile: Profile = {
@@ -12,4 +14,6 @@ export const profile: Profile = {
   title: 'Software Designer',
   avatar: '/headshot@640.jpg',
   bio: 'Full-stack designer crafting functional interfaces',
+  location: 'Coimbra',
+  timezone: 'Europe/Lisbon',
 };
