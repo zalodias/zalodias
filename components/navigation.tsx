@@ -76,7 +76,11 @@ export function Navigation() {
         <div className="flex items-center gap-2">
           <div className="h-1.5 w-1.5 rounded-full bg-background-positive-default" />
           <p className="text-foreground-neutral-faded">
-            <a href={getWikiFromLocation(profile.location)}>
+            <a
+              className="hover:text-foreground-neutral-default"
+              href={getWikiFromLocation(profile.location)}
+              target="_blank"
+            >
               {profile.location}
             </a>
             {`, `}
