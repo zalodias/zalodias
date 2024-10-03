@@ -5,27 +5,17 @@ export function mergeTailwindClassNames(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export async function getCurrentCity() {
-  try {
-    const ipResponse = await fetch('https://api.ipify.org?format=json');
-    const ipData = await ipResponse.json();
-    const ip = ipData.ip;
-
-    const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
-    const location = await locationResponse.json();
-
-    return location.city;
-  } catch (error) {
-    console.error('Error fetching IP or location data:', error);
-  }
-}
-
-export function getCurrentTime() {
+export function getCurrentTime(timezone: string) {
   const now = new Date();
   const options: Intl.DateTimeFormatOptions = {
     hour: '2-digit',
     minute: '2-digit',
+    timeZone: timezone,
   };
 
   return now.toLocaleString('en-US', options);
+}
+
+export function getWikiFromLocation(location: string): string {
+  return `https://en.wikipedia.org/wiki/${encodeURIComponent(location)}`;
 }
