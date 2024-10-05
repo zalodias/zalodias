@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <div className="flex gap-4">
             <h1 className="flex-grow text-title-small-strong">
-              Project Highlights
+              Featured Projects
             </h1>
             <Link
               href="/projects"
@@ -42,9 +42,9 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-8 rounded-xl border border-border-neutral-faded p-6">
           <header className="flex flex-col gap-1">
-            <h1 className="text-title-small-strong">Featured Dissections</h1>
+            <h1 className="text-title-small-strong">Dissections</h1>
             <p className="text-foreground-neutral-faded">
-              Analysing the delightful details of software
+              Analysing the delightful details of my favorite software
             </p>
           </header>
           <div className="grid w-full grid-cols-2 gap-4">
