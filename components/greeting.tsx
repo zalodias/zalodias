@@ -8,14 +8,18 @@ export function Greeting() {
 
   useEffect(() => {
     const fetchUserGreeting = async () => {
-      const response = await fetch('https://ipapi.co/json/');
-      const data = await response.json();
-      const timezone = data.timezone;
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const timezone = data.timezone;
 
-      const date = new Date().toLocaleString('en-US', { timeZone: timezone });
-      const hours = new Date(date).getHours();
+        const date = new Date().toLocaleString('en-US', { timeZone: timezone });
+        const hours = new Date(date).getHours();
 
-      setGreeting(getGreetingFromHours(hours));
+        setGreeting(getGreetingFromHours(hours));
+      } catch (error) {
+        setGreeting('Hello');
+      }
     };
 
     fetchUserGreeting();
