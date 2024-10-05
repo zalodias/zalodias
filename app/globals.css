@@ -38,6 +38,7 @@
       --color-background-neutral-strong: var(--color-gray-700);
       --color-background-neutral-subtle: var(--color-gray-800);
       --color-background-neutral-faded: var(--color-gray-900);
+      --color-background-neutral-inverse: var(--color-white);
       --color-background-positive-default: var(--color-green-500);
 
       --color-foreground-neutral-default: var(--color-gray-50);
@@ -59,7 +60,9 @@
       --color-background-neutral-default: var(--color-white);
       --color-background-neutral-strong: var(--color-gray-300);
       --color-background-neutral-subtle: var(--color-gray-100);
+      --color-background-neutral-inverse: var(--color-gray-950);
       --color-background-neutral-faded: var(--color-gray-50);
+      --color-background-positive-default: var(--color-green-500);
 
       --color-foreground-neutral-default: var(--color-gray-900);
       --color-foreground-neutral-strong: var(--color-gray-800);
