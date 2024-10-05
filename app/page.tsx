@@ -12,7 +12,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <Container>
-      <section className="flex flex-col gap-12">
+      <section className="flex flex-col gap-20">
         <div className="flex flex-col gap-6">
           <div className="flex gap-4">
             <h1 className="flex-grow text-title-small-strong">
