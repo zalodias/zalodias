@@ -1,11 +1,11 @@
 import { AppIcon } from '@/components/app-icon';
 import { BookmarkCard } from '@/components/bookmark-card';
 import { Container } from '@/components/container';
+import { MovingArrow } from '@/components/moving-arrow';
 import { ProjectCard } from '@/components/project-card';
 import { Arc } from '@/icons/Arc';
 import { Linear } from '@/icons/Linear';
 import { Raycast } from '@/icons/Raycast';
-import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -19,10 +19,10 @@ export default function Home() {
             </h1>
             <Link
               href="/projects"
-              className="flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+              className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
             >
               View All
-              <ArrowUpRight width={16} />
+              <MovingArrow />
             </Link>
           </div>
           <div className="grid grid-flow-col gap-10">
@@ -85,10 +85,10 @@ export default function Home() {
             <h1 className="flex-grow text-title-small-strong">Bookmarks</h1>
             <Link
               href="/projects"
-              className="flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+              className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
             >
               View All
-              <ArrowUpRight width={16} />
+              <MovingArrow />
             </Link>
           </div>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
