@@ -2,6 +2,7 @@ import { AppIcon } from '@/components/app-icon';
 import { BookmarkCard } from '@/components/bookmark-card';
 import { Container } from '@/components/container';
 import { MovingArrow } from '@/components/moving-arrow';
+import { NoteCard } from '@/components/note-card';
 import { ProjectCard } from '@/components/project-card';
 import { Arc } from '@/icons/Arc';
 import { Linear } from '@/icons/Linear';
@@ -104,6 +105,29 @@ export default function Home() {
             <BookmarkCard />
             <BookmarkCard />
           </div>
+        </div>
+        <div className="rounded-xl border border-border-neutral-faded p-6">
+          <header className="flex flex-col gap-5">
+            <h1 className="text-title-small-strong">Recent Notes</h1>
+            <div className="flex flex-col gap-3">
+              <NoteCard
+                title="Moebius-style post-processing"
+                timestamp="Just now"
+              />
+              <NoteCard
+                title="Docker container management tools"
+                timestamp="20 minutes ago"
+              />
+              <NoteCard
+                title="Moebius-style post-processing"
+                timestamp="1 week ago"
+              />
+              <NoteCard
+                title="Consistent toolset for manipulating JavaScript dates"
+                timestamp="2 months ago"
+              />
+            </div>
+          </header>
         </div>
       </section>
     </Container>
