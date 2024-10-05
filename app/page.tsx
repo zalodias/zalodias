@@ -130,6 +130,7 @@ export default function Home() {
           </header>
         </div>
       </section>
+      <div className="pointer-events-none sticky inset-x-0 bottom-0 h-20 bg-background-neutral-default [mask-image:linear-gradient(transparent,black)]"></div>
     </Container>
   );
 }
