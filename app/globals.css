@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer default {
+  ::selection {
+    background: hsl(var(--color-background-neutral-inverse) / 0.2);
+  }
+}
+
 @layer color {
   :root {
     --hue: 35;
