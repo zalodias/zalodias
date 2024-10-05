@@ -38,6 +38,12 @@ export default function Home() {
               description="A project made with love, and a lot of coffee."
               link="/projects/autumnal-peach"
             />
+            <ProjectCard
+              image="https://picsum.photos/seed/picsum/960/640"
+              title="Autumnal Peach"
+              description="A project made with love, and a lot of coffee."
+              link="/projects/autumnal-peach"
+            />
           </div>
         </div>
         <div className="flex flex-col gap-8 rounded-xl border border-border-neutral-faded p-6">
