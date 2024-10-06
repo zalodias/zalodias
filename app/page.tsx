@@ -36,9 +36,7 @@ export default async function Home() {
         </div>
         <div className="flex flex-col gap-6">
           <div className="flex gap-4">
-            <h1 className="flex-grow text-title-small-strong">
-              Featured Projects
-            </h1>
+            <h1 className="flex-grow text-title-small-strong">Featured Work</h1>
             <Link
               href="/projects"
               className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
@@ -51,17 +49,17 @@ export default async function Home() {
             <ProjectCard
               title="Autumnal Peach"
               description="A project made with love, and a lot of coffee."
-              image="https://picsum.photos/seed/picsum/960/640"
+              image="https://framerusercontent.com/images/sEbxQ4942NuQ3nev9zvvPxvpn0.jpg"
               link="/projects/autumnal-peach"
             />
             <ProjectCard
-              image="https://picsum.photos/seed/picsum/960/640"
+              image="https://framerusercontent.com/images/sEbxQ4942NuQ3nev9zvvPxvpn0.jpg"
               title="Autumnal Peach"
               description="A project made with love, and a lot of coffee."
               link="/projects/autumnal-peach"
             />
             <ProjectCard
-              image="https://picsum.photos/seed/picsum/960/640"
+              image="https://framerusercontent.com/images/sEbxQ4942NuQ3nev9zvvPxvpn0.jpg"
               title="Autumnal Peach"
               description="A project made with love, and a lot of coffee."
               link="/projects/autumnal-peach"
