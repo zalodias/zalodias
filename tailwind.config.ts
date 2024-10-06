@@ -50,6 +50,13 @@ const config: Config = {
           fontWeight: '400',
         },
       ],
+      'body-small-subtle': [
+        '12px',
+        {
+          lineHeight: '16px',
+          fontWeight: '500',
+        },
+      ],
       'body-medium-default': [
         '14px',
         {
