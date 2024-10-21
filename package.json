@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@umami/api-client": "^0.76.0",
-    "lucide-react": "^0.446.0",
-    "next": "14.2.13",
+    "lucide-react": "^0.453.0",
+    "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -25,8 +25,8 @@
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.8",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss": "^3.4.13",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss": "^3.4.14",
     "tsx": "^4.19.1",
     "typescript": "^5"
   }
