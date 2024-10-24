@@ -3,6 +3,12 @@ import type { Config } from 'tailwindcss';
 const config: Config = {
   content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   theme: {
+    screens: {
+      sm: '480px',
+      md: '640px',
+      lg: '960px',
+      xl: '1280px',
+    },
     colors: {
       transparent: 'transparent',
       background: {
