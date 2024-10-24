@@ -1,6 +1,7 @@
 'use client';
 
 import { Clock } from '@/components/clock';
+import { Profile } from '@/components/profile';
 import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';
 import { Dribbble } from '@/icons/Dribbble';
@@ -38,20 +39,7 @@ export function Navigation() {
 
   return (
     <aside className="sticky top-0 flex h-screen w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4">
-      <div className="flex gap-4">
-        <div className="relative">
-          <img
-            src={profile.avatar}
-            alt={profile.name}
-            className="size-12 rounded-full border border-border-neutral-default"
-          />
-          <div className="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-background-positive-default" />
-        </div>
-        <div className="flex flex-col">
-          <p className="text-body-large-strong">{profile.name}</p>
-          <p className="text-foreground-neutral-faded">{profile.title}</p>
-        </div>
-      </div>
+      <Profile />
       <div className="flex flex-grow flex-col gap-2">
         {navigation.map((item) => {
           const isActive = pathname === item.path;
