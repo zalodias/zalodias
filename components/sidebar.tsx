@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export function Navigation() {
+export function Sidebar() {
   const pathname = usePathname();
   const [currentTime, setCurrentTime] = useState(
     getCurrentTime(profile.timezone),
@@ -38,9 +38,9 @@ export function Navigation() {
   }, []);
 
   return (
-    <aside className="sticky top-0 flex h-screen w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4">
+    <aside className="sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4 lg:flex">
       <Profile />
-      <div className="flex flex-grow flex-col gap-2">
+      <nav className="flex flex-grow flex-col gap-2">
         {navigation.map((item) => {
           const isActive = pathname === item.path;
           return (
@@ -58,7 +58,7 @@ export function Navigation() {
             </Link>
           );
         })}
-      </div>
+      </nav>
       <div className="flex flex-col gap-5">
         <p className="text-foreground-neutral-faded">{profile.bio}</p>
         <div className="flex items-center gap-2">
