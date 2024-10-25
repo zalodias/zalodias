@@ -45,7 +45,7 @@ export default async function Home() {
               <MovingArrow />
             </Link>
           </div>
-          <div className="grid grid-flow-col gap-10">
+          <div className="grid grid-flow-row gap-10 lg:grid-flow-col">
             <ProjectCard
               title="Autumnal Peach"
               description="A project made with love, and a lot of coffee."
