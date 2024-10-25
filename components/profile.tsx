@@ -1,8 +1,9 @@
 import { profile } from '@/data/profile';
+import { mergeTailwindClassNames as cn } from '@/lib/utils';
 
-export function Profile() {
+export function Profile({ className }: { className?: string }) {
   return (
-    <div className="flex gap-4">
+    <div className={cn('flex gap-4', className)}>
       <div className="relative">
         <img
           src={profile.avatar}
