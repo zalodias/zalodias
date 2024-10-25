@@ -117,7 +117,7 @@ export default async function Home() {
               <MovingArrow />
             </Link>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
             <BookmarkCard />
             <BookmarkCard />
             <BookmarkCard />
@@ -149,7 +149,6 @@ export default async function Home() {
           </header>
         </div>
       </section>
-      <div className="pointer-events-none sticky inset-x-0 bottom-0 h-20 bg-background-neutral-default [mask-image:linear-gradient(transparent,black)]"></div>
     </Container>
   );
 }
