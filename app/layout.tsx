@@ -1,13 +1,17 @@
 import '@/app/globals.css';
-import { Navigation } from '@/components/navigation';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
+import { Sidebar } from '@/components/sidebar';
 import Script from 'next/script';
 import { PropsWithChildren } from 'react';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className="flex gap-5 overscroll-none bg-background-neutral-default text-foreground-neutral-default antialiased">
-        <Navigation />
+      <body className="flex flex-col gap-5 overscroll-none bg-background-neutral-default text-foreground-neutral-default antialiased lg:flex-row">
+        <Header />
+        <Footer />
+        <Sidebar />
         <main className="flex flex-grow px-5 py-10">{children}</main>
       </body>
       <Script
