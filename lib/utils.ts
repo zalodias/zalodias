@@ -8,7 +8,7 @@ export function mergeTailwindClassNames(...inputs: ClassValue[]) {
 export function getCurrentTime(timezone: string) {
   const now = new Date();
   const options: Intl.DateTimeFormatOptions = {
-    hour: '2-digit',
+    hour: 'numeric',
     minute: '2-digit',
     timeZone: timezone,
   };
