@@ -1,22 +1,25 @@
 import { AppIcon } from '@/components/app-icon';
 import { BookmarkCard } from '@/components/bookmark-card';
 import { Container } from '@/components/container';
-import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
 import { NoteCard } from '@/components/note-card';
 import { ProjectCard } from '@/components/project-card';
 import { Arc } from '@/icons/Arc';
 import { Linear } from '@/icons/Linear';
 import { Raycast } from '@/icons/Raycast';
+import { getHoursFromTimezone } from '@/lib/ipapi';
 import { getPageVisitorCount } from '@/lib/umami';
+import { getGreetingFromHours } from '@/lib/utils';
 import Link from 'next/link';
 
 export default async function Home() {
+  const greeting = getGreetingFromHours(getHoursFromTimezone);
+
   return (
     <Container>
       <section className="flex flex-col gap-20">
         <div className="flex flex-col gap-2">
-          <Greeting />
+          <h1 className="text-title-large-strong">{greeting},</h1>
           <p className="text-body-large-default text-foreground-neutral-faded">
             You are visitor{' '}
             <span className="text-body-large-strong text-foreground-neutral-default">
