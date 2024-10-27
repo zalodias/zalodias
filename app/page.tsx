@@ -8,20 +8,10 @@ import { ProjectCard } from '@/components/project-card';
 import { Arc } from '@/icons/Arc';
 import { Linear } from '@/icons/Linear';
 import { Raycast } from '@/icons/Raycast';
-import { getClient } from '@umami/api-client';
+import { getPageVisitorCount } from '@/lib/umami';
 import Link from 'next/link';
 
 export default async function Home() {
-  const client = getClient({
-    apiEndpoint: process.env.UMAMI_API_CLIENT_ENDPOINT,
-    apiKey: process.env.UMAMI_API_KEY,
-  });
-
-  const { data } = await client.getWebsiteStats(process.env.UMAMI_WEBSITE_ID!, {
-    startAt: 0,
-    endAt: Date.now(),
-  });
-
   return (
     <Container>
       <section className="flex flex-col gap-20">
@@ -30,7 +20,7 @@ export default async function Home() {
           <p className="text-body-large-default text-foreground-neutral-faded">
             You are visitor{' '}
             <span className="text-body-large-strong text-foreground-neutral-default">
-              {data?.visitors.value}
+              {getPageVisitorCount()}
             </span>
           </p>
         </div>
