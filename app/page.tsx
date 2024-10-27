@@ -13,7 +13,8 @@ import { getGreetingFromHours } from '@/lib/utils';
 import Link from 'next/link';
 
 export default async function Home() {
-  const greeting = getGreetingFromHours(getHoursFromTimezone);
+  const hours = await getHoursFromTimezone();
+  const greeting = typeof hours === 'number' && getGreetingFromHours(hours);
 
   return (
     <Container>
