@@ -22,12 +22,12 @@ export function getWikiFromLocation(location: string): string {
 
 export function getGreetingFromHours(hours: number): string {
   if (hours < 6) {
-    return 'Good night,';
+    return 'Good night';
   } else if (hours < 12) {
-    return 'Good morning,';
+    return 'Good morning';
   } else if (hours < 18) {
-    return 'Good afternoon,';
+    return 'Good afternoon';
   } else {
-    return 'Good evening,';
+    return 'Good evening';
   }
 }
