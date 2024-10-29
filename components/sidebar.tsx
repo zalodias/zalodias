@@ -1,41 +1,19 @@
 'use client';
 
-import { Clock } from '@/components/clock';
 import { Profile } from '@/components/profile';
 import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';
+import { useCurrentTime } from '@/hooks/useCurrentTime';
 import { Dribbble } from '@/icons/Dribbble';
 import { LinkedIn } from '@/icons/LinkedIn';
 import { X } from '@/icons/X';
-import { getCurrentTime, getWikiFromLocation } from '@/lib/utils';
+import { getWikiFromLocation } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 export function Sidebar() {
   const pathname = usePathname();
-  const [currentTime, setCurrentTime] = useState(
-    getCurrentTime(profile.timezone),
-  );
-
-  useEffect(() => {
-    const updateCurrentTime = () => {
-      setCurrentTime(getCurrentTime(profile.timezone));
-    };
-
-    const now = new Date();
-    const nextMinute = new Date(now.getTime() + (60 - now.getSeconds()) * 1000);
-    const timeUntilNextMinute = nextMinute.getTime() - now.getTime();
-
-    const timeout = setTimeout(() => {
-      updateCurrentTime();
-      const interval = setInterval(updateCurrentTime, 60000);
-
-      return () => clearInterval(interval);
-    }, timeUntilNextMinute);
-
-    return () => clearTimeout(timeout);
-  }, []);
+  const currentTime = useCurrentTime();
 
   return (
     <aside className="sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4 lg:flex">
@@ -72,7 +50,7 @@ export function Sidebar() {
               {profile.location}
             </a>
             {`, `}
-            <Clock />
+            <span>{currentTime}</span>
           </p>
         </div>
         <div className="flex gap-2">

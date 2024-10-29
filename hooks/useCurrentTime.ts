@@ -2,7 +2,7 @@ import { profile } from '@/data/profile';
 import { getCurrentTime } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
-export function Clock() {
+export function useCurrentTime() {
   const [currentTime, setCurrentTime] = useState(
     getCurrentTime(profile.timezone),
   );
@@ -26,5 +26,5 @@ export function Clock() {
     return () => clearTimeout(timeout);
   }, []);
 
-  return <span>{currentTime}</span>;
+  return currentTime;
 }
