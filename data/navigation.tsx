@@ -1,4 +1,4 @@
-import { Compass, Folders, Microscope, MousePointer2 } from 'lucide-react';
+import { Bookmark, Compass, Folders, Microscope } from 'lucide-react';
 
 export interface NavigationItem {
   path: string;
@@ -14,5 +14,5 @@ export const navigation: NavigationItem[] = [
     label: 'Dissections',
     icon: <Microscope width={20} />,
   },
-  { path: '/contact', label: 'Contact', icon: <MousePointer2 width={20} /> },
+  { path: '/bookmarks', label: 'Bookmarks', icon: <Bookmark width={20} /> },
 ];
