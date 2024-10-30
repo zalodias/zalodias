@@ -1,11 +1,13 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
-import { getBookmarks } from '@/lib/notion';
+import { fetchDatabaseContent } from '@/lib/notion';
 import { extractFaviconFromUrl, formatBookmarkDate } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 
 export default async function Bookmarks() {
-  const bookmarks = await getBookmarks();
+  const bookmarks = await fetchDatabaseContent(
+    '12057c1e961280329ebad0ecdf335eb7',
+  );
 
   return (
     <Container>
