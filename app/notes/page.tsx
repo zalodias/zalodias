@@ -18,11 +18,11 @@ export default async function Notes() {
           {notes.map((note) => (
             <Link
               key={note.id}
-              href={`/notes/${generateSlug(note.properties.Name.title[0].plain_text)}`}
+              href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
               className="flex flex-col gap-4"
             >
               <p className="text-body-large-strong">
-                {note.properties.Name.title[0].plain_text}
+                {(note.properties.Name as any).title[0].plain_text}
               </p>
             </Link>
           ))}

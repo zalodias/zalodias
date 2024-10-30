@@ -21,21 +21,21 @@ export default async function Bookmarks() {
             <div key={bookmark.id} className="flex flex-col gap-4">
               <a
                 className="group flex items-center gap-2 rounded-lg p-2 hover:bg-background-neutral-faded"
-                href={bookmark.properties.Link.url}
+                href={(bookmark.properties.Link as any).url}
                 key={bookmark.id}
                 target="_blank"
               >
                 <div className="flex flex-grow items-center gap-1">
                   <img
                     src={extractFaviconFromUrl(
-                      bookmark.properties.Link.url,
+                      (bookmark.properties.Link as any).url,
                       64,
                     )}
                     alt="favicon"
                     className="size-4"
                   />
                   <p className="text-body-large-strong">
-                    {bookmark.properties.Name.title[0].plain_text}
+                    {(bookmark.properties.Name as any).title[0].plain_text}
                   </p>
                   <ArrowUpRight
                     width={16}
