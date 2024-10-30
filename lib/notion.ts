@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client';
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -7,7 +8,7 @@ export const notion = new Client({
 export async function fetchDatabaseContent(id: string) {
   const data = await notion.databases.query({ database_id: id });
 
-  return data.results;
+  return data.results.filter(isPageObjectResponse);
 }
 
 export async function fetchPageContent(id: string) {
@@ -16,4 +17,8 @@ export async function fetchPageContent(id: string) {
   });
 
   return data.results;
+}
+
+function isPageObjectResponse(response: any): response is PageObjectResponse {
+  return !!response.properties;
 }
