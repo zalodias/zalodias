@@ -55,3 +55,13 @@ export function extractFaviconFromUrl(url: string, size: number = 16): string {
 
   return faviconUrl.toString();
 }
+
+export function generateSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[\s]+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
