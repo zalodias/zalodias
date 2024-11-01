@@ -9,7 +9,7 @@ export default function Projects() {
       <section className="flex flex-col gap-20">
         <Intro
           title="Projects"
-          description="Showcase of my work on thoughful design solutions."
+          description="Showcase of my work on thoughtful design solutions."
         />
         <section className="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-20">
           {projects.map((project) => (
