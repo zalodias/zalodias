@@ -16,6 +16,12 @@ export async function fetchDatabaseContent(id: string) {
 }
 
 export async function fetchPageContent(id: string) {
+  const data = await notion.pages.retrieve({ page_id: id });
+
+  return data;
+}
+
+export async function fetchBlockContent(id: string) {
   const data = await notion.blocks.children.list({
     block_id: id,
   });

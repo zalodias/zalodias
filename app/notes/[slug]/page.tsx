@@ -1,14 +1,14 @@
 import { Container } from '@/components/container';
-import { fetchPageContent } from '@/lib/notion';
+import { fetchBlockContent } from '@/lib/notion';
 
-export default async function Page({
+export default async function Note({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
 
-  const blocks = await fetchPageContent('0331d48a1387493b8b68141b7ee4d8d0');
+  const blocks = await fetchBlockContent('0331d48a1387493b8b68141b7ee4d8d0');
 
   return (
     <Container>
