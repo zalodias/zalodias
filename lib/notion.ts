@@ -5,6 +5,10 @@ export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
+function isPageObjectResponse(response: any): response is PageObjectResponse {
+  return !!response.properties;
+}
+
 export async function fetchDatabaseContent(id: string) {
   const data = await notion.databases.query({ database_id: id });
 
@@ -17,8 +21,4 @@ export async function fetchPageContent(id: string) {
   });
 
   return data.results;
-}
-
-function isPageObjectResponse(response: any): response is PageObjectResponse {
-  return !!response.properties;
 }
