@@ -5,6 +5,7 @@ import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';
 import { useCurrentTime } from '@/hooks/useCurrentTime';
 import { Dribbble } from '@/icons/Dribbble';
+import { GitHub } from '@/icons/GitHub';
 import { LinkedIn } from '@/icons/LinkedIn';
 import { X } from '@/icons/X';
 import { getWikiFromLocation } from '@/lib/utils';
@@ -71,6 +72,12 @@ export function Sidebar() {
             className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
           >
             <Dribbble />
+          </a>
+          <a
+            href={`https://github.com/${profile.handle}`}
+            className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
+          >
+            <GitHub />
           </a>
         </div>
       </div>
