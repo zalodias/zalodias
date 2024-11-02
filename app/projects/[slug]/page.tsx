@@ -1,8 +1,28 @@
 import { Container } from '@/components/container';
 import { ProjectMetadata } from '@/components/project-metadata';
+import { fetchDatabaseContent, fetchPageContent } from '@/lib/notion';
+import { generateSlug } from '@/lib/utils';
 import Image from 'next/image';
 
-export default function Project({ params }: { params: { slug: string } }) {
+export default async function Project({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+
+  const database = await fetchDatabaseContent(
+    '13157c1e961280e99dfffd55147e74b3',
+  );
+
+  const id = database.find(
+    (project) =>
+      generateSlug((project.properties.Name as any).title[0].plain_text) ===
+      slug,
+  )?.id;
+
+  const page = await fetchPageContent(id!);
+
   return (
     <Container>
       <div className="flex flex-col gap-10">
