@@ -11,8 +11,8 @@
   "dependencies": {
     "@notionhq/client": "^2.2.15",
     "@umami/api-client": "^0.76.0",
-    "lucide-react": "^0.453.0",
-    "next": "14.2.15",
+    "lucide-react": "^0.454.0",
+    "next": "15.0.2",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -28,7 +28,7 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.14",
-    "tsx": "^4.19.1",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
