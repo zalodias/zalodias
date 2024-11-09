@@ -27,7 +27,7 @@ export default async function Project({
       <div className="flex flex-col gap-10">
         <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-clip bg-background-neutral-faded lg:static lg:left-0 lg:order-1 lg:w-full lg:translate-x-0 lg:rounded-xl">
           <Image
-            src={page.cover.file.url}
+            src={(page.cover as any).file.url}
             alt={(page.properties.Name as any).title[0].plain_text}
             width={1920}
             height={1440}
@@ -50,7 +50,7 @@ export default async function Project({
               Year
             </p>
             <p className="text-body-medium-subtle">
-              {page.properties.Year.rich_text[0].plain_text}
+              {(page.properties.Year as any).rich_text[0].plain_text}
             </p>
           </div>
           <div className="flex flex-col gap-2">
@@ -58,7 +58,7 @@ export default async function Project({
               Deliverable
             </p>
             <p className="text-body-medium-subtle">
-              {page.properties.Deliverable.select.name}
+              {(page.properties.Deliverable as any).select.name}
             </p>
           </div>
           <div className="flex flex-col gap-2">
@@ -66,8 +66,8 @@ export default async function Project({
               Skills
             </p>
             <p className="text-body-medium-subtle">
-              {page.properties.Focus.multi_select
-                .map((skill) => skill.name)
+              {(page.properties.Skills as any).multi_select
+                .map((skill: { name: string }) => skill.name)
                 .join(', ')}
             </p>
           </div>
