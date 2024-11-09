@@ -14,7 +14,9 @@ export default function Layout({ children }: PropsWithChildren) {
         <Header />
         <Footer />
         <Sidebar />
-        <main className="flex flex-grow px-5 py-10 md:px-10">{children}</main>
+        <main className="flex flex-grow px-5 pb-36 pt-10 lg:px-10 lg:pb-10">
+          {children}
+        </main>
       </body>
       <Script
         src="https://cloud.umami.is/script.js"
