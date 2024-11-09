@@ -24,12 +24,12 @@ export default async function Projects() {
               className="flex flex-col gap-4"
               href={`/projects/${generateSlug((project.properties.Name as any).title[0].plain_text)}`}
             >
-              <div className="relative block h-80 w-full">
+              <div className="relative block h-80 w-full overflow-clip rounded-xl border border-border-neutral-default bg-background-neutral-faded">
                 <Image
                   src={(project.cover as any).file.url}
                   alt={(project.properties.Name as any).title[0].plain_text}
                   fill
-                  className="rounded-xl bg-background-neutral-faded object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="flex flex-col gap-1">
