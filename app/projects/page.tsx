@@ -26,7 +26,7 @@ export default async function Projects() {
             >
               <div className="relative block h-80 w-full">
                 <Image
-                  src={''}
+                  src={(project.cover as any).file.url}
                   alt={(project.properties.Name as any).title[0].plain_text}
                   fill
                   className="rounded-xl bg-background-neutral-faded object-cover"
