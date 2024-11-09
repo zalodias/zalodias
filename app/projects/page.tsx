@@ -30,7 +30,7 @@ export default async function Projects() {
                   alt={(project.properties.Name as any).title[0].plain_text}
                   width={1920}
                   height={1440}
-                  className="object-cover"
+                  className="object-cover duration-200 hover:scale-105"
                 />
               </div>
               <div className="flex flex-col gap-1">
