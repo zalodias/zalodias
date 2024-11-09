@@ -24,7 +24,7 @@ export default async function Projects() {
               className="flex flex-col gap-4"
               href={`/projects/${generateSlug((project.properties.Name as any).title[0].plain_text)}`}
             >
-              <div className="relative block w-full overflow-clip rounded-xl">
+              <div className="relative block w-full overflow-clip rounded-xl bg-background-neutral-faded">
                 <Image
                   src={(project.cover as any).file.url}
                   alt={(project.properties.Name as any).title[0].plain_text}
