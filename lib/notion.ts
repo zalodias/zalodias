@@ -15,9 +15,14 @@ export async function fetchDatabaseContent(id: string) {
   return data.results.filter(isPageObjectResponse);
 }
 
-export async function fetchPageContent(id: string) {
+export async function fetchPageContent(
+  id: string,
+): Promise<PageObjectResponse> {
   const data = await notion.pages.retrieve({ page_id: id });
 
+  if (!isPageObjectResponse(data)) {
+    throw new Error('Data is not a valid PageObjectResponse');
+  }
   return data;
 }
 
