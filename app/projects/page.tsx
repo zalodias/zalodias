@@ -17,7 +17,7 @@ export default async function Projects() {
           title="Projects"
           description="Showcase of my work on thoughtful design solutions."
         />
-        <section className="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-20">
+        <section className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-20">
           {projects.map((project) => (
             <Link
               key={project.id}
