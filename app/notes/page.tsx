@@ -9,25 +9,23 @@ export default async function Notes() {
 
   return (
     <Container>
-      <section className="flex flex-col gap-20">
-        <Intro
-          title="Notes"
-          description="A collection of crystallized thoughts and ideas."
-        />
-        <div className="flex flex-col gap-1">
-          {notes.map((note) => (
-            <Link
-              key={note.id}
-              href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-              className="flex flex-col gap-4"
-            >
-              <p className="text-body-large-strong">
-                {(note.properties.Name as any).title[0].plain_text}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <Intro
+        title="Notes"
+        description="A collection of crystallized thoughts and ideas."
+      />
+      <div className="flex flex-col gap-1">
+        {notes.map((note) => (
+          <Link
+            key={note.id}
+            href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
+            className="flex flex-col gap-4"
+          >
+            <p className="text-body-large-strong">
+              {(note.properties.Name as any).title[0].plain_text}
+            </p>
+          </Link>
+        ))}
+      </div>
     </Container>
   );
 }
