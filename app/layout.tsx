@@ -10,7 +10,7 @@ import { PropsWithChildren } from 'react';
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className="flex flex-col gap-5 bg-background-neutral-default text-foreground-neutral-default antialiased lg:flex-row lg:overscroll-none">
+      <body className="flex flex-col bg-background-neutral-default text-foreground-neutral-default antialiased lg:flex-row lg:overscroll-none">
         <Header />
         <Footer />
         <Sidebar />
