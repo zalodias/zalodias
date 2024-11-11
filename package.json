@@ -11,8 +11,8 @@
   "dependencies": {
     "@notionhq/client": "^2.2.15",
     "@umami/api-client": "^0.76.0",
-    "lucide-react": "^0.454.0",
-    "next": "15.0.2",
+    "lucide-react": "^0.456.0",
+    "next": "15.0.3",
     "react": "^18",
     "react-dom": "^18"
   },
