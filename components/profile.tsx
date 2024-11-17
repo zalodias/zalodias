@@ -8,7 +8,7 @@ export function Profile({ className }: { className?: string }) {
         <img
           src={profile.avatar}
           alt={profile.name}
-          className="size-12 rounded-full border border-border-neutral-default"
+          className="size-12 rounded-full border border-border-neutral-faded"
         />
         <div className="absolute bottom-1 right-1 h-2 w-2 rounded-full bg-background-positive-default" />
       </div>
