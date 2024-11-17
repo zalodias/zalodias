@@ -17,7 +17,7 @@ export function Sidebar() {
   const currentTime = useCurrentTime();
 
   return (
-    <aside className="sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r border-border-neutral-default bg-background-neutral-faded px-6 py-4 lg:flex">
+    <aside className="sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r border-border-neutral-faded bg-background-neutral-faded px-6 py-4 lg:flex">
       <Profile />
       <nav className="flex flex-grow flex-col gap-2">
         {navigation.map((item) => {
@@ -28,7 +28,7 @@ export function Sidebar() {
               href={item.path}
               className={`flex gap-3 rounded-lg border px-3 py-2 ${
                 isActive
-                  ? 'border-border-neutral-default bg-background-neutral-subtle text-foreground-neutral-default'
+                  ? 'border-border-neutral-subtle bg-background-neutral-subtle text-foreground-neutral-default'
                   : 'border-transparent text-foreground-neutral-faded hover:text-foreground-neutral-default'
               }`}
             >

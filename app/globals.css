@@ -46,9 +46,9 @@
       --color-foreground-neutral-subtle: var(--color-gray-300);
       --color-foreground-neutral-faded: var(--color-gray-400);
 
-      --color-border-neutral-default: var(--color-gray-700);
+      --color-border-neutral-default: var(--color-gray-600);
       --color-border-neutral-strong: var(--color-gray-500);
-      --color-border-neutral-subtle: var(--color-gray-600);
+      --color-border-neutral-subtle: var(--color-gray-700);
       --color-border-neutral-faded: var(--color-gray-800);
     }
   }

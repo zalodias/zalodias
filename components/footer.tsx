@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 export function Footer() {
   const pathname = usePathname();
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-10 grid grid-flow-col border-t border-border-neutral-default bg-gradient-to-t from-background-neutral-default to-background-neutral-default/80 backdrop-blur lg:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-10 grid grid-flow-col border-t border-border-neutral-faded bg-gradient-to-t from-background-neutral-default to-background-neutral-default/80 backdrop-blur lg:hidden">
       {navigation.map((item) => {
         const isActive = pathname === item.path;
         return (
