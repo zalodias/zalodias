@@ -13,7 +13,7 @@ export const profile: Profile = {
   handle: 'zalodias',
   title: 'Software Designer',
   avatar: '/headshot@640.jpg',
-  bio: 'Full-stack designer crafting functional interfaces',
+  bio: 'Making the world a better place, 1px at a time.',
   location: 'Coimbra',
   timezone: 'Europe/Lisbon',
 };
