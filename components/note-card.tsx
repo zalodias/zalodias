@@ -1,20 +1,23 @@
 interface NoteCardProps {
   title: string;
+  description: string;
   timestamp: string;
 }
 
-export function NoteCard({ title, timestamp }: NoteCardProps) {
+export function NoteCard({ title, description, timestamp }: NoteCardProps) {
   return (
     <a
       href="#"
-      className="flex items-center gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
+      className="flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
     >
-      <p className="flex-grow text-body-large-subtle text-foreground-neutral-subtle">
-        {title}
-      </p>
-      <p className="text-body-medium-default text-foreground-neutral-faded">
-        {timestamp}
-      </p>
+      <div className="flex flex-col gap-2">
+        <p className="flex-grow text-title-small-strong text-foreground-neutral-default">
+          {title}
+        </p>
+        <p className="line-clamp-2 flex-grow text-body-large-default text-foreground-neutral-subtle">
+          {description}
+        </p>
+      </div>
     </a>
   );
 }
