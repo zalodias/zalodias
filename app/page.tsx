@@ -21,7 +21,7 @@ export default async function Home() {
       <div className="flex flex-col gap-2">
         <h1 className="text-title-large-strong">{greeting},</h1>
         <p className="text-body-large-default text-foreground-neutral-faded">
-          You are visitor{' '}
+          Welcome to my corner of the internet. You are visitor{' '}
           <span className="text-body-large-strong text-foreground-neutral-default">
             {getPageVisitorCount()}
           </span>
