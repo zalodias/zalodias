@@ -39,7 +39,9 @@ export function Sidebar() {
         })}
       </nav>
       <div className="flex flex-col gap-5">
-        <p className="text-foreground-neutral-faded">{profile.bio}</p>
+        <p className="whitespace-pre-line text-balance text-foreground-neutral-faded">
+          {profile.bio}
+        </p>
         <div className="flex items-center gap-2">
           <div className="h-1.5 w-1.5 rounded-full bg-background-positive-default" />
           <p className="text-foreground-neutral-faded">
