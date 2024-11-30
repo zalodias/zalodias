@@ -46,6 +46,17 @@ export function NotionBlock({ block }: NotionBlockProps) {
           {block.heading_3.rich_text.map((text: any) => text.text.content)}
         </h3>
       );
+    case 'image':
+      return (
+        <img
+          key={block.id}
+          src={block.image.file.url}
+          alt={
+            block.image.caption ? block.image.caption[0]?.text.content : 'Image'
+          }
+          className="mt-6 rounded-xl"
+        />
+      );
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
