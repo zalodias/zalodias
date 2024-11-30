@@ -1,4 +1,5 @@
 import { Container } from '@/components/container';
+import { NotionBlock } from '@/components/notion-block';
 import { fetchBlockContent } from '@/lib/notion';
 
 export default async function Note({
@@ -15,15 +16,9 @@ export default async function Note({
       <section className="flex flex-col gap-10">
         <h1 className="text-title-large-strong">{slug}</h1>
         <div className="flex flex-col gap-2">
-          {blocks.map((block: any) => {
-            return (
-              <p key={block.id}>
-                {block.paragraph.rich_text.map(
-                  (text: any) => text.text.content,
-                )}
-              </p>
-            );
-          })}
+          {blocks.map((block: any) => (
+            <NotionBlock key={block.id} block={block} />
+          ))}
         </div>
       </section>
     </Container>
