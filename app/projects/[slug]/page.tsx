@@ -19,8 +19,6 @@ export default async function Project({
     '13157c1e961280e99dfffd55147e74b3',
   );
 
-  const blocks = await fetchBlockContent('9d1c3ed50fc349af8242f2d9da34d675');
-
   const id = database.find(
     (project) =>
       generateSlug((project.properties.Name as any).title[0].plain_text) ===
@@ -28,6 +26,7 @@ export default async function Project({
   )?.id;
 
   const page = await fetchPageContent(id!);
+  const blocks = await fetchBlockContent(id!);
 
   return (
     <Container className="pt-0 lg:pt-10">
