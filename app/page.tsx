@@ -144,11 +144,20 @@ export default async function Home() {
               <Link
                 key={note.id}
                 href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-                className="flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
+                className="group flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
               >
-                <p className="text-title-small-strong">
-                  {(note.properties.Name as any).title[0].plain_text}
-                </p>
+                <div className="flex items-center">
+                  <p className="flex-grow text-title-small-strong">
+                    {(note.properties.Name as any).title[0].plain_text}
+                  </p>
+                  <span className="translate-y-1 text-body-medium-subtle text-foreground-neutral-faded opacity-0 blur-sm transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-0">
+                    {formatDate(note.created_time, {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </span>
+                </div>
                 <p className="line-clamp-2 text-body-large-default text-foreground-neutral-subtle">
                   {textContent}
                 </p>
