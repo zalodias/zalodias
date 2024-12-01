@@ -1,8 +1,7 @@
 import { Container } from '@/components/container';
 import { MovingArrow } from '@/components/moving-arrow';
-import { NoteCard } from '@/components/note-card';
 import { getHoursFromTimezone } from '@/lib/ipapi';
-import { fetchDatabaseContent } from '@/lib/notion';
+import { fetchBlockContent, fetchDatabaseContent } from '@/lib/notion';
 import { getPageVisitorCount } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
@@ -131,17 +130,28 @@ export default async function Home() {
           </Link>
         </header>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
-          {notes.slice(0, 4).map((note) => (
-            <Link
-              key={note.id}
-              href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-              className="flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
-            >
-              <p className="text-title-small-strong">
-                {(note.properties.Name as any).title[0].plain_text}
-              </p>
-            </Link>
-          ))}
+          {notes.slice(0, 4).map(async (note) => {
+            const noteContent = await fetchBlockContent(note.id);
+            const textContent = noteContent.map((block: any) => {
+              return block.paragraph?.rich_text.map(
+                ({ text }: any) => text.content,
+              );
+            });
+            return (
+              <Link
+                key={note.id}
+                href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
+                className="flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
+              >
+                <p className="text-title-small-strong">
+                  {(note.properties.Name as any).title[0].plain_text}
+                </p>
+                <p className="line-clamp-2 text-body-large-default text-foreground-neutral-subtle">
+                  {textContent}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </Container>
