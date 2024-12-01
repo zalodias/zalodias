@@ -1,7 +1,7 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { fetchDatabaseContent } from '@/lib/notion';
-import { extractFaviconFromUrl, formatBookmarkDate } from '@/lib/utils';
+import { extractFaviconFromUrl, formatDate } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 
 export default async function Bookmarks() {
@@ -42,7 +42,10 @@ export default async function Bookmarks() {
                 />
               </div>
               <p className="text-body-medium-subtle text-foreground-neutral-faded">
-                {formatBookmarkDate(bookmark.created_time)}
+                {formatDate(bookmark.created_time, {
+                  month: 'long',
+                  day: 'numeric',
+                })}
               </p>
             </a>
           </div>
