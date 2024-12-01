@@ -87,7 +87,7 @@ const config: Config = {
       'body-large-default': [
         '16px',
         {
-          lineHeight: '24px',
+          lineHeight: '26px',
           fontWeight: '400',
         },
       ],
