@@ -38,13 +38,11 @@ export function getMonthName(month: number): string {
   return date.toLocaleString('default', { month: 'long' });
 }
 
-export function formatBookmarkDate(timestamp: string): string {
+export function formatDate(
+  timestamp: string,
+  options?: Intl.DateTimeFormatOptions,
+): string {
   const date = new Date(timestamp);
-  const options: Intl.DateTimeFormatOptions = {
-    month: 'short',
-    day: 'numeric',
-  };
-
   return date.toLocaleDateString('en-US', options);
 }
 
