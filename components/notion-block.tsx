@@ -57,6 +57,17 @@ export function NotionBlock({ block }: NotionBlockProps) {
           className="mt-6 rounded-xl"
         />
       );
+    case 'bulleted_list_item':
+      return (
+        <li
+          key={block.id}
+          className="ms-3 text-body-large-default text-foreground-neutral-subtle"
+        >
+          {block.bulleted_list_item.rich_text.map(
+            (text: any) => text.text.content,
+          )}
+        </li>
+      );
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
