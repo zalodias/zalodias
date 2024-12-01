@@ -30,7 +30,9 @@ export default async function Note({
   return (
     <Container>
       <section className="flex flex-col gap-10">
-        <h1 className="text-title-large-strong">{slug}</h1>
+        <h1 className="text-title-large-strong">
+          {(page.properties.Name as any).title[0].plain_text}
+        </h1>
         <div className="flex flex-col gap-2">
           {blocks.map((block: any) => (
             <NotionBlock key={block.id} block={block} />
