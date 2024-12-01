@@ -9,7 +9,7 @@ export function Container({ children, className }: ContainerProps) {
   return (
     <main
       className={cn(
-        'mx-auto flex w-full max-w-screen-lg flex-grow flex-col gap-20 px-5 pb-36 pt-10 lg:px-10 lg:pb-10',
+        'mx-auto flex w-full max-w-screen-lg flex-grow flex-col gap-20 px-5 pb-36 pt-10 md:px-10 lg:pb-10',
         className,
       )}
     >
