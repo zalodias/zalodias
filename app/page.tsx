@@ -42,7 +42,7 @@ export default async function Home() {
         <div className="flex gap-4">
           <h1 className="flex-grow text-title-medium-strong">Featured Work</h1>
         </div>
-        <section className="grid gap-10 md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
+        <section className="grid gap-10 md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]">
           {projects
             .filter(
               (project) =>
