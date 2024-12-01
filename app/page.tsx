@@ -5,7 +5,7 @@ import { fetchBlockContent, fetchDatabaseContent } from '@/lib/notion';
 import { getPageVisitorCount } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
-  formatBookmarkDate,
+  formatDate,
   generateSlug,
   getGreetingFromHours,
 } from '@/lib/utils';
@@ -106,7 +106,10 @@ export default async function Home() {
                     {(bookmark.properties.Name as any).title[0].plain_text}
                   </p>
                   <p className="text-body-medium-subtle text-foreground-neutral-faded">
-                    {formatBookmarkDate(bookmark.created_time)}
+                    {formatDate(bookmark.created_time, {
+                      month: 'long',
+                      day: 'numeric',
+                    })}
                   </p>
                 </div>
                 <ArrowUpRight
