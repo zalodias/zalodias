@@ -1,6 +1,11 @@
 import { Container } from '@/components/container';
 import { NotionBlock } from '@/components/notion-block';
-import { fetchBlockContent } from '@/lib/notion';
+import {
+  fetchBlockContent,
+  fetchDatabaseContent,
+  fetchPageContent,
+} from '@/lib/notion';
+import { generateSlug } from '@/lib/utils';
 
 export default async function Note({
   params,
@@ -9,7 +14,18 @@ export default async function Note({
 }) {
   const slug = (await params).slug;
 
-  const blocks = await fetchBlockContent('0331d48a1387493b8b68141b7ee4d8d0');
+  const database = await fetchDatabaseContent(
+    '12057c1e9612806bb6cef4c32590960f',
+  );
+
+  const id = database.find(
+    (project) =>
+      generateSlug((project.properties.Name as any).title[0].plain_text) ===
+      slug,
+  )?.id;
+
+  const page = await fetchPageContent(id!);
+  const blocks = await fetchBlockContent(id!);
 
   return (
     <Container>
