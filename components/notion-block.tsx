@@ -8,6 +8,24 @@ interface NotionBlockProps {
   block: NotionBlock;
 }
 
+const renderRichText = (richText: any[]) => {
+  return richText.map(({ text }: any) => {
+    if (text.link) {
+      return (
+        <a
+          key={text.link.url}
+          href={text.link.url}
+          className="text-foreground-brand-default hover:underline hover:underline-offset-2"
+          target="_blank"
+        >
+          {text.content}
+        </a>
+      );
+    }
+    return text.content;
+  });
+};
+
 export function NotionBlock({ block }: NotionBlockProps) {
   switch (block.type) {
     case 'paragraph':
