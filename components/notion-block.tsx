@@ -34,7 +34,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           key={block.id}
           className="text-body-large-default text-foreground-neutral-subtle"
         >
-          {block.paragraph.rich_text.map((text: any) => text.text.content)}
+          {renderRichText(block.paragraph.rich_text)}
         </p>
       );
     case 'heading_1':
@@ -43,7 +43,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           key={block.id}
           className="mb-3 text-title-large-strong text-foreground-neutral-default"
         >
-          {block.heading_1.rich_text.map((text: any) => text.text.content)}
+          {renderRichText(block.heading_1.rich_text)}
         </h1>
       );
     case 'heading_2':
@@ -52,7 +52,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           key={block.id}
           className="mb-2 text-title-medium-strong text-foreground-neutral-default"
         >
-          {block.heading_2.rich_text.map((text: any) => text.text.content)}
+          {renderRichText(block.heading_2.rich_text)}
         </h2>
       );
     case 'heading_3':
@@ -61,7 +61,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           key={block.id}
           className="mb-1 text-title-small-strong text-foreground-neutral-default"
         >
-          {block.heading_3.rich_text.map((text: any) => text.text.content)}
+          {renderRichText(block.heading_3.rich_text)}
         </h3>
       );
     case 'image':
@@ -81,9 +81,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           key={block.id}
           className="ms-3 text-body-large-default text-foreground-neutral-subtle"
         >
-          {block.bulleted_list_item.rich_text.map(
-            (text: any) => text.text.content,
-          )}
+          {renderRichText(block.bulleted_list_item.rich_text)}
         </li>
       );
     default:
