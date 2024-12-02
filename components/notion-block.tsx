@@ -15,7 +15,7 @@ const renderRichText = (richText: any[]) => {
         <a
           key={text.link.url}
           href={text.link.url}
-          className="text-foreground-brand-default hover:underline hover:underline-offset-2"
+          className="text-body-large-subtle text-foreground-brand-default hover:underline hover:underline-offset-2"
           target="_blank"
         >
           {text.content}
