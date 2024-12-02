@@ -13,10 +13,18 @@ export default async function Projects() {
   return (
     <Container>
       <section className="flex flex-col gap-20">
-        <Intro
-          title="Projects"
-          description="Showcase of my work on thoughtful design solutions."
-        />
+        <Intro title="Projects">
+          A showcase of my latest design work. Currently crafting thoughtful
+          digital experiences at{' '}
+          <a
+            href="https://www.concealed.com"
+            className="text-body-large-subtle text-foreground-brand-default hover:underline hover:underline-offset-2"
+            target="_blank"
+          >
+            Concealed
+          </a>
+          .
+        </Intro>
         <section className="grid gap-20 md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
           {projects
             .filter(
