@@ -11,7 +11,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.15",
     "@umami/api-client": "^0.76.0",
-    "lucide-react": "^0.460.0",
+    "lucide-react": "^0.462.0",
     "next": "15.0.3",
     "react": "^18",
     "react-dom": "^18"
@@ -21,10 +21,10 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "class-variance-authority": "^0.7.0",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "postcss": "^8",
-    "prettier": "^3.2.5",
+    "prettier": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.15",
