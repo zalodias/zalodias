@@ -7,7 +7,7 @@ import { useCurrentTime } from '@/hooks/useCurrentTime';
 import { Dribbble } from '@/icons/Dribbble';
 import { GitHub } from '@/icons/GitHub';
 import { LinkedIn } from '@/icons/LinkedIn';
-import { X } from '@/icons/X';
+import { Twitter } from '@/icons/Twitter';
 import { getWikiFromLocation } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -61,7 +61,7 @@ export function Sidebar() {
             href={`https://x.com/${profile.handle}`}
             className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
           >
-            <X />
+            <Twitter />
           </a>
           <a
             href={`https://linkedin.com/in/${profile.handle}`}
