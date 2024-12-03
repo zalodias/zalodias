@@ -8,6 +8,7 @@ import {
   formatDate,
   generateSlug,
   getGreetingFromHours,
+  removeProtocolFromUrl,
 } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
@@ -111,11 +112,10 @@ export default async function Home() {
                   <p className="text-body-large-strong">
                     {(bookmark.properties.Name as any).title[0].plain_text}
                   </p>
-                  <p className="text-body-medium-subtle text-foreground-neutral-faded">
-                    {formatDate(bookmark.created_time, {
-                      month: 'long',
-                      day: 'numeric',
-                    })}
+                  <p className="line-clamp-1 text-body-medium-subtle text-foreground-neutral-faded">
+                    {removeProtocolFromUrl(
+                      (bookmark.properties.Link as any).url,
+                    )}
                   </p>
                 </div>
                 <ArrowUpRight
