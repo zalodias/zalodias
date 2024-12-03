@@ -5,7 +5,7 @@ import {
   fetchDatabaseContent,
   fetchPageContent,
 } from '@/lib/notion';
-import { generateSlug } from '@/lib/utils';
+import { formatDate, generateSlug } from '@/lib/utils';
 
 export default async function Note({
   params,
@@ -33,6 +33,18 @@ export default async function Note({
         <h1 className="text-title-large-strong">
           {(page.properties.Name as any).title[0].plain_text}
         </h1>
+        <div className="flex flex-col gap-2">
+          <p className="text-body-small-subtle uppercase text-foreground-neutral-faded">
+            Written on
+          </p>
+          <p className="text-body-medium-subtle">
+            {formatDate(page.created_time, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        </div>
         <div className="flex flex-col gap-2">
           {blocks.map((block: any) => (
             <NotionBlock key={block.id} block={block} />
