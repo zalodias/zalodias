@@ -32,7 +32,7 @@ export default async function Bookmarks() {
                   alt="favicon"
                   className="size-4"
                 />
-                <p className="text-body-large-strong">
+                <p className="line-clamp-1 text-body-large-strong">
                   {(bookmark.properties.Name as any).title[0].plain_text}
                 </p>
                 <ArrowUpRight
