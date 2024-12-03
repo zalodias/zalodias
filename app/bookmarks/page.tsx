@@ -18,12 +18,12 @@ export default async function Bookmarks() {
         {bookmarks.map((bookmark) => (
           <div key={bookmark.id} className="flex flex-col gap-4">
             <a
-              className="group flex items-center gap-2 rounded-lg p-2 hover:bg-background-neutral-faded"
+              className="group flex flex-col gap-2 rounded-lg p-2 hover:bg-background-neutral-faded md:flex-row md:items-center"
               href={(bookmark.properties.Link as any).url}
               key={bookmark.id}
               target="_blank"
             >
-              <div className="flex flex-grow items-center gap-1">
+              <div className="flex flex-grow items-center gap-2">
                 <img
                   src={extractFaviconFromUrl(
                     (bookmark.properties.Link as any).url,
