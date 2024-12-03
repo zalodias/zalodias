@@ -63,3 +63,9 @@ export function generateSlug(value: string): string {
     .replace(/--+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+export function calculateReadingTime(text: string): number {
+  const wordsPerMinute = 200;
+  const words = text.split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+}
