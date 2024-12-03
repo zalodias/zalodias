@@ -1,7 +1,7 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { fetchDatabaseContent } from '@/lib/notion';
-import { extractFaviconFromUrl, formatDate } from '@/lib/utils';
+import { extractFaviconFromUrl, removeProtocolFromUrl } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 
 export default async function Bookmarks() {
@@ -18,7 +18,7 @@ export default async function Bookmarks() {
         {bookmarks.map((bookmark) => (
           <div key={bookmark.id} className="flex flex-col gap-4">
             <a
-              className="group flex flex-col gap-2 rounded-lg p-2 hover:bg-background-neutral-faded md:flex-row md:items-center"
+              className="group flex flex-col gap-2 rounded-lg p-2 hover:bg-background-neutral-faded"
               href={(bookmark.properties.Link as any).url}
               key={bookmark.id}
               target="_blank"
@@ -40,11 +40,8 @@ export default async function Bookmarks() {
                   className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
                 />
               </div>
-              <p className="text-body-medium-subtle text-foreground-neutral-faded">
-                {formatDate(bookmark.created_time, {
-                  month: 'long',
-                  day: 'numeric',
-                })}
+              <p className="line-clamp-1 text-body-medium-subtle text-foreground-neutral-faded">
+                {removeProtocolFromUrl((bookmark.properties.Link as any).url)}
               </p>
             </a>
           </div>
