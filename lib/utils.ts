@@ -69,3 +69,7 @@ export function calculateReadingTime(text: string): number {
   const words = text.split(/\s+/).length;
   return Math.ceil(words / wordsPerMinute);
 }
+
+export function removeProtocolFromUrl(url: string): string {
+  return url.replace(/^https?:\/\//, '');
+}
