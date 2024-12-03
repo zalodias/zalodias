@@ -11,10 +11,9 @@ export default async function Bookmarks() {
 
   return (
     <Container>
-      <Intro
-        title="Bookmarks"
-        description="A curated list of my favorite resources on the web. Updated regularly."
-      />
+      <Intro title="Bookmarks">
+        A curated list of my favorite resources on the web. Updated regularly.
+      </Intro>
       <div className="flex flex-col gap-1">
         {bookmarks.map((bookmark) => (
           <div key={bookmark.id} className="flex flex-col gap-4">
