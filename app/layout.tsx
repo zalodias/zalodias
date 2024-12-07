@@ -1,4 +1,4 @@
-export const revalidate = 3600;
+export const revalidate = 60;
 
 import '@/app/globals.css';
 import { Footer } from '@/components/footer';
