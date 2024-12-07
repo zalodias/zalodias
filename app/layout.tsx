@@ -4,8 +4,14 @@ import '@/app/globals.css';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Sidebar } from '@/components/sidebar';
+import { Metadata } from 'next';
 import Script from 'next/script';
 import { PropsWithChildren } from 'react';
+
+export const metadata: Metadata = {
+  title: 'Gonçalo Dias',
+  description: 'Software Designer',
+};
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
