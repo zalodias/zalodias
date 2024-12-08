@@ -9,8 +9,8 @@ import Script from 'next/script';
 import { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Gonçalo Dias',
-  description: 'Software Designer',
+  title: 'Gonçalo Dias – Software Designer',
+  description: 'Making the world a better place, 1px at a time.',
 };
 
 export default function Layout({ children }: PropsWithChildren) {
