@@ -8,14 +8,14 @@ export interface Resource {
 export const stack: Resource[] = [
   {
     name: 'Figma',
-    description: 'My design tool of choice, for everything.',
+    description: 'My design tool of choice for UI',
     image:
       'https://cdn.brandfetch.io/figma.com/w/400/h/400?c=1idbRpfljR6dcIdldSb',
     url: 'https://figma.com',
   },
   {
     name: 'Framer',
-    description: 'My go-to for landing pages and marketing websites',
+    description: 'The quickest way to build websites and landing pages',
     image:
       'https://cdn.brandfetch.io/framer.com/w/400/h/400/c=1idbRpfljR6dcIdldSb',
     url: 'https://framer.com',
@@ -36,7 +36,7 @@ export const stack: Resource[] = [
   },
   {
     name: 'Cursor',
-    description: 'My code editor of choice – simple, fast, AI-powered',
+    description: 'My code editor of choice – fast & AI-powered',
     image:
       'https://cdn.brandfetch.io/cursor.so/w/400/h/400?c=1idbRpfljR6dcIdldSb',
     url: 'https://cursor.so',
@@ -51,7 +51,7 @@ export const stack: Resource[] = [
   {
     name: 'Perplexity',
     description:
-      'My choice for LLM – great set of custom models from OpenAI, Anthropic, and more',
+      'The best way to interface with LLMs – great set of custom models',
     image:
       'https://cdn.brandfetch.io/perplexity.ai/w/400/h/400?c=1idbRpfljR6dcIdldSb',
     url: 'https://perplexity.ai',
@@ -69,5 +69,12 @@ export const stack: Resource[] = [
     image:
       'https://cdn.brandfetch.io/curated.design/w/400/h/400?c=1idbRpfljR6dcIdldSb',
     url: 'https://curated.design',
+  },
+  {
+    name: 'TailwindCSS',
+    description: 'All the utilities I need for styling in CSS',
+    image:
+      'https://cdn.brandfetch.io/tailwindcss.com/w/400/h/400?c=1idbRpfljR6dcIdldSb',
+    url: 'https://tailwindcss.com',
   },
 ];
