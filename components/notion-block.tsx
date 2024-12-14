@@ -68,7 +68,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <img
           key={block.id}
-          src={block.image.file.url}
+          src={block.image.external.url}
           alt={
             block.image.caption ? block.image.caption[0]?.text.content : 'Image'
           }
