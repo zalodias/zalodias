@@ -31,6 +31,18 @@ export const stack: Resource[] = [
     url: 'https://linear.app',
   },
   {
+    name: 'Arc',
+    description: 'A joyful way to browse the web',
+    image: `https://cdn.brandfetch.io/arc.net/w/400/h/400/logo?c=${process.env.BRANDFETCH_CLIENT_ID}`,
+    url: 'https://arc.net',
+  },
+  {
+    name: 'Raycast',
+    description: 'The cornerstone of how I use my Mac',
+    image: `https://cdn.brandfetch.io/raycast.com/w/400/h/400?c=${process.env.BRANDFETCH_CLIENT_ID}`,
+    url: 'https://raycast.com',
+  },
+  {
     name: 'Cursor',
     description: 'My code editor of choice – fast & AI-powered',
     image: `https://cdn.brandfetch.io/cursor.so/w/400/h/400?c=${process.env.BRANDFETCH_CLIENT_ID}`,
