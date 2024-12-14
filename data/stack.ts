@@ -33,7 +33,7 @@ export const stack: Resource[] = [
   {
     name: 'Arc',
     description: 'A joyful way to browse the web',
-    image: `https://cdn.brandfetch.io/arc.net/w/400/h/400/logo?c=${process.env.BRANDFETCH_CLIENT_ID}`,
+    image: `https://cdn.brandfetch.io/arc.net/w/400/h/400?c=${process.env.BRANDFETCH_CLIENT_ID}`,
     url: 'https://arc.net',
   },
   {
