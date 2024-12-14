@@ -33,7 +33,7 @@ export default async function Project({
       <section className="flex flex-col gap-10">
         <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-clip bg-background-neutral-faded lg:static lg:left-0 lg:order-1 lg:w-full lg:translate-x-0 lg:rounded-xl">
           <Image
-            src={(page.cover as any).file.url}
+            src={(page.cover as any).external.url}
             alt={(page.properties.Name as any).title[0].plain_text}
             width={1920}
             height={1440}
