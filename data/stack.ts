@@ -56,8 +56,7 @@ export const stack: Resource[] = [
   },
   {
     name: 'Perplexity',
-    description:
-      'The best way to interface with LLMs – great set of custom models',
+    description: 'The best way to interface with LLMs',
     image: `https://cdn.brandfetch.io/perplexity.ai/w/400/h/400?c=${process.env.BRANDFETCH_CLIENT_ID}`,
     url: 'https://perplexity.ai',
   },
