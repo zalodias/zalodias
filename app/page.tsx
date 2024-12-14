@@ -58,7 +58,7 @@ export default async function Home() {
               >
                 <div className="relative block w-full overflow-clip rounded-xl bg-background-neutral-faded">
                   <Image
-                    src={(project.cover as any).file.url}
+                    src={(project.cover as any).external.url}
                     alt={(project.properties.Name as any).title[0].plain_text}
                     width={1920}
                     height={1440}
