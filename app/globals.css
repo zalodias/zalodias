@@ -38,22 +38,22 @@
       color-scheme: dark;
 
       --color-background-neutral-default: var(--color-gray-950);
-      --color-background-neutral-strong: var(--color-gray-700);
-      --color-background-neutral-subtle: var(--color-gray-800);
       --color-background-neutral-faded: var(--color-gray-900);
+      --color-background-neutral-subtle: var(--color-gray-800);
+      --color-background-neutral-strong: var(--color-gray-700);
       --color-background-neutral-inverse: var(--color-white);
       --color-background-positive-default: var(--color-green-500);
 
       --color-foreground-neutral-default: var(--color-gray-50);
-      --color-foreground-neutral-strong: var(--color-gray-100);
-      --color-foreground-neutral-subtle: var(--color-gray-300);
       --color-foreground-neutral-faded: var(--color-gray-400);
+      --color-foreground-neutral-subtle: var(--color-gray-300);
+      --color-foreground-neutral-strong: var(--color-gray-100);
       --color-foreground-brand-default: var(--color-orange-400);
 
       --color-border-neutral-default: var(--color-gray-600);
+      --color-border-neutral-faded: var(--color-gray-800);
       --color-border-neutral-strong: var(--color-gray-500);
       --color-border-neutral-subtle: var(--color-gray-700);
-      --color-border-neutral-faded: var(--color-gray-800);
     }
   }
 
@@ -62,22 +62,22 @@
       color-scheme: light;
 
       --color-background-neutral-default: var(--color-white);
-      --color-background-neutral-strong: var(--color-gray-300);
-      --color-background-neutral-subtle: var(--color-gray-100);
-      --color-background-neutral-inverse: var(--color-gray-950);
       --color-background-neutral-faded: var(--color-gray-50);
+      --color-background-neutral-subtle: var(--color-gray-100);
+      --color-background-neutral-strong: var(--color-gray-300);
+      --color-background-neutral-inverse: var(--color-gray-950);
       --color-background-positive-default: var(--color-green-500);
 
       --color-foreground-neutral-default: var(--color-gray-900);
-      --color-foreground-neutral-strong: var(--color-gray-800);
-      --color-foreground-neutral-subtle: var(--color-gray-700);
       --color-foreground-neutral-faded: var(--color-gray-600);
+      --color-foreground-neutral-subtle: var(--color-gray-700);
+      --color-foreground-neutral-strong: var(--color-gray-800);
       --color-foreground-brand-default: var(--color-orange-500);
 
       --color-border-neutral-default: var(--color-gray-300);
-      --color-border-neutral-strong: var(--color-gray-400);
-      --color-border-neutral-subtle: var(--color-gray-200);
       --color-border-neutral-faded: var(--color-gray-100);
+      --color-border-neutral-subtle: var(--color-gray-200);
+      --color-border-neutral-strong: var(--color-gray-400);
     }
   }
 }
