@@ -1,7 +1,7 @@
 import { Container } from '@/components/container';
 import { MovingArrow } from '@/components/moving-arrow';
 import { getHoursFromTimezone } from '@/lib/ipapi';
-import { fetchBlockContent, fetchDatabaseContent } from '@/lib/notion';
+import { fetchBlockContent, retrieveDatabase } from '@/lib/notion';
 import { getPageVisitorCount } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
@@ -18,15 +18,11 @@ export default async function Home() {
   const hours = await getHoursFromTimezone();
   const greeting = typeof hours === 'number' && getGreetingFromHours(hours);
 
-  const projects = await fetchDatabaseContent(
-    '13157c1e961280e99dfffd55147e74b3',
-  );
-
-  const bookmarks = await fetchDatabaseContent(
-    '12057c1e961280329ebad0ecdf335eb7',
-  );
-
-  const notes = await fetchDatabaseContent('12057c1e9612806bb6cef4c32590960f');
+  const [projects, bookmarks, notes] = await Promise.all([
+    retrieveDatabase('13157c1e961280e99dfffd55147e74b3'),
+    retrieveDatabase('12057c1e961280329ebad0ecdf335eb7'),
+    retrieveDatabase('12057c1e9612806bb6cef4c32590960f'),
+  ]);
 
   return (
     <Container>
