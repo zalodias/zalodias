@@ -1,5 +1,6 @@
 'use client';
 
+import { Hotkey } from '@/components/hotkey';
 import { Profile } from '@/components/profile';
 import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';
@@ -9,11 +10,9 @@ import { GitHub } from '@/icons/GitHub';
 import { LinkedIn } from '@/icons/LinkedIn';
 import { Twitter } from '@/icons/Twitter';
 import { getWikiFromLocation } from '@/lib/utils';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { NavigationLink } from './navigation-link';
 
 export function Sidebar() {
-  const pathname = usePathname();
   const currentTime = useCurrentTime();
 
   return (
@@ -21,20 +20,18 @@ export function Sidebar() {
       <Profile />
       <nav className="flex flex-grow flex-col gap-2">
         {navigation.map((item) => {
-          const isActive = pathname === item.path;
           return (
-            <Link
+            <NavigationLink
               key={item.path}
-              href={item.path}
-              className={`flex gap-3 rounded-lg border px-3 py-2 ${
-                isActive
-                  ? 'border-border-neutral-subtle bg-background-neutral-subtle text-foreground-neutral-default'
-                  : 'border-transparent text-foreground-neutral-faded hover:text-foreground-neutral-default'
-              }`}
+              path={item.path}
+              shortcut={item.shortcut}
+              label={item.label}
+              icon={item.icon}
             >
               {item.icon}
-              <p className="text-body-large-subtle">{item.label}</p>
-            </Link>
+              <p className="flex-grow text-body-large-subtle">{item.label}</p>
+              <Hotkey>{item.shortcut}</Hotkey>
+            </NavigationLink>
           );
         })}
       </nav>
