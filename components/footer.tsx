@@ -14,6 +14,7 @@ export function Footer() {
           <Link
             key={item.path}
             href={item.path}
+            aria-label={item.label}
             className={`grid w-full justify-center pb-8 pt-4 ${
               isActive
                 ? 'text-foreground-neutral-default'
