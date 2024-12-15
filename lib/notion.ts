@@ -1,3 +1,4 @@
+import { memoize, TEN_MINUTES } from '@/lib/memoize';
 import { Client } from '@notionhq/client';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
@@ -14,6 +15,15 @@ export async function fetchDatabaseContent(id: string) {
 
   return data.results.filter(isPageObjectResponse);
 }
+
+export const retrieveDatabase = memoize(
+  { ttl: TEN_MINUTES, key: 'retrieveDatabase' },
+  async (id: string) => {
+    const data = await notion.databases.query({ database_id: id });
+
+    return data.results.filter(isPageObjectResponse);
+  },
+);
 
 export async function fetchPageContent(
   id: string,
