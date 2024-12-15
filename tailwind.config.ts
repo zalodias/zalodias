@@ -17,6 +17,7 @@ const config: Config = {
           faded: 'hsl(var(--color-background-neutral-faded))',
           subtle: 'hsl(var(--color-background-neutral-subtle))',
           strong: 'hsl(var(--color-background-neutral-strong))',
+          inverse: 'hsl(var(--color-background-neutral-inverse))',
         },
         brand: {
           default: 'hsl(var(--color-background-brand-default))',
@@ -31,6 +32,7 @@ const config: Config = {
           faded: 'hsl(var(--color-foreground-neutral-faded))',
           subtle: 'hsl(var(--color-foreground-neutral-subtle))',
           strong: 'hsl(var(--color-foreground-neutral-strong))',
+          inverse: 'hsl(var(--color-background-neutral-inverse))',
         },
         brand: {
           default: 'hsl(var(--color-foreground-brand-default))',
