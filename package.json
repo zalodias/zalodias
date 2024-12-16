@@ -12,7 +12,7 @@
     "@notionhq/client": "^2.2.15",
     "@umami/api-client": "^0.76.0",
     "lucide-react": "^0.468.0",
-    "next": "15.0.4",
+    "next": "15.1.0",
     "react": "^19",
     "react-dom": "^19"
   },
