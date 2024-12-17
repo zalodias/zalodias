@@ -36,9 +36,16 @@ export default async function Home() {
         </p>
       </div>
       <div className="flex flex-col gap-6">
-        <div className="flex gap-4">
+        <header className="flex gap-4">
           <h1 className="flex-grow text-title-medium-strong">Featured Work</h1>
-        </div>
+          <Link
+            href="/projects"
+            className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+          >
+            View All
+            <MovingArrow />
+          </Link>
+        </header>
         <section className="grid gap-10 md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]">
           {projects
             .filter(
