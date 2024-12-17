@@ -85,7 +85,9 @@ export default async function Home() {
       </div>
       <section className="flex flex-col gap-6">
         <header className="flex gap-4">
-          <h1 className="flex-grow text-title-medium-strong">Bookmarks</h1>
+          <h1 className="flex-grow text-title-medium-strong">
+            Latest Bookmarks
+          </h1>
           <Link
             href="/bookmarks"
             className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
