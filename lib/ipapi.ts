@@ -1,7 +1,7 @@
 export async function getHoursFromTimezone(): Promise<number | string> {
   try {
     const response = await fetch('https://ipapi.co/json/', {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     });
     const data = await response.json();
     const timezone = data.timezone;
