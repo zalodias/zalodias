@@ -40,7 +40,10 @@ export function Sidebar() {
           {profile.bio}
         </p>
         <div className="flex items-center gap-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-background-positive-default" />
+          <span className="relative flex size-1.5">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-background-positive-default opacity-80" />
+            <span className="relative inline-flex size-full rounded-full bg-background-positive-default" />
+          </span>
           <p className="text-foreground-neutral-faded">
             <a
               className="hover:text-foreground-neutral-default"
