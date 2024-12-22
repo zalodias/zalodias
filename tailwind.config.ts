@@ -132,6 +132,14 @@ const config: Config = {
         },
       ],
     },
+    keyframes: {
+      ping: {
+        '75%, 100%': {
+          transform: 'scale(3)',
+          opacity: '0',
+        },
+      },
+    },
   },
 };
 export default config;
