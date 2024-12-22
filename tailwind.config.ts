@@ -139,6 +139,14 @@ const config: Config = {
           opacity: '0',
         },
       },
+      spin: {
+        from: {
+          transform: 'rotate(0deg)',
+        },
+        to: {
+          transform: 'rotate(360deg)',
+        },
+      },
     },
   },
 };
