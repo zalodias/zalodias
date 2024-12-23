@@ -6,8 +6,12 @@ export async function getHoursFromTimezone(): Promise<number | string> {
     const data = await response.json();
     const timezone = data.timezone;
 
+    console.log('Fetched timezone:', timezone); // Log the fetched timezone
+
     const date = new Date().toLocaleString('en-US', { timeZone: timezone });
     const hours = new Date(date).getHours();
+
+    console.log('Current time in fetched timezone:', date); // Log the current time
 
     return hours;
   } catch (error) {
