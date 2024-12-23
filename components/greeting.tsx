@@ -4,26 +4,22 @@ import { getGreetingFromHours } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
 export function Greeting() {
-  const [greeting, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState(
+    getGreetingFromHours(new Date().getHours()),
+  );
 
   useEffect(() => {
-    const fetchTimezone = async () => {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        const timezone = data.timezone;
-
-        const date = new Date().toLocaleString('en-US', { timeZone: timezone });
-        const hours = new Date(date).getHours();
-        const greeting = getGreetingFromHours(hours);
-
-        setGreeting(greeting);
-      } catch (error) {
-        console.error('Failed to fetch timezone:', error);
-      }
+    const updateGreeting = () => {
+      const hours = new Date().getHours();
+      const greeting = getGreetingFromHours(hours);
+      setGreeting(greeting);
     };
 
-    fetchTimezone();
+    updateGreeting();
+
+    const interval = setInterval(updateGreeting, 3600000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return <h1 className="text-title-large-strong">{greeting},</h1>;
