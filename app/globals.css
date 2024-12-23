@@ -54,6 +54,7 @@
       --color-border-neutral-faded: var(--color-gray-800);
       --color-border-neutral-strong: var(--color-gray-500);
       --color-border-neutral-subtle: var(--color-gray-700);
+      --color-border-brand-default: var(--color-orange-400);
     }
   }
 
@@ -78,6 +79,7 @@
       --color-border-neutral-faded: var(--color-gray-100);
       --color-border-neutral-subtle: var(--color-gray-200);
       --color-border-neutral-strong: var(--color-gray-400);
+      --color-border-brand-default: var(--color-orange-500);
     }
   }
 }
