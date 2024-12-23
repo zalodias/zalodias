@@ -16,6 +16,7 @@ import Link from 'next/link';
 
 export default async function Home() {
   const hours = await getHoursFromTimezone();
+  console.log('Current hours:', hours);
   const greeting = typeof hours === 'number' && getGreetingFromHours(hours);
 
   const [projects, bookmarks, notes] = await Promise.all([
