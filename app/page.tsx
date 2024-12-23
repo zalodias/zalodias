@@ -1,13 +1,12 @@
 import { Container } from '@/components/container';
+import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
-import { getHoursFromTimezone } from '@/lib/ipapi';
 import { fetchBlockContent, retrieveDatabase } from '@/lib/notion';
 import { getPageVisitorCount } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
   formatDate,
   generateSlug,
-  getGreetingFromHours,
   removeProtocolFromUrl,
 } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
@@ -15,10 +14,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Home() {
-  const { hours, logs } = await getHoursFromTimezone();
-  console.log('Logs from server:', logs);
-  const greeting = typeof hours === 'number' && getGreetingFromHours(hours);
-
   const [projects, bookmarks, notes] = await Promise.all([
     retrieveDatabase('13157c1e961280e99dfffd55147e74b3'),
     retrieveDatabase('12057c1e961280329ebad0ecdf335eb7'),
@@ -28,7 +23,7 @@ export default async function Home() {
   return (
     <Container>
       <div className="flex flex-col gap-2">
-        <h1 className="text-title-large-strong">{greeting},</h1>
+        <Greeting />
         <p className="text-body-large-default text-foreground-neutral-faded">
           Welcome to my corner of the internet. You are visitor{' '}
           <span className="text-body-large-strong text-foreground-neutral-default">
