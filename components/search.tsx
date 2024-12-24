@@ -26,7 +26,7 @@ export function Search({ placeholder }: { placeholder: string }) {
       <input
         type="search"
         placeholder={placeholder}
-        className="block w-full rounded-lg border border-border-neutral-subtle bg-background-neutral-default py-3 ps-10 text-body-medium-default placeholder:text-foreground-neutral-faded"
+        className="block w-full rounded-lg border border-border-neutral-subtle bg-background-neutral-default py-3 pe-3 ps-10 text-body-medium-default placeholder:text-foreground-neutral-faded"
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get('q')?.toString()}
       />
