@@ -45,7 +45,7 @@ export default async function Bookmarks({
         </Intro>
         <section className="flex flex-col gap-5">
           <Search placeholder="Search bookmarks" />
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
                 key={category}
