@@ -110,7 +110,7 @@ export default async function Home() {
                   className="size-4"
                 />
                 <div className="flex flex-grow flex-col justify-between gap-2">
-                  <p className="text-body-large-strong">
+                  <p className="line-clamp-2 text-body-large-strong">
                     {(bookmark.properties.Name as any).title[0].plain_text}
                   </p>
                   <p className="line-clamp-1 text-body-medium-subtle text-foreground-neutral-faded">
