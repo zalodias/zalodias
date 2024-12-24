@@ -16,6 +16,16 @@ export default async function Bookmarks({
     '12057c1e961280329ebad0ecdf335eb7',
   );
 
+  const filteredBookmarks = bookmarks.filter((bookmark) => {
+    const name = (
+      bookmark.properties.Name as any
+    ).title[0].plain_text.toLowerCase();
+    const link = (bookmark.properties.Link as any).url.toLowerCase();
+    const query = q?.toString().toLowerCase() || '';
+
+    return name.includes(query) || link.includes(query);
+  });
+
   const categories = [
     ...new Set(
       bookmarks
@@ -48,12 +58,11 @@ export default async function Bookmarks({
         </section>
       </header>
       <div className="flex flex-col gap-1">
-        {bookmarks.map((bookmark) => (
+        {filteredBookmarks.map((bookmark) => (
           <div key={bookmark.id} className="flex flex-col gap-4">
             <a
               className="group flex flex-col gap-2 rounded-lg p-2 hover:bg-background-neutral-faded"
               href={(bookmark.properties.Link as any).url}
-              key={bookmark.id}
               target="_blank"
             >
               <div className="flex flex-grow items-center gap-2">
