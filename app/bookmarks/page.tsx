@@ -53,18 +53,26 @@ export default async function Bookmarks({
         <section className="flex flex-col gap-5">
           <Search placeholder="Search bookmarks" />
           <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <Link
-                key={category}
-                href={{
-                  pathname: '/bookmarks',
-                  query: { q, c: category.toLowerCase() },
-                }}
-                className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle"
-              >
-                {category}
-              </Link>
-            ))}
+            {categories.map((category) => {
+              const isActive = c === category.toLowerCase();
+
+              return (
+                <Link
+                  key={category}
+                  href={{
+                    pathname: '/bookmarks',
+                    query: {
+                      q,
+                      c: isActive ? undefined : category.toLowerCase(),
+                    },
+                  }}
+                  aria-current={isActive ? 'true' : undefined}
+                  className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle active:scale-95 aria-[current='true']:bg-background-neutral-inverse aria-[current='true']:text-foreground-neutral-inverse"
+                >
+                  {category}
+                </Link>
+              );
+            })}
           </div>
         </section>
       </header>
