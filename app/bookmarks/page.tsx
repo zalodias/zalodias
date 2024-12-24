@@ -9,6 +9,17 @@ export default async function Bookmarks() {
     '12057c1e961280329ebad0ecdf335eb7',
   );
 
+  const categories = [
+    ...new Set(
+      bookmarks
+        .map(
+          (bookmark) =>
+            (bookmark.properties.Category as any)?.multi_select[0]?.name,
+        )
+        .filter(Boolean),
+    ),
+  ];
+
   return (
     <Container>
       <Intro title="Bookmarks">
