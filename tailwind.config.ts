@@ -32,7 +32,7 @@ const config: Config = {
           faded: 'hsl(var(--color-foreground-neutral-faded))',
           subtle: 'hsl(var(--color-foreground-neutral-subtle))',
           strong: 'hsl(var(--color-foreground-neutral-strong))',
-          inverse: 'hsl(var(--color-background-neutral-inverse))',
+          inverse: 'hsl(var(--color-foreground-neutral-inverse))',
         },
         brand: {
           default: 'hsl(var(--color-foreground-brand-default))',
