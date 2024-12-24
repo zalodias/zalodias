@@ -1,5 +1,6 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
+import { Search } from '@/components/search';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { extractFaviconFromUrl, removeProtocolFromUrl } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
@@ -27,6 +28,7 @@ export default async function Bookmarks() {
           A curated list of my favorite resources on the web. Updated regularly.
         </Intro>
         <section className="flex flex-col gap-5">
+          <Search placeholder="Search bookmarks" />
           <div className="flex gap-3">
             {categories.map((category) => (
               <button
