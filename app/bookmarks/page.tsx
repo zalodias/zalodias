@@ -22,9 +22,23 @@ export default async function Bookmarks() {
 
   return (
     <Container>
-      <Intro title="Bookmarks">
-        A curated list of my favorite resources on the web. Updated regularly.
-      </Intro>
+      <header className="flex flex-col gap-10">
+        <Intro title="Bookmarks">
+          A curated list of my favorite resources on the web. Updated regularly.
+        </Intro>
+        <section className="flex flex-col gap-5">
+          <div className="flex gap-3">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle"
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </section>
+      </header>
       <div className="flex flex-col gap-1">
         {bookmarks.map((bookmark) => (
           <div key={bookmark.id} className="flex flex-col gap-4">
