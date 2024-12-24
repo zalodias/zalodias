@@ -48,6 +48,7 @@
       --color-foreground-neutral-faded: var(--color-gray-400);
       --color-foreground-neutral-subtle: var(--color-gray-300);
       --color-foreground-neutral-strong: var(--color-gray-100);
+      --color-foreground-neutral-inverse: var(--color-gray-900);
       --color-foreground-brand-default: var(--color-orange-400);
 
       --color-border-neutral-default: var(--color-gray-600);
@@ -73,6 +74,7 @@
       --color-foreground-neutral-faded: var(--color-gray-600);
       --color-foreground-neutral-subtle: var(--color-gray-700);
       --color-foreground-neutral-strong: var(--color-gray-800);
+      --color-foreground-neutral-inverse: var(--color-gray-50);
       --color-foreground-brand-default: var(--color-orange-500);
 
       --color-border-neutral-default: var(--color-gray-300);
