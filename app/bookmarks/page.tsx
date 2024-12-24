@@ -4,13 +4,14 @@ import { Search } from '@/components/search';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { extractFaviconFromUrl, removeProtocolFromUrl } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default async function Bookmarks({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const { q } = await searchParams;
+  const { q, c } = await searchParams;
 
   const bookmarks = await fetchDatabaseContent(
     '12057c1e961280329ebad0ecdf335eb7',
@@ -22,8 +23,14 @@ export default async function Bookmarks({
     ).title[0].plain_text.toLowerCase();
     const link = (bookmark.properties.Link as any).url.toLowerCase();
     const query = q?.toString().toLowerCase() || '';
+    const matchesQuery = name.includes(query) || link.includes(query);
+    const matchesCategory = c
+      ? (
+          bookmark.properties.Category as any
+        )?.multi_select[0]?.name.toLowerCase() === c
+      : true;
 
-    return name.includes(query) || link.includes(query);
+    return matchesQuery && matchesCategory;
   });
 
   const categories = [
@@ -47,12 +54,16 @@ export default async function Bookmarks({
           <Search placeholder="Search bookmarks" />
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
-              <button
+              <Link
                 key={category}
+                href={{
+                  pathname: '/bookmarks',
+                  query: { q, c: category.toLowerCase() },
+                }}
                 className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle"
               >
                 {category}
-              </button>
+              </Link>
             ))}
           </div>
         </section>
