@@ -5,7 +5,13 @@ import { fetchDatabaseContent } from '@/lib/notion';
 import { extractFaviconFromUrl, removeProtocolFromUrl } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 
-export default async function Bookmarks() {
+export default async function Bookmarks({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const { q } = await searchParams;
+
   const bookmarks = await fetchDatabaseContent(
     '12057c1e961280329ebad0ecdf335eb7',
   );
