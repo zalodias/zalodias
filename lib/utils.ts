@@ -48,7 +48,7 @@ export function formatDate(
 
 export function getRelativeTimeString(
   date: Date | number,
-  lang = navigator.language,
+  language = 'en',
 ): string {
   const time = typeof date === 'number' ? date : date.getTime();
   const delta = Math.round((time - Date.now()) / 1000);
@@ -77,7 +77,7 @@ export function getRelativeTimeString(
 
   const divisor = unitIndex ? cutoffs[unitIndex - 1] : 1;
 
-  const rtf = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
+  const rtf = new Intl.RelativeTimeFormat(language, { numeric: 'auto' });
 
   return rtf.format(Math.floor(delta / divisor), units[unitIndex]);
 }
