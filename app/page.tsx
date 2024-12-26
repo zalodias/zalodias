@@ -7,7 +7,7 @@ import {
   extractFaviconFromUrl,
   formatDate,
   generateSlug,
-  removeProtocolFromUrl,
+  getRelativeTimeString,
 } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
@@ -113,10 +113,8 @@ export default async function Home() {
                   <p className="line-clamp-2 text-body-large-strong">
                     {(bookmark.properties.Name as any).title[0].plain_text}
                   </p>
-                  <p className="line-clamp-1 text-body-medium-subtle text-foreground-neutral-faded">
-                    {removeProtocolFromUrl(
-                      (bookmark.properties.Link as any).url,
-                    )}
+                  <p className="text-body-medium-subtle text-foreground-neutral-faded">
+                    {getRelativeTimeString(new Date(bookmark.created_time))}
                   </p>
                 </div>
                 <ArrowUpRight
