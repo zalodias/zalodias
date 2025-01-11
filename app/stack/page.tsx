@@ -13,9 +13,11 @@ export default async function Stack() {
       </Intro>
       <div className="grid gap-5 md:grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
         {stack.map((resource) => (
-          <div
+          <a
             key={resource.id}
-            className="flex flex-col gap-4 rounded-xl border border-border-neutral-faded bg-background-neutral-faded p-4"
+            href={(resource.properties.Link as any).url}
+            target="_blank"
+            className="group relative flex flex-col gap-4 rounded-xl border border-border-neutral-faded bg-background-neutral-faded p-4 transition hover:bg-background-neutral-subtle"
           >
             <div className="size-14">
               <img
