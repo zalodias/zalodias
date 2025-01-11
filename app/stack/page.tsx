@@ -1,6 +1,7 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { fetchDatabaseContent } from '@/lib/notion';
+import { ArrowUpRight } from 'lucide-react';
 
 export default async function Stack() {
   const stack = await fetchDatabaseContent('15d57c1e961280d1b3ccc835fa7a054b');
@@ -36,7 +37,11 @@ export default async function Stack() {
                 }
               </p>
             </div>
-          </div>
+            <ArrowUpRight
+              width={20}
+              className="absolute right-3 top-3 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+            />
+          </a>
         ))}
       </div>
     </Container>
