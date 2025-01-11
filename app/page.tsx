@@ -94,35 +94,33 @@ export default async function Home() {
         </header>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
           {bookmarks.slice(0, 6).map((bookmark) => (
-            <div key={bookmark.id} className="flex flex-col gap-4">
-              <a
-                className="group relative flex flex-grow flex-col gap-3 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-4 py-3 hover:bg-background-neutral-subtle"
-                href={(bookmark.properties.Link as any).url}
-                key={bookmark.id}
-                target="_blank"
-              >
-                <img
-                  src={extractFaviconFromUrl(
-                    (bookmark.properties.Link as any).url,
-                    64,
-                  )}
-                  alt="favicon"
-                  className="size-4"
-                />
-                <div className="flex flex-grow flex-col justify-between gap-2">
-                  <p className="line-clamp-2 text-body-large-strong">
-                    {(bookmark.properties.Name as any).title[0].plain_text}
-                  </p>
-                  <p className="text-body-medium-subtle text-foreground-neutral-faded">
-                    {getRelativeTimeString(new Date(bookmark.created_time))}
-                  </p>
-                </div>
-                <ArrowUpRight
-                  width={16}
-                  className="absolute right-2 top-2 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
-                />
-              </a>
-            </div>
+            <a
+              className="group relative flex flex-grow flex-col gap-3 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-4 py-3 transition hover:bg-background-neutral-subtle"
+              href={(bookmark.properties.Link as any).url}
+              key={bookmark.id}
+              target="_blank"
+            >
+              <img
+                src={extractFaviconFromUrl(
+                  (bookmark.properties.Link as any).url,
+                  64,
+                )}
+                alt="favicon"
+                className="size-4"
+              />
+              <div className="flex flex-grow flex-col justify-between gap-2">
+                <p className="line-clamp-2 text-body-large-strong">
+                  {(bookmark.properties.Name as any).title[0].plain_text}
+                </p>
+                <p className="text-body-medium-subtle text-foreground-neutral-faded">
+                  {getRelativeTimeString(new Date(bookmark.created_time))}
+                </p>
+              </div>
+              <ArrowUpRight
+                width={16}
+                className="absolute right-2 top-2 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+              />
+            </a>
           ))}
         </div>
       </section>
