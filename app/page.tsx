@@ -124,56 +124,61 @@ export default async function Home() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col gap-6">
-        <header className="flex gap-4">
-          <h1 className="flex-grow text-title-medium-strong">Notes</h1>
-          <Link
-            href="/notes"
-            className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
-          >
-            View All
-            <MovingArrow />
-          </Link>
-        </header>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
-          {notes
-            .slice(0, 4)
-            .filter(
-              (note) => (note.properties.Status as any).select.name === 'Ready',
-            )
-            .map(async (note) => {
-              const noteContent = await fetchBlockContent(note.id);
-              const textContent = noteContent.map((block: any) => {
-                return block.paragraph?.rich_text.map(
-                  ({ text }: any) => text.content,
-                );
-              });
-              return (
-                <Link
-                  key={note.id}
-                  href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-                  className="group flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
-                >
-                  <div className="flex items-center">
-                    <p className="flex-grow text-title-small-strong">
-                      {(note.properties.Name as any).title[0].plain_text}
+      {notes.filter(
+        (note) => (note.properties.Status as any).select.name === 'Ready',
+      ).length > 0 && (
+        <section className="flex flex-col gap-6">
+          <header className="flex gap-4">
+            <h1 className="flex-grow text-title-medium-strong">Notes</h1>
+            <Link
+              href="/notes"
+              className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+            >
+              View All
+              <MovingArrow />
+            </Link>
+          </header>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
+            {notes
+              .slice(0, 4)
+              .filter(
+                (note) =>
+                  (note.properties.Status as any).select.name === 'Ready',
+              )
+              .map(async (note) => {
+                const noteContent = await fetchBlockContent(note.id);
+                const textContent = noteContent.map((block: any) => {
+                  return block.paragraph?.rich_text.map(
+                    ({ text }: any) => text.content,
+                  );
+                });
+                return (
+                  <Link
+                    key={note.id}
+                    href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
+                    className="group flex flex-col gap-2 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 hover:bg-background-neutral-subtle"
+                  >
+                    <div className="flex items-center">
+                      <p className="flex-grow text-title-small-strong">
+                        {(note.properties.Name as any).title[0].plain_text}
+                      </p>
+                      <span className="translate-y-1 text-body-medium-subtle text-foreground-neutral-faded opacity-0 blur-sm transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-0">
+                        {formatDate(note.created_time, {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </span>
+                    </div>
+                    <p className="line-clamp-2 text-body-large-default text-foreground-neutral-subtle">
+                      {textContent}
                     </p>
-                    <span className="translate-y-1 text-body-medium-subtle text-foreground-neutral-faded opacity-0 blur-sm transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-0">
-                      {formatDate(note.created_time, {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </span>
-                  </div>
-                  <p className="line-clamp-2 text-body-large-default text-foreground-neutral-subtle">
-                    {textContent}
-                  </p>
-                </Link>
-              );
-            })}
-        </div>
-      </section>
+                  </Link>
+                );
+              })}
+          </div>
+        </section>
+      )}
     </Container>
   );
 }
