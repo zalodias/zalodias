@@ -60,24 +60,28 @@ export function Sidebar() {
           <a
             href={`https://x.com/${profile.handle}`}
             className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
+            target='_blank'
           >
             <Twitter />
           </a>
           <a
             href={`https://linkedin.com/in/${profile.handle}`}
             className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
+            target='_blank'
           >
             <LinkedIn />
           </a>
           <a
             href={`https://dribbble.com/${profile.handle}`}
             className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
+            target='_blank'
           >
             <Dribbble />
           </a>
           <a
             href={`https://github.com/${profile.handle}`}
             className="p-2 text-foreground-neutral-faded hover:text-foreground-neutral-default"
+            target='_blank'
           >
             <GitHub />
           </a>
