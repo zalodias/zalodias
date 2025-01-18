@@ -84,10 +84,14 @@ export function NotionBlock({ block }: NotionBlockProps) {
         </h3>
       );
     case 'image':
+      const src =
+        block.image.type === 'external'
+          ? block.image.external.url
+          : block.image.file.url;
       return (
         <img
           key={block.id}
-          src={block.image.external.url}
+          src={src}
           loading="lazy"
           decoding="async"
           alt={
