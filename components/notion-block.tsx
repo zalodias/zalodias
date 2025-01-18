@@ -132,6 +132,15 @@ export function NotionBlock({ block }: NotionBlockProps) {
       );
     case 'divider':
       return <hr key={block.id} className="my-2 border-border-neutral-faded" />;
+    case 'quote':
+      return (
+        <blockquote
+          key={block.id}
+          className="my-3 border-l-2 border-l-foreground-neutral-default pl-4 font-serif italic text-foreground-neutral-default"
+        >
+          {renderRichText(block.quote.rich_text)}
+        </blockquote>
+      );
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
