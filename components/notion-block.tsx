@@ -69,7 +69,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <h2
           key={block.id}
-          className="mb-3 mt-9 text-title-medium-strong text-foreground-neutral-default"
+          className="mb-1 mt-8 text-title-medium-strong text-foreground-neutral-default"
         >
           {renderRichText(block.heading_2.rich_text)}
         </h2>
@@ -78,7 +78,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <h3
           key={block.id}
-          className="mb-2 mt-8 text-title-small-strong text-foreground-neutral-default"
+          className="mb-1 mt-8 text-title-small-strong text-foreground-neutral-default"
         >
           {renderRichText(block.heading_3.rich_text)}
         </h3>
