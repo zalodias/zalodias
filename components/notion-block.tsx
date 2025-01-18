@@ -114,6 +114,18 @@ export function NotionBlock({ block }: NotionBlockProps) {
           {renderRichText(block.numbered_list_item.rich_text)}
         </li>
       );
+    case 'callout':
+      return (
+        <div
+          key={block.id}
+          className="my-3 flex gap-2 rounded-lg bg-background-neutral-faded px-5 py-4"
+        >
+          {block.callout.icon && <span>{block.callout.icon.emoji}</span>}
+          <div className="flex-grow">
+            {renderRichText(block.callout.rich_text)}
+          </div>
+        </div>
+      );
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
