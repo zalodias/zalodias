@@ -126,6 +126,8 @@ export function NotionBlock({ block }: NotionBlockProps) {
           </div>
         </div>
       );
+    case 'divider':
+      return <hr key={block.id} className="my-2 border-border-neutral-faded" />;
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
