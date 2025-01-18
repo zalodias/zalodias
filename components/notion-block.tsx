@@ -81,7 +81,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <li
           key={block.id}
-          className="ms-3 text-body-large-default text-foreground-neutral-subtle"
+          className="ms-3 list-disc text-body-large-default text-foreground-neutral-subtle"
         >
           {renderRichText(block.bulleted_list_item.rich_text)}
         </li>
@@ -90,7 +90,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <li
           key={block.id}
-          className="ms-3 text-body-large-default text-foreground-neutral-subtle marker:mr-4"
+          className="ms-3 list-decimal text-body-large-default text-foreground-neutral-subtle"
         >
           {renderRichText(block.numbered_list_item.rich_text)}
         </li>
