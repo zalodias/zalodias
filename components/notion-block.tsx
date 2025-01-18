@@ -86,6 +86,15 @@ export function NotionBlock({ block }: NotionBlockProps) {
           {renderRichText(block.bulleted_list_item.rich_text)}
         </li>
       );
+    case 'numbered_list_item':
+      return (
+        <li
+          key={block.id}
+          className="ms-3 text-body-large-default text-foreground-neutral-subtle marker:mr-4"
+        >
+          {renderRichText(block.numbered_list_item.rich_text)}
+        </li>
+      );
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
