@@ -1,3 +1,5 @@
+import { ChevronRight } from 'lucide-react';
+
 interface NotionBlock {
   id: string;
   type: string;
@@ -144,11 +146,18 @@ export function NotionBlock({ block }: NotionBlockProps) {
       );
     case 'toggle':
       return (
-        <details>
-          <summary>{renderRichText(block.toggle.rich_text)}</summary>
-          {block.children?.map((child: NotionBlock) => (
-            <NotionBlock key={child.id} block={child} />
-          ))}
+        <details className="group">
+          <summary className="mb-1 flex cursor-pointer items-center gap-2 text-body-large-subtle">
+            <div className="rounded-md p-0.5 transition group-open:rotate-90 group-hover:bg-background-neutral-subtle">
+              <ChevronRight size={16} />
+            </div>
+            <span>{renderRichText(block.toggle.rich_text)}</span>
+          </summary>
+          <div className="ms-7">
+            {block.children?.map((child: NotionBlock) => (
+              <NotionBlock key={child.id} block={child} />
+            ))}
+          </div>
         </details>
       );
     default:
