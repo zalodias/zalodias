@@ -39,10 +39,26 @@ export async function fetchPageContent(
   return data;
 }
 
-export async function fetchBlockContent(id: string) {
-  const data = await notion.blocks.children.list({
+type BlockWithChildren = BlockObjectResponse & {
+  children?: BlockWithChildren[];
+};
+
+export async function fetchBlockContent(
+  id: string,
+): Promise<BlockWithChildren[]> {
+  const { results } = await notion.blocks.children.list({
     block_id: id,
   });
 
-  return data.results;
+  const blocks = await Promise.all(
+    results.map(async (block): Promise<BlockWithChildren> => {
+      if ('has_children' in block && block.has_children) {
+        const children = await fetchBlockContent(block.id);
+        return { ...(block as BlockObjectResponse), children };
+      }
+      return block as BlockObjectResponse;
+    }),
+  );
+
+  return blocks;
 }
