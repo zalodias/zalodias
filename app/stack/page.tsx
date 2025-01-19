@@ -4,7 +4,9 @@ import { fetchDatabaseContent } from '@/lib/notion';
 import { ArrowUpRight } from 'lucide-react';
 
 export default async function Stack() {
-  const stack = await fetchDatabaseContent('15d57c1e961280d1b3ccc835fa7a054b');
+  const stack = await fetchDatabaseContent(
+    process.env.NOTION_STACK_DATABASE_ID!,
+  );
 
   return (
     <Container>

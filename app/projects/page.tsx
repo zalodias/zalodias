@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default async function Projects() {
   const projects = await fetchDatabaseContent(
-    '13157c1e961280e99dfffd55147e74b3',
+    process.env.NOTION_PROJECTS_DATABASE_ID!,
   );
 
   return (
