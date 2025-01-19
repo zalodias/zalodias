@@ -1,6 +1,7 @@
 interface NotionBlock {
   id: string;
   type: string;
+  children?: NotionBlock[];
   [key: string]: any;
 }
 
