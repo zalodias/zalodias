@@ -142,6 +142,15 @@ export function NotionBlock({ block }: NotionBlockProps) {
           {renderRichText(block.quote.rich_text)}
         </blockquote>
       );
+    case 'toggle':
+      return (
+        <details>
+          <summary>{renderRichText(block.toggle.rich_text)}</summary>
+          {block.children?.map((child: NotionBlock) => (
+            <NotionBlock key={child.id} block={child} />
+          ))}
+        </details>
+      );
     default:
       if (process.env.NODE_ENV !== 'production') {
         console.log('Unsupported type ' + block?.value?.type);
