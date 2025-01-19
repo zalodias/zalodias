@@ -14,7 +14,7 @@ export default async function Bookmarks({
   const { q, c } = await searchParams;
 
   const bookmarks = await fetchDatabaseContent(
-    '12057c1e961280329ebad0ecdf335eb7',
+    process.env.NOTION_BOOKMARKS_DATABASE_ID!,
   );
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {

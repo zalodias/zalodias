@@ -5,7 +5,9 @@ import { formatDate, generateSlug } from '@/lib/utils';
 import Link from 'next/link';
 
 export default async function Notes() {
-  const notes = await fetchDatabaseContent('12057c1e9612806bb6cef4c32590960f');
+  const notes = await fetchDatabaseContent(
+    process.env.NOTION_NOTES_DATABASE_ID!,
+  );
 
   return (
     <Container>

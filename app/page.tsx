@@ -15,9 +15,9 @@ import Link from 'next/link';
 
 export default async function Home() {
   const [projects, bookmarks, notes] = await Promise.all([
-    retrieveDatabase('13157c1e961280e99dfffd55147e74b3'),
-    retrieveDatabase('12057c1e961280329ebad0ecdf335eb7'),
-    retrieveDatabase('12057c1e9612806bb6cef4c32590960f'),
+    retrieveDatabase(process.env.NOTION_PROJECTS_DATABASE_ID!),
+    retrieveDatabase(process.env.NOTION_BOOKMARKS_DATABASE_ID!),
+    retrieveDatabase(process.env.NOTION_NOTES_DATABASE_ID!),
   ]);
 
   return (

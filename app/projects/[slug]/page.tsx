@@ -16,7 +16,7 @@ export default async function Project({
   const slug = (await params).slug;
 
   const database = await fetchDatabaseContent(
-    '13157c1e961280e99dfffd55147e74b3',
+    process.env.NOTION_PROJECTS_DATABASE_ID!,
   );
 
   const id = database.find(
