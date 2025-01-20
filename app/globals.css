@@ -85,3 +85,9 @@
     }
   }
 }
+
+@layer size {
+  :root {
+    --size-height-footer: 72px;
+  }
+}
