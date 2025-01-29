@@ -103,6 +103,23 @@ export function NotionBlock({ block }: NotionBlockProps) {
           className="mt-6 rounded-xl"
         />
       );
+    case 'video':
+      const videoSrc =
+        block.video.type === 'file'
+          ? block.video.file.url
+          : block.video.external.url;
+      return (
+        <video
+          key={block.id}
+          controls
+          className="mt-6 rounded-xl"
+          preload="none"
+          autoPlay={true}
+          loop={true}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      );
     case 'bulleted_list_item':
       return (
         <li
