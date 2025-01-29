@@ -1,4 +1,4 @@
-import { Bookmark, Compass, Folders, Layers2 } from 'lucide-react';
+import { Bookmark, Compass, Folders, Layers2, PenLine } from 'lucide-react';
 
 export interface NavigationItem {
   path: string;
@@ -26,5 +26,11 @@ export const navigation: NavigationItem[] = [
     label: 'Bookmarks',
     icon: <Bookmark width={20} />,
     shortcut: '4',
+  },
+  {
+    path: '/notes',
+    label: 'Notes',
+    icon: <PenLine width={20} />,
+    shortcut: '5',
   },
 ];
