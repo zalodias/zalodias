@@ -163,7 +163,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       );
     case 'toggle':
       return (
-        <details className="group">
+        <details className="group mt-1 first-of-type:mt-2">
           <summary className="mb-1 flex cursor-pointer items-center gap-2 text-body-large-subtle">
             <div className="rounded-md p-0.5 transition group-open:rotate-90 group-hover:bg-background-neutral-subtle">
               <ChevronRight size={16} />
