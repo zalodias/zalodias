@@ -7,6 +7,13 @@ import {
 } from '@/lib/notion';
 import { getVisitorCount } from '@/lib/umami';
 import { formatDate, generateSlug } from '@/lib/utils';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'How my website works',
+  description:
+    'Peeking under the hood and uncovering the technical side of this website.',
+};
 
 export default async function Note({
   params,
