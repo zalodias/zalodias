@@ -15,8 +15,6 @@ export default async function Note({
 }) {
   const slug = (await params).slug;
 
-  console.log(slug);
-
   const database = await fetchDatabaseContent(
     process.env.NOTION_NOTES_DATABASE_ID!,
   );
