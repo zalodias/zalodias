@@ -29,15 +29,12 @@ export default async function Note({
 
   return (
     <Container>
-      <section className="flex flex-col gap-10">
-        <h1 className="text-title-large-strong">
-          {(page.properties.Name as any).title[0].plain_text}
-        </h1>
+      <section className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
-          <p className="text-body-small-subtle uppercase text-foreground-neutral-faded">
-            Written on
-          </p>
-          <p className="text-body-medium-subtle">
+          <h1 className="text-title-large-strong">
+            {(page.properties.Name as any).title[0].plain_text}
+          </h1>
+          <p className="text-body-medium-default text-foreground-neutral-subtle">
             {formatDate(page.created_time, {
               year: 'numeric',
               month: 'long',
