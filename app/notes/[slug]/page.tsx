@@ -5,6 +5,7 @@ import {
   fetchDatabaseContent,
   fetchPageContent,
 } from '@/lib/notion';
+import { getVisitorCount } from '@/lib/umami';
 import { formatDate, generateSlug } from '@/lib/utils';
 
 export default async function Note({
@@ -13,6 +14,8 @@ export default async function Note({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
+
+  console.log(slug);
 
   const database = await fetchDatabaseContent(
     process.env.NOTION_NOTES_DATABASE_ID!,
@@ -34,13 +37,19 @@ export default async function Note({
           <h1 className="text-title-large-strong">
             {(page.properties.Name as any).title[0].plain_text}
           </h1>
-          <p className="text-body-medium-default text-foreground-neutral-subtle">
-            {formatDate(page.created_time, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </p>
+          <div className="flex items-center gap-2 text-body-medium-default text-foreground-neutral-subtle">
+            <p>
+              {formatDate(page.created_time, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </p>
+            <span className="text-title-small-strong text-foreground-neutral-subtle">
+              ·
+            </span>
+            <p>{getVisitorCount(`/notes/${slug}`)} views</p>
+          </div>
         </div>
         <div className="flex flex-col gap-2">
           {blocks.map((block: any) => (
