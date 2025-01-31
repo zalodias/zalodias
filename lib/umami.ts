@@ -5,8 +5,9 @@ export const umami = getClient({
   apiKey: process.env.UMAMI_API_KEY,
 });
 
-export async function getPageVisitorCount() {
+export async function getVisitorCount(url?: string) {
   const { data } = await umami.getWebsiteStats(process.env.UMAMI_WEBSITE_ID!, {
+    url,
     startAt: 0,
     endAt: Date.now(),
   });

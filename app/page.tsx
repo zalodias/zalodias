@@ -2,7 +2,7 @@ import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
 import { fetchBlockContent, retrieveDatabase } from '@/lib/notion';
-import { getPageVisitorCount } from '@/lib/umami';
+import { getVisitorCount } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
   formatDate,
@@ -27,7 +27,7 @@ export default async function Home() {
         <p className="text-body-large-default text-foreground-neutral-faded">
           Welcome to my corner of the internet. You are visitor{' '}
           <span className="text-body-large-strong text-foreground-neutral-default">
-            {getPageVisitorCount()}
+            {getVisitorCount()}
           </span>
         </p>
       </div>
