@@ -7,13 +7,29 @@ import {
 } from '@/lib/notion';
 import { getVisitorCount } from '@/lib/umami';
 import { formatDate, generateSlug } from '@/lib/utils';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'How my website works',
-  description:
-    'Peeking under the hood and uncovering the technical side of this website.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const database = await fetchDatabaseContent(
+    process.env.NOTION_NOTES_DATABASE_ID!,
+  );
+
+  const id = database.find(
+    (project) =>
+      generateSlug((project.properties.Name as any).title[0].plain_text) ===
+      params.slug,
+  )?.id;
+
+  const page = await fetchPageContent(id!);
+
+  return {
+    title: (page.properties.Name as any).title[0].plain_text,
+    description: (page.properties.Summary as any).rich_text[0].plain_text,
+  };
+}
 
 export default async function Note({
   params,
