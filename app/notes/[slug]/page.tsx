@@ -43,7 +43,7 @@ export default async function Note({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = (await params).slug;
+  const { slug } = await params;
 
   const { page, id } = await getPageData(slug);
   const blocks = await fetchBlockContent(id!);
