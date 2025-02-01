@@ -27,9 +27,10 @@ async function getPageData(slug: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { page } = await getPageData(params.slug);
+  const { slug } = await params;
+  const { page } = await getPageData(slug);
 
   return {
     title: (page.properties.Name as any).title[0].plain_text,
