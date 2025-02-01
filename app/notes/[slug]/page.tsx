@@ -8,11 +8,7 @@ import {
 import { getVisitorCount } from '@/lib/umami';
 import { formatDate, generateSlug } from '@/lib/utils';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+async function getPageData(slug: string) {
   const database = await fetchDatabaseContent(
     process.env.NOTION_NOTES_DATABASE_ID!,
   );
@@ -20,10 +16,20 @@ export async function generateMetadata({
   const id = database.find(
     (project) =>
       generateSlug((project.properties.Name as any).title[0].plain_text) ===
-      params.slug,
+      slug,
   )?.id;
 
   const page = await fetchPageContent(id!);
+
+  return { page, id };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { page } = await getPageData(params.slug);
 
   return {
     title: (page.properties.Name as any).title[0].plain_text,
@@ -38,17 +44,7 @@ export default async function Note({
 }) {
   const slug = (await params).slug;
 
-  const database = await fetchDatabaseContent(
-    process.env.NOTION_NOTES_DATABASE_ID!,
-  );
-
-  const id = database.find(
-    (project) =>
-      generateSlug((project.properties.Name as any).title[0].plain_text) ===
-      slug,
-  )?.id;
-
-  const page = await fetchPageContent(id!);
+  const { page, id } = await getPageData(slug);
   const blocks = await fetchBlockContent(id!);
 
   return (
