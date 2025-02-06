@@ -1,10 +1,112 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@layer default {
+:root {
   ::selection {
     background: hsl(var(--color-background-neutral-inverse) / 0.2);
+  }
+}
+
+@theme inline {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 640px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1280px;
+
+  --spacing-height-footer: 72px;
+
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-background-neutral-default: hsl(
+    var(--color-background-neutral-default)
+  );
+  --color-background-neutral-faded: hsl(var(--color-background-neutral-faded));
+  --color-background-neutral-subtle: hsl(
+    var(--color-background-neutral-subtle)
+  );
+  --color-background-neutral-strong: hsl(
+    var(--color-background-neutral-strong)
+  );
+  --color-background-neutral-inverse: hsl(
+    var(--color-background-neutral-inverse)
+  );
+  --color-background-brand-default: hsl(var(--color-background-brand-default));
+  --color-background-positive-default: hsl(
+    var(--color-background-positive-default)
+  );
+  --color-foreground-neutral-default: hsl(
+    var(--color-foreground-neutral-default)
+  );
+  --color-foreground-neutral-faded: hsl(var(--color-foreground-neutral-faded));
+  --color-foreground-neutral-subtle: hsl(
+    var(--color-foreground-neutral-subtle)
+  );
+  --color-foreground-neutral-strong: hsl(
+    var(--color-foreground-neutral-strong)
+  );
+  --color-foreground-neutral-inverse: hsl(
+    var(--color-foreground-neutral-inverse)
+  );
+  --color-foreground-brand-default: hsl(var(--color-foreground-brand-default));
+  --color-border-neutral-default: hsl(var(--color-border-neutral-default));
+  --color-border-neutral-faded: hsl(var(--color-border-neutral-faded));
+  --color-border-neutral-subtle: hsl(var(--color-border-neutral-subtle));
+  --color-border-neutral-strong: hsl(var(--color-border-neutral-strong));
+  --color-border-brand-default: hsl(var(--color-border-brand-default));
+
+  --text-*: initial;
+  --text-body-small-default: 12px;
+  --text-body-small-default--line-height: 16px;
+  --text-body-small-default--font-weight: 400;
+  --text-body-small-subtle: 12px;
+  --text-body-small-subtle--line-height: 16px;
+  --text-body-small-subtle--font-weight: 500;
+  --text-body-medium-default: 14px;
+  --text-body-medium-default--line-height: 20px;
+  --text-body-medium-default--font-weight: 400;
+  --text-body-medium-subtle: 14px;
+  --text-body-medium-subtle--line-height: 20px;
+  --text-body-medium-subtle--font-weight: 500;
+  --text-body-medium-strong: 14px;
+  --text-body-medium-strong--line-height: 20px;
+  --text-body-medium-strong--font-weight: 600;
+  --text-body-large-default: 16px;
+  --text-body-large-default--line-height: 26px;
+  --text-body-large-default--font-weight: 400;
+  --text-body-large-subtle: 16px;
+  --text-body-large-subtle--line-height: 24px;
+  --text-body-large-subtle--font-weight: 500;
+  --text-body-large-strong: 16px;
+  --text-body-large-strong--line-height: 24px;
+  --text-body-large-strong--font-weight: 600;
+  --text-title-small-strong: 18px;
+  --text-title-small-strong--line-height: 26px;
+  --text-title-small-strong--font-weight: 600;
+  --text-title-small-strong--letter-spacing: -0.02em;
+  --text-title-medium-strong: 20px;
+  --text-title-medium-strong--line-height: 28px;
+  --text-title-medium-strong--font-weight: 600;
+  --text-title-medium-strong--letter-spacing: -0.02em;
+  --text-title-large-strong: 24px;
+  --text-title-large-strong--line-height: 32px;
+  --text-title-large-strong--font-weight: 600;
+  --text-title-large-strong--letter-spacing: -0.02em;
+
+  @keyframes ping {
+    75%,
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
 
@@ -83,11 +185,5 @@
       --color-border-neutral-strong: var(--color-gray-400);
       --color-border-brand-default: var(--color-orange-500);
     }
-  }
-}
-
-@layer size {
-  :root {
-    --size-height-footer: 72px;
   }
 }
