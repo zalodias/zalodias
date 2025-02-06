@@ -164,7 +164,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           className="my-3 flex gap-2 rounded-lg bg-background-neutral-faded px-5 py-4"
         >
           {block.callout.icon && <span>{block.callout.icon.emoji}</span>}
-          <div className="flex-grow">
+          <div className="grow">
             {renderRichText(block.callout.rich_text)}
           </div>
         </div>
