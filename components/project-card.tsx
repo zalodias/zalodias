@@ -19,7 +19,7 @@ export function ProjectCard({
       href={link}
       className="relative overflow-hidden rounded-xl border border-border-neutral-faded bg-background-neutral-faded"
     >
-      <div className="relative aspect-[3/2] overflow-hidden">
+      <div className="relative aspect-3/2 overflow-hidden">
         <Image
           src={image}
           alt={title}

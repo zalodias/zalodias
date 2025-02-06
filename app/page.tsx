@@ -33,7 +33,7 @@ export default async function Home() {
       </div>
       <div className="flex flex-col gap-6">
         <header className="flex gap-4">
-          <h1 className="flex-grow text-title-medium-strong">Featured Work</h1>
+          <h1 className="grow text-title-medium-strong">Featured Work</h1>
           <Link
             href="/projects"
             className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
@@ -81,7 +81,7 @@ export default async function Home() {
       </div>
       <section className="flex flex-col gap-6">
         <header className="flex gap-4">
-          <h1 className="flex-grow text-title-medium-strong">
+          <h1 className="grow text-title-medium-strong">
             Latest Bookmarks
           </h1>
           <Link
@@ -95,7 +95,7 @@ export default async function Home() {
         <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
           {bookmarks.slice(0, 6).map((bookmark) => (
             <a
-              className="group relative flex flex-grow flex-col gap-3 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-4 py-3 transition hover:bg-background-neutral-subtle"
+              className="group relative flex grow flex-col gap-3 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-4 py-3 transition hover:bg-background-neutral-subtle"
               href={(bookmark.properties.Link as any).url}
               key={bookmark.id}
               target="_blank"
@@ -108,7 +108,7 @@ export default async function Home() {
                 alt="favicon"
                 className="size-4"
               />
-              <div className="flex flex-grow flex-col justify-between gap-2">
+              <div className="flex grow flex-col justify-between gap-2">
                 <p className="line-clamp-2 text-body-large-strong">
                   {(bookmark.properties.Name as any).title[0].plain_text}
                 </p>
@@ -129,7 +129,7 @@ export default async function Home() {
       ).length > 0 && (
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
-            <h1 className="flex-grow text-title-medium-strong">Notes</h1>
+            <h1 className="grow text-title-medium-strong">Notes</h1>
             <Link
               href="/notes"
               className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
@@ -152,7 +152,7 @@ export default async function Home() {
                   className="flex flex-col gap-4 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 transition hover:bg-background-neutral-subtle"
                 >
                   <div className="flex flex-col gap-2">
-                    <p className="flex-grow text-title-small-strong">
+                    <p className="grow text-title-small-strong">
                       {(note.properties.Name as any).title[0].plain_text}
                     </p>
                     <p className="text-foreground-neutral-subtle">

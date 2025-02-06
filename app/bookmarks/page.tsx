@@ -67,7 +67,7 @@ export default async function Bookmarks({
                     },
                   }}
                   aria-current={isActive ? 'true' : undefined}
-                  className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle active:scale-95 aria-[current='true']:bg-background-neutral-inverse aria-[current='true']:text-foreground-neutral-inverse"
+                  className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle active:scale-95 aria-current:bg-background-neutral-inverse aria-current:text-foreground-neutral-inverse"
                 >
                   {category}
                 </Link>
@@ -84,7 +84,7 @@ export default async function Bookmarks({
               href={(bookmark.properties.Link as any).url}
               target="_blank"
             >
-              <div className="flex flex-grow items-center gap-2">
+              <div className="flex grow items-center gap-2">
                 <img
                   src={extractFaviconFromUrl(
                     (bookmark.properties.Link as any).url,

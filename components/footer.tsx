@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 export function Footer() {
   const pathname = usePathname();
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-10 grid grid-flow-col border-t border-border-neutral-faded bg-gradient-to-t from-background-neutral-default to-background-neutral-default/80 backdrop-blur lg:hidden">
+    <nav className="border-border-neutral-faded from-background-neutral-default to-background-neutral-default/80 fixed inset-x-0 bottom-0 z-10 grid grid-flow-col border-t bg-linear-to-t backdrop-blur-sm lg:hidden">
       {navigation.map((item) => {
         const isActive = pathname === item.path;
         return (
@@ -15,7 +15,7 @@ export function Footer() {
             key={item.path}
             href={item.path}
             aria-label={item.label}
-            className={`grid w-full justify-center pb-8 pt-4 ${
+            className={`grid w-full justify-center pt-4 pb-8 ${
               isActive
                 ? 'text-foreground-neutral-default'
                 : 'text-foreground-neutral-faded hover:text-foreground-neutral-default'
