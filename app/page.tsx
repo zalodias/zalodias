@@ -36,7 +36,7 @@ export default async function Home() {
               to={(await getVisitorCount()) ?? 0}
               duration={0.8}
               delay={0.4}
-              className="font-semibold text-foreground-neutral-default"
+              className="text-foreground-neutral-default font-semibold"
             />
           </p>
         </Transition>
@@ -44,12 +44,10 @@ export default async function Home() {
       <Transition delay={0.4}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
-            <h1 className="flex-grow text-title-medium-strong">
-              Featured Work
-            </h1>
+            <h1 className="text-title-medium-strong grow">Featured Work</h1>
             <Link
               href="/projects"
-              className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+              className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
             >
               View All
               <MovingArrow />
@@ -68,7 +66,7 @@ export default async function Home() {
                   className="flex flex-col gap-4"
                   href={`/projects/${generateSlug((project.properties.Name as any).title[0].plain_text)}`}
                 >
-                  <div className="relative block w-full overflow-clip rounded-xl bg-background-neutral-faded">
+                  <div className="bg-background-neutral-faded relative block w-full overflow-clip rounded-xl">
                     <Image
                       src={(project.cover as any).external.url}
                       alt={(project.properties.Name as any).title[0].plain_text}
@@ -96,12 +94,10 @@ export default async function Home() {
       <Transition delay={0.2}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
-            <h1 className="flex-grow text-title-medium-strong">
-              Latest Bookmarks
-            </h1>
+            <h1 className="text-title-medium-strong grow">Latest Bookmarks</h1>
             <Link
               href="/bookmarks"
-              className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+              className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
             >
               View All
               <MovingArrow />
@@ -110,7 +106,7 @@ export default async function Home() {
           <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
             {bookmarks.slice(0, 6).map((bookmark) => (
               <a
-                className="group relative flex flex-grow flex-col gap-3 rounded-lg border border-border-neutral-faded bg-background-neutral-faded px-4 py-3 transition hover:bg-background-neutral-subtle"
+                className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex grow flex-col gap-3 rounded-lg border px-4 py-3 transition"
                 href={(bookmark.properties.Link as any).url}
                 key={bookmark.id}
                 target="_blank"
@@ -123,8 +119,8 @@ export default async function Home() {
                   alt="favicon"
                   className="size-4"
                 />
-                <div className="flex flex-grow flex-col justify-between gap-2">
-                  <p className="line-clamp-2 text-body-large-strong">
+                <div className="flex grow flex-col justify-between gap-2">
+                  <p className="text-body-large-strong line-clamp-2">
                     {(bookmark.properties.Name as any).title[0].plain_text}
                   </p>
                   <p className="text-body-medium-subtle text-foreground-neutral-faded">
@@ -133,7 +129,7 @@ export default async function Home() {
                 </div>
                 <ArrowUpRight
                   width={16}
-                  className="absolute right-2 top-2 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+                  className="absolute top-2 right-2 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
                 />
               </a>
             ))}
@@ -143,10 +139,10 @@ export default async function Home() {
       <Transition delay={0.2}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
-            <h1 className="flex-grow text-title-medium-strong">Notes</h1>
+            <h1 className="text-title-medium-strong grow">Notes</h1>
             <Link
               href="/notes"
-              className="group flex items-center gap-2 text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default"
+              className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
             >
               View All
               <MovingArrow />
@@ -163,10 +159,10 @@ export default async function Home() {
                 <Link
                   key={note.id}
                   href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-                  className="flex flex-col gap-4 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 transition hover:bg-background-neutral-subtle"
+                  className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition"
                 >
                   <div className="flex flex-col gap-2">
-                    <p className="flex-grow text-title-small-strong">
+                    <p className="text-title-small-strong grow">
                       {(note.properties.Name as any).title[0].plain_text}
                     </p>
                     <p className="text-foreground-neutral-subtle">
