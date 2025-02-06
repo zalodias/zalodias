@@ -27,7 +27,7 @@ export default async function Notes() {
               className="flex flex-col gap-4 rounded-lg border border-border-neutral-faded bg-background-neutral-faded p-4 transition hover:bg-background-neutral-subtle"
             >
               <div className="flex flex-col gap-2">
-                <p className="flex-grow text-title-small-strong">
+                <p className="grow text-title-small-strong">
                   {(note.properties.Name as any).title[0].plain_text}
                 </p>
                 <p className="text-foreground-neutral-subtle">

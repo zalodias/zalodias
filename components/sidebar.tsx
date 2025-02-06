@@ -16,9 +16,9 @@ export function Sidebar() {
   const currentTime = useCurrentTime();
 
   return (
-    <aside className="sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r border-border-neutral-faded bg-background-neutral-faded px-6 py-4 lg:flex">
+    <aside className="border-border-neutral-faded bg-background-neutral-faded sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r px-6 py-4 lg:flex">
       <Profile />
-      <nav className="flex flex-grow flex-col gap-2">
+      <nav className="flex grow flex-col gap-2">
         {navigation.map((item) => {
           return (
             <NavigationLink
@@ -29,20 +29,20 @@ export function Sidebar() {
               icon={item.icon}
             >
               {item.icon}
-              <p className="flex-grow text-body-large-subtle">{item.label}</p>
+              <p className="text-body-large-subtle grow">{item.label}</p>
               <Hotkey>{item.shortcut}</Hotkey>
             </NavigationLink>
           );
         })}
       </nav>
       <div className="flex flex-col gap-5">
-        <p className="whitespace-pre-line text-balance text-foreground-neutral-faded">
+        <p className="text-foreground-neutral-faded text-balance whitespace-pre-line">
           {profile.tagline}
         </p>
         <div className="flex items-center gap-2">
           <span className="relative flex size-1.5">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-background-positive-default opacity-80" />
-            <span className="relative inline-flex size-full rounded-full bg-background-positive-default" />
+            <span className="bg-background-positive-default absolute inline-flex size-full animate-ping rounded-full opacity-80" />
+            <span className="bg-background-positive-default relative inline-flex size-full rounded-full" />
           </span>
           <p className="text-foreground-neutral-faded">
             <a
@@ -59,28 +59,28 @@ export function Sidebar() {
         <div className="flex gap-2">
           <a
             href={`https://x.com/${profile.handle}`}
-            className="p-2 text-foreground-neutral-faded transition hover:text-foreground-neutral-default"
+            className="text-foreground-neutral-faded hover:text-foreground-neutral-default p-2 transition"
             target="_blank"
           >
             <Twitter />
           </a>
           <a
             href={`https://linkedin.com/in/${profile.handle}`}
-            className="p-2 text-foreground-neutral-faded transition hover:text-foreground-neutral-default"
+            className="text-foreground-neutral-faded hover:text-foreground-neutral-default p-2 transition"
             target="_blank"
           >
             <LinkedIn />
           </a>
           <a
             href={`https://dribbble.com/${profile.handle}`}
-            className="p-2 text-foreground-neutral-faded transition hover:text-foreground-neutral-default"
+            className="text-foreground-neutral-faded hover:text-foreground-neutral-default p-2 transition"
             target="_blank"
           >
             <Dribbble />
           </a>
           <a
             href={`https://github.com/${profile.handle}`}
-            className="p-2 text-foreground-neutral-faded transition hover:text-foreground-neutral-default"
+            className="text-foreground-neutral-faded hover:text-foreground-neutral-default p-2 transition"
             target="_blank"
           >
             <GitHub />
