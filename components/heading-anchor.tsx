@@ -29,7 +29,7 @@ export function HeadingAnchor({ id }: HeadingAnchorProps) {
     <a
       href={`#${id}`}
       onClick={handleClick}
-      className="invisible absolute -left-6 top-1/2 -translate-y-1/2 rounded-md p-1 text-foreground-neutral-faded opacity-0 transition hover:bg-background-neutral-subtle hover:text-foreground-neutral-default group-hover:visible group-hover:opacity-100"
+      className="invisible absolute -left-6 top-1/2 -translate-y-1/2 rounded-md p-1 text-foreground-neutral-faded opacity-0 transition hover:bg-background-neutral-subtle hover:text-foreground-neutral-default md:group-hover:visible md:group-hover:opacity-100"
       aria-label="Link to section"
     >
       <Link size={16} />
