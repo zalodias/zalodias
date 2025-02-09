@@ -67,7 +67,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <h1
           id={heading1Id}
           key={block.id}
-          className="group relative mb-4 mt-10 text-title-large-strong text-foreground-neutral-default"
+          className="group relative mb-4 mt-10 scroll-mt-32 text-title-large-strong text-foreground-neutral-default md:scroll-mt-8"
         >
           <HeadingAnchor id={heading1Id} />
           {renderRichText(block.heading_1.rich_text)}
@@ -79,7 +79,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <h2
           id={heading2Id}
           key={block.id}
-          className="group relative mb-1 mt-8 text-title-medium-strong text-foreground-neutral-default"
+          className="group relative mb-1 mt-8 scroll-mt-32 text-title-medium-strong text-foreground-neutral-default md:scroll-mt-8"
         >
           <HeadingAnchor id={heading2Id} />
           {renderRichText(block.heading_2.rich_text)}
@@ -91,7 +91,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <h3
           id={heading3Id}
           key={block.id}
-          className="group relative mb-1 mt-8 text-title-small-strong text-foreground-neutral-default"
+          className="group relative mb-1 mt-8 scroll-mt-32 text-title-small-strong text-foreground-neutral-default md:scroll-mt-8"
         >
           <HeadingAnchor id={heading3Id} />
           {renderRichText(block.heading_3.rich_text)}
