@@ -1,4 +1,6 @@
+import { generateSlug } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
+import { HeadingAnchor } from './heading-anchor';
 
 interface NotionBlock {
   id: string;
@@ -60,29 +62,38 @@ export function NotionBlock({ block }: NotionBlockProps) {
         </p>
       );
     case 'heading_1':
+      const heading1Id = generateSlug(block.heading_1.rich_text[0].plain_text);
       return (
         <h1
+          id={heading1Id}
           key={block.id}
-          className="mb-4 mt-10 text-title-large-strong text-foreground-neutral-default"
+          className="group relative mb-4 mt-10 text-title-large-strong text-foreground-neutral-default"
         >
+          <HeadingAnchor id={heading1Id} />
           {renderRichText(block.heading_1.rich_text)}
         </h1>
       );
     case 'heading_2':
+      const heading2Id = generateSlug(block.heading_2.rich_text[0].plain_text);
       return (
         <h2
+          id={heading2Id}
           key={block.id}
-          className="mb-1 mt-8 text-title-medium-strong text-foreground-neutral-default"
+          className="group relative mb-1 mt-8 text-title-medium-strong text-foreground-neutral-default"
         >
+          <HeadingAnchor id={heading2Id} />
           {renderRichText(block.heading_2.rich_text)}
         </h2>
       );
     case 'heading_3':
+      const heading3Id = generateSlug(block.heading_3.rich_text[0].plain_text);
       return (
         <h3
+          id={heading3Id}
           key={block.id}
-          className="mb-1 mt-8 text-title-small-strong text-foreground-neutral-default"
+          className="group relative mb-1 mt-8 text-title-small-strong text-foreground-neutral-default"
         >
+          <HeadingAnchor id={heading3Id} />
           {renderRichText(block.heading_3.rich_text)}
         </h3>
       );
