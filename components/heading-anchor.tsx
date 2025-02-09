@@ -1,5 +1,6 @@
 'use client';
 
+import { scrollToElement } from '@/lib/utils';
 import { Link } from 'lucide-react';
 import { useEffect } from 'react';
 
@@ -10,16 +11,7 @@ interface HeadingAnchorProps {
 export function HeadingAnchor({ id }: HeadingAnchorProps) {
   useEffect(() => {
     if (window.location.hash === `#${id}`) {
-      const element = document.getElementById(id);
-      if (element) {
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - 40;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-      }
+      scrollToElement(id);
     }
   }, [id]);
 
@@ -30,17 +22,7 @@ export function HeadingAnchor({ id }: HeadingAnchorProps) {
     navigator.clipboard.writeText(url);
 
     window.history.pushState({}, '', `#${id}`);
-
-    const element = document.getElementById(id);
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - 40;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
+    scrollToElement(id);
   };
 
   return (
