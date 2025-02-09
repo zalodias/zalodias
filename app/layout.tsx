@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className="flex flex-col bg-background-neutral-default text-foreground-neutral-default antialiased lg:flex-row lg:overscroll-none">
         <Header />
         <Footer />
