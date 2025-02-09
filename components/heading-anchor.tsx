@@ -1,6 +1,5 @@
 'use client';
 
-import { scrollToElement } from '@/lib/utils';
 import { Link } from 'lucide-react';
 import { useEffect } from 'react';
 
@@ -11,18 +10,13 @@ interface HeadingAnchorProps {
 export function HeadingAnchor({ id }: HeadingAnchorProps) {
   useEffect(() => {
     if (window.location.hash === `#${id}`) {
-      scrollToElement(id);
+      document.getElementById(id)?.scrollIntoView();
     }
   }, [id]);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-
+  const handleClick = () => {
     const url = `${window.location.href.split('#')[0]}#${id}`;
     navigator.clipboard.writeText(url);
-
-    window.history.pushState({}, '', `#${id}`);
-    scrollToElement(id);
   };
 
   return (

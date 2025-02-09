@@ -109,16 +109,3 @@ export function calculateReadingTime(text: string): number {
 export function removeProtocolFromUrl(url: string): string {
   return url.replace(/^https?:\/\//, '');
 }
-
-export function scrollToElement(id: string, offset: number = 40) {
-  const element = document.getElementById(id);
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - offset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
-  }
-}
