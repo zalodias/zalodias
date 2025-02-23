@@ -1,7 +1,7 @@
 import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
-import { fetchBlockContent, retrieveDatabase } from '@/lib/notion';
+import { fetchDatabaseContent } from '@/lib/notion';
 import { getVisitorCount } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
@@ -15,9 +15,9 @@ import Link from 'next/link';
 
 export default async function Home() {
   const [projects, bookmarks, notes] = await Promise.all([
-    retrieveDatabase(process.env.NOTION_PROJECTS_DATABASE_ID!),
-    retrieveDatabase(process.env.NOTION_BOOKMARKS_DATABASE_ID!),
-    retrieveDatabase(process.env.NOTION_NOTES_DATABASE_ID!),
+    fetchDatabaseContent(process.env.NOTION_PROJECTS_DATABASE_ID!),
+    fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!),
+    fetchDatabaseContent(process.env.NOTION_NOTES_DATABASE_ID!),
   ]);
 
   return (
