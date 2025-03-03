@@ -111,7 +111,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           alt={
             block.image.caption ? block.image.caption[0]?.text.content : 'Image'
           }
-          className="mt-6 rounded-xl"
+          className="mb-6 mt-6 rounded-xl"
         />
       );
     case 'video':
