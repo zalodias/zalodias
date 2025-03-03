@@ -57,7 +57,7 @@ export default async function Note({
           </h1>
           <div className="flex items-center gap-2 text-body-medium-default text-foreground-neutral-subtle">
             <p>
-              {formatDate(page.created_time, {
+              {formatDate((page.properties.Date as any).date.start, {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
