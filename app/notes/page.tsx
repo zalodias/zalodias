@@ -15,7 +15,7 @@ export default async function Notes() {
         A collection of unplugged thoughts & ideas on design, technology, and
         everything in between.
       </Intro>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
+      <section className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
         {notes
           .filter(
             (note) => (note.properties.Status as any).select.name === 'Ready',
@@ -35,14 +35,14 @@ export default async function Notes() {
                 </p>
               </div>
               <span className="text-body-medium-subtle text-foreground-neutral-faded">
-                {formatDate(note.created_time, {
+                {formatDate((note.properties.Date as any).date.start, {
                   month: 'long',
                   day: 'numeric',
                 })}
               </span>
             </Link>
           ))}
-      </div>
+      </section>
     </Container>
   );
 }
