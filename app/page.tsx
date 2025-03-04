@@ -24,10 +24,10 @@ export default async function Home() {
   return (
     <Container>
       <div className="flex flex-col gap-2">
-        <Transition>
+        <Transition delay={0.2}>
           <Greeting />
         </Transition>
-        <Transition delay={0.1}>
+        <Transition delay={0.3}>
           <p className="text-body-large-default text-foreground-neutral-faded">
             Welcome to my corner of the internet. You are visitor{' '}
             <span className="text-body-large-strong text-foreground-neutral-default">
@@ -36,7 +36,7 @@ export default async function Home() {
           </p>
         </Transition>
       </div>
-      <Transition delay={0.2}>
+      <Transition delay={0.4}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
             <h1 className="flex-grow text-title-medium-strong">
