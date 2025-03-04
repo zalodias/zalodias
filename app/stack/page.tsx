@@ -14,7 +14,7 @@ export default async function Stack() {
         The essential tools powering my daily workflow and helping me bring
         ideas to life.
       </Intro>
-      <div className="grid gap-5 md:grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
+      <section className="grid gap-5 md:grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
         {stack.map((resource) => (
           <a
             key={resource.id}
@@ -45,7 +45,7 @@ export default async function Stack() {
             />
           </a>
         ))}
-      </div>
+      </section>
     </Container>
   );
 }
