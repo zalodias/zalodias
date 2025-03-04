@@ -169,7 +169,7 @@ export default async function Home() {
                     </p>
                   </div>
                   <span className="text-body-medium-subtle text-foreground-neutral-faded">
-                    {formatDate(note.created_time, {
+                    {formatDate((note.properties.Date as any).date.start, {
                       month: 'long',
                       day: 'numeric',
                     })}
