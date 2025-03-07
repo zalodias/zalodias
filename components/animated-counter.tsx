@@ -8,6 +8,7 @@ interface AnimatedCounterProps {
   to: number;
   duration?: number;
   delay?: number;
+  className?: string;
 }
 
 export function AnimatedCounter({
@@ -15,6 +16,7 @@ export function AnimatedCounter({
   to,
   duration = 0.2,
   delay = 0,
+  className,
 }: AnimatedCounterProps) {
   const count = useMotionValue(from);
   const number = useTransform(count, (latest) => Math.round(latest));
@@ -30,9 +32,5 @@ export function AnimatedCounter({
     return controls.stop;
   }, [to, count, duration, delay]);
 
-  return (
-    <motion.span className="text-body-large-strong text-foreground-neutral-default">
-      {number}
-    </motion.span>
-  );
+  return <motion.span className={className}>{number}</motion.span>;
 }
