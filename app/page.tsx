@@ -29,7 +29,7 @@ export default async function Home() {
           <Greeting />
         </Transition>
         <Transition delay={0.3}>
-          <p className="text-body-large-default text-foreground-neutral-faded">
+          <p className="text-foreground-neutral-faded">
             Welcome to my corner of the internet. You are visitor{' '}
             <AnimatedCounter
               from={0}
