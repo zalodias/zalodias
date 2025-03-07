@@ -1,5 +1,6 @@
 'use client';
 
+import { mergeTailwindClassNames as cn } from '@/lib/utils';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
 
@@ -32,5 +33,9 @@ export function AnimatedCounter({
     return controls.stop;
   }, [to, count, duration, delay]);
 
-  return <motion.span className={className}>{number}</motion.span>;
+  return (
+    <motion.span className={cn('tabular-nums', className)}>
+      {number}
+    </motion.span>
+  );
 }
