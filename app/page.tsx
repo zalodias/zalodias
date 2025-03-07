@@ -1,3 +1,4 @@
+import { AnimatedCounter } from '@/components/animated-counter';
 import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
@@ -30,9 +31,12 @@ export default async function Home() {
         <Transition delay={0.3}>
           <p className="text-body-large-default text-foreground-neutral-faded">
             Welcome to my corner of the internet. You are visitor{' '}
-            <span className="text-body-large-strong text-foreground-neutral-default">
-              {getVisitorCount()}
-            </span>
+            <AnimatedCounter
+              from={0}
+              to={(await getVisitorCount()) ?? 0}
+              duration={0.8}
+              delay={0.4}
+            />
           </p>
         </Transition>
       </div>
