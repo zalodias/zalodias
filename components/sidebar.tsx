@@ -1,14 +1,14 @@
 'use client';
 
+import { Dribbble } from '@/assets/icons/Dribbble';
+import { GitHub } from '@/assets/icons/GitHub';
+import { LinkedIn } from '@/assets/icons/LinkedIn';
+import { Twitter } from '@/assets/icons/Twitter';
 import { Hotkey } from '@/components/hotkey';
 import { Profile } from '@/components/profile';
 import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';
 import { useCurrentTime } from '@/hooks/useCurrentTime';
-import { Dribbble } from '@/icons/Dribbble';
-import { GitHub } from '@/icons/GitHub';
-import { LinkedIn } from '@/icons/LinkedIn';
-import { Twitter } from '@/icons/Twitter';
 import { getWikiFromLocation } from '@/lib/utils';
 import { NavigationLink } from './navigation-link';
 
