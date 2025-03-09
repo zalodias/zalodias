@@ -36,7 +36,7 @@ export default async function Home() {
               to={(await getVisitorCount()) ?? 0}
               duration={0.8}
               delay={0.4}
-              className="text-body-large-strong text-foreground-neutral-default"
+              className="font-semibold text-foreground-neutral-default"
             />
           </p>
         </Transition>
