@@ -1,4 +1,4 @@
-declare module '!!raw-loader!*' {
+declare module '*.glsl' {
   const content: string;
   export default content;
 }
