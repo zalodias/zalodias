@@ -16,7 +16,7 @@ export default function Playground() {
       <Intro title="Playground">
         A laboratory of digital experiments. Crafting and tinkering with code.
       </Intro>
-      <div className="grid gap-10 md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]">
+      <div className="md:columns-2 gap-5 space-y-5">
         <div className='relative aspect-[4/3] bg-background-neutral-faded border border-border-neutral-faded rounded-lg overflow-hidden isolate after:absolute after:inset-x-0 after:bg-gradient-to-t after:from-background-neutral-default after:to-transparent after:h-1/4 after:bottom-0'>
           <Scene /> 
           <div className='absolute flex z-20 justify-between inset-x-4 bottom-4'>
