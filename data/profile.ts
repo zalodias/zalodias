@@ -2,8 +2,9 @@ export interface Profile {
   name: string;
   handle: string;
   title: string;
+  description: string;
+  tagline: string;
   avatar: string;
-  bio: string;
   location: string;
   timezone: string;
 }
@@ -12,8 +13,9 @@ export const profile: Profile = {
   name: 'Gonçalo Dias',
   handle: 'zalodias',
   title: 'Software Designer',
+  description: 'Software designer, crafting intuitive & polished digital experiences — from concept to code.',
+  tagline: 'Making the world a better place, 1px at a time.',
   avatar: '/headshot@640.jpg',
-  bio: 'Making the world a better place, 1px at a time.',
   location: 'Coimbra',
   timezone: 'Europe/Lisbon',
 };
