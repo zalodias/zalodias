@@ -1,5 +1,6 @@
-import { Scene } from '@/assets/shaders/scene';
+import { Scene } from '@/assets/shaders/turbulence/scene';
 import { Container } from '@/components/container';
+import { Intro } from '@/components/intro';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,7 +13,18 @@ export const metadata: Metadata = {
 export default function Playground() {
   return (
     <Container>
-      <Scene />
+      <Intro title="Playground">
+        A laboratory of digital experiments. Crafting and tinkering with code.
+      </Intro>
+      <div className="grid gap-10 md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]">
+        <div className='relative aspect-[4/3] bg-background-neutral-faded border border-border-neutral-faded rounded-lg'>
+          <Scene /> 
+          <div className='absolute flex justify-between inset-x-4 bottom-4'>
+            <span className='text-body-medium-subtle'>Turbulence Shader</span>
+            <span className='text-body-medium-subtle text-foreground-neutral-faded'>March 2025</span>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 }
