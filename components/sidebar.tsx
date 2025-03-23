@@ -37,7 +37,7 @@ export function Sidebar() {
       </nav>
       <div className="flex flex-col gap-5">
         <p className="whitespace-pre-line text-balance text-foreground-neutral-faded">
-          {profile.bio}
+          {profile.tagline}
         </p>
         <div className="flex items-center gap-2">
           <span className="relative flex size-1.5">
