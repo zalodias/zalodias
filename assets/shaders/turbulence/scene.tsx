@@ -17,7 +17,7 @@ export function Cube() {
 
   return (
     <mesh ref={mesh}>
-      <boxGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[2, 2, 2]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
