@@ -1,6 +1,6 @@
 # Olá! 👋
 
-I'm Gonçalo, a software designer — currently working at [Concealed](https://www.concealed.com/).
+I'm Gonçalo, a software designer — currently working at [Sword Health](https://swordhealth.com/).
 
 I craft digital interfaces, products, and systems, working closely with engineers to build intuitive and polished experiences — from concept to code.
 
