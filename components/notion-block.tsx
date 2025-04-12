@@ -103,16 +103,24 @@ export function NotionBlock({ block }: NotionBlockProps) {
           ? block.image.external.url
           : block.image.file.url;
       return (
-        <img
-          key={block.id}
-          src={src}
-          loading="lazy"
-          decoding="async"
-          alt={
-            block.image.caption ? block.image.caption[0]?.text.content : 'Image'
-          }
-          className="mb-6 mt-6 rounded-xl"
-        />
+        <figure key={block.id} className="mb-6 mt-6 grid items-center gap-3">
+          <img
+            src={src}
+            loading="lazy"
+            decoding="async"
+            alt={
+              block.image.caption
+                ? block.image.caption[0]?.text.content
+                : 'Image'
+            }
+            className="rounded-xl"
+          />
+          {block.image.caption && block.image.caption[0]?.text.content && (
+            <figcaption className="text-center text-body-medium-default text-foreground-neutral-subtle">
+              {block.image.caption[0].text.content}
+            </figcaption>
+          )}
+        </figure>
       );
     case 'video':
       const videoSrc =
