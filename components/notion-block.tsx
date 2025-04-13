@@ -131,7 +131,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <video
           key={block.id}
           controls
-          className="mt-6 rounded-xl"
+          className="mb-6 mt-6 rounded-xl"
           preload="none"
           autoPlay={true}
           loop={true}
