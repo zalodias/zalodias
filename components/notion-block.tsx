@@ -116,7 +116,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
             className="rounded-xl"
           />
           {block.image.caption && block.image.caption[0]?.text.content && (
-            <figcaption className="text-center text-body-medium-default text-foreground-neutral-subtle">
+            <figcaption className="text-center text-body-small-default text-foreground-neutral-subtle">
               {block.image.caption[0].text.content}
             </figcaption>
           )}
