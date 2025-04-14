@@ -1,4 +1,3 @@
-import { AnimatedCounter } from '@/components/animated-counter';
 import { Container } from '@/components/container';
 import { NotionBlock } from '@/components/notion-block';
 import {
@@ -67,14 +66,7 @@ export default async function Note({
             <span className="text-title-small-strong text-foreground-neutral-subtle">
               ·
             </span>
-            <p>
-              <AnimatedCounter
-                from={0}
-                to={(await getVisitorCount(`/notes/${slug}`)) ?? 0}
-                duration={0.4}
-              />{' '}
-              views
-            </p>
+            <p>{(await getVisitorCount(`/notes/${slug}`)) ?? 0} views</p>
           </div>
         </div>
         <div className="flex flex-col gap-2">
