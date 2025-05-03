@@ -1,0 +1,34 @@
+:root {
+  --size: 32px;
+  --border: 4px;
+  --column: 24px;
+}
+
+[data-masked] {
+  position: relative;
+}
+
+[data-masked]:not(:first-of-type) {
+  --circle: calc(((var(--border) * 2) + var(--size)) * 0.5);
+  --y: calc(100% - (var(--size) * 0.5));
+  mask: radial-gradient(
+      var(--circle) var(--circle) at
+        calc(var(--circle) - var(--column) - var(--border)) 50%,
+      #0000 var(--circle),
+      #fff var(--circle)
+    )
+    0 calc(var(--size) * 0.5) / 100% 100%;
+  transition: mask-position 0.2s;
+}
+
+[data-masked] > span {
+  transition: translate 0.2s;
+}
+
+[data-masked]:hover span:first-of-type {
+  translate: 0 -50%;
+}
+
+[data-masked]:hover + [data-masked] {
+  mask-position: 0 0;
+}
