@@ -1,0 +1,5 @@
+@keyframes trail {
+  to {
+    offset-distance: 100%;
+  }
+}
