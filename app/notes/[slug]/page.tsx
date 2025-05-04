@@ -14,9 +14,8 @@ async function getPageData(slug: string) {
   );
 
   const id = database.find(
-    (project) =>
-      generateSlug((project.properties.Name as any).title[0].plain_text) ===
-      slug,
+    (note) =>
+      generateSlug((note.properties.Name as any).title[0].plain_text) === slug,
   )?.id;
 
   const page = await fetchPageContent(id!);
