@@ -1,9 +1,16 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
+import { projects } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { generateSlug } from '@/lib/utils';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: projects.title,
+  description: projects.description,
+};
 
 export default async function Projects() {
   const projects = await fetchDatabaseContent(
@@ -37,7 +44,7 @@ export default async function Projects() {
               className="flex flex-col gap-4"
               href={`/projects/${generateSlug((project.properties.Name as any).title[0].plain_text)}`}
             >
-              <div className="relative block w-full overflow-clip rounded-xl bg-background-neutral-faded">
+              <div className="bg-background-neutral-faded relative block w-full overflow-clip rounded-xl">
                 <Image
                   src={(project.cover as any).external.url}
                   alt={(project.properties.Name as any).title[0].plain_text}
