@@ -11,8 +11,7 @@ export default async function Stack() {
   return (
     <Container>
       <Intro title="Stack">
-        The essential tools powering my daily workflow and helping me bring
-        ideas to life.
+        The essential tools powering my daily workflow.
       </Intro>
       <section className="grid gap-5 md:grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
         {stack.map((resource) => (

@@ -48,7 +48,7 @@ export default async function Bookmarks({
     <Container>
       <header className="flex flex-col gap-10">
         <Intro title="Bookmarks">
-          A curated list of my favorite resources on the web. Updated regularly.
+          A curated list of my favorite resources on the web.
         </Intro>
         <section className="flex flex-col gap-5">
           <Search placeholder="Search bookmarks" />
