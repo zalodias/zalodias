@@ -3,6 +3,7 @@ import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
 import { Transition } from '@/components/transition';
+import { home } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { getVisitorCount } from '@/lib/umami';
 import {
@@ -12,8 +13,14 @@ import {
   getRelativeTimeString,
 } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: home.title,
+  description: home.description,
+};
 
 export default async function Home() {
   const [projects, bookmarks, notes] = await Promise.all([

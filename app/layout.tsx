@@ -4,13 +4,14 @@ import '@/app/globals.css';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Sidebar } from '@/components/sidebar';
+import { home } from '@/data/metadata';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Gonçalo Dias – Software Designer',
-  description: 'Making the world a better place, 1px at a time.',
+  title: home.title,
+  description: home.description,
 };
 
 export default function Layout({ children }: PropsWithChildren) {
