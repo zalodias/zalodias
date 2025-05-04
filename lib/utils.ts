@@ -100,6 +100,11 @@ export function generateSlug(value: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+export function generateTitleFromSlug(slug: string): string {
+  const title = slug.replace(/-/g, ' ');
+  return title.charAt(0).toUpperCase() + title.slice(1);
+}
+
 export function calculateReadingTime(text: string): number {
   const wordsPerMinute = 200;
   const words = text.split(/\s+/).length;
