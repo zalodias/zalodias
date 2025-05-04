@@ -22,6 +22,7 @@ export function Thumbnail({ title, size = 120 }: ThumbnailProps) {
     >
       <div
         style={{
+          textWrap: 'balance',
           backgroundImage:
             'linear-gradient(to right bottom, hsl(35, 4%, 96%) 40%, hsl(35, 4%, 40%) 100%)',
           backgroundClip: 'text',
