@@ -12,8 +12,8 @@ export default async function Notes() {
   return (
     <Container>
       <Intro title="Notes">
-        A collection of unplugged thoughts & ideas on design, technology, and
-        everything in between.
+        Unplugged thoughts & ideas on design, technology, and everything in
+        between.
       </Intro>
       <section className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
         {notes

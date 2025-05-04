@@ -16,7 +16,7 @@ export default function Playground() {
   return (
     <Container>
       <Intro title="Playground">
-        A laboratory of digital experiments. Crafting and tinkering with code.
+        A laboratory of UI experiments, crafted with code.
       </Intro>
       <div className="gap-5 space-y-5 md:columns-2">
         <PlaygroundCard title="Avatar Stack" date="May 2025">
