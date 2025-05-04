@@ -20,12 +20,12 @@ export default async function Stack() {
             key={resource.id}
             href={(resource.properties.Link as any).url}
             target="_blank"
-            className="group relative flex flex-col gap-4 rounded-xl border border-border-neutral-faded bg-background-neutral-faded p-4 transition hover:bg-background-neutral-subtle"
+            className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex flex-col gap-4 rounded-xl border p-4 transition"
           >
             <div className="size-14">
               <img
                 src={(resource.properties.Image as any).url}
-                className="rounded-xl border border-border-neutral-subtle"
+                className="border-border-neutral-subtle rounded-xl border"
               ></img>
             </div>
             <div className="grid gap-0.5">
@@ -41,7 +41,7 @@ export default async function Stack() {
             </div>
             <ArrowUpRight
               width={20}
-              className="absolute right-3 top-3 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+              className="absolute top-3 right-3 scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
             />
           </a>
         ))}
