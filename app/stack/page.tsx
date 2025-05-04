@@ -1,7 +1,14 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
+import { stack } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { ArrowUpRight } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: stack.title,
+  description: stack.description,
+};
 
 export default async function Stack() {
   const stack = await fetchDatabaseContent(
