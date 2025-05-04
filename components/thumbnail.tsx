@@ -1,12 +1,13 @@
 interface ThumbnailProps {
   title: string;
+  size?: number;
 }
 
-export function Thumbnail({ title }: ThumbnailProps) {
+export function Thumbnail({ title, size = 120 }: ThumbnailProps) {
   return (
     <div
       style={{
-        fontSize: 120,
+        fontSize: size,
         letterSpacing: '-0.02em',
         backgroundImage:
           'linear-gradient(to right bottom, hsl(35, 4%, 8%) 0%, hsl(35, 4%, 4%) 100%)',
@@ -16,7 +17,7 @@ export function Thumbnail({ title }: ThumbnailProps) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        paddingLeft: 120,
+        paddingLeft: size,
       }}
     >
       <div
