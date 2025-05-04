@@ -67,7 +67,7 @@ export default async function Bookmarks({
                     },
                   }}
                   aria-current={isActive ? 'true' : undefined}
-                  className="rounded-lg bg-background-neutral-faded px-3 py-2 text-body-medium-subtle hover:bg-background-neutral-subtle active:scale-95 aria-current:bg-background-neutral-inverse aria-current:text-foreground-neutral-inverse"
+                  className="bg-background-neutral-faded text-body-medium-subtle hover:bg-background-neutral-subtle aria-current:bg-background-neutral-inverse aria-current:text-foreground-neutral-inverse rounded-lg px-3 py-2 active:scale-95"
                 >
                   {category}
                 </Link>
@@ -80,7 +80,7 @@ export default async function Bookmarks({
         {filteredBookmarks.map((bookmark) => (
           <div key={bookmark.id} className="flex flex-col gap-4">
             <a
-              className="group flex flex-col gap-2 rounded-lg p-2 hover:bg-background-neutral-faded"
+              className="group hover:bg-background-neutral-faded flex flex-col gap-2 rounded-lg p-2"
               href={(bookmark.properties.Link as any).url}
               target="_blank"
             >
@@ -93,7 +93,7 @@ export default async function Bookmarks({
                   alt="favicon"
                   className="size-4"
                 />
-                <p className="line-clamp-1 text-body-large-strong">
+                <p className="text-body-large-strong line-clamp-1">
                   {(bookmark.properties.Name as any).title[0].plain_text}
                 </p>
                 <ArrowUpRight
@@ -101,7 +101,7 @@ export default async function Bookmarks({
                   className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
                 />
               </div>
-              <p className="line-clamp-1 text-body-medium-subtle text-foreground-neutral-faded">
+              <p className="text-body-medium-subtle text-foreground-neutral-faded line-clamp-1">
                 {removeProtocolFromUrl((bookmark.properties.Link as any).url)}
               </p>
             </a>
