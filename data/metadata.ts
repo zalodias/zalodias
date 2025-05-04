@@ -10,7 +10,7 @@ export const bookmarks: Metadata = {
   description: 'A curated list of my favorite resources on the web.',
 };
 
-export const explore: Metadata = {
+export const home: Metadata = {
   title: 'Gonçalo Dias',
   description: 'Welcome to my corner of the internet.',
 };
