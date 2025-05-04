@@ -55,7 +55,7 @@ export default async function Note({
           <h1 className="text-title-large-strong">
             {(page.properties.Name as any).title[0].plain_text}
           </h1>
-          <div className="flex items-center gap-2 text-body-medium-default text-foreground-neutral-subtle">
+          <div className="text-body-medium-default text-foreground-neutral-subtle flex items-center gap-2">
             <p>
               {formatDate((page.properties.Date as any).date.start, {
                 year: 'numeric',
