@@ -2,7 +2,6 @@ import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { PlaygroundCard } from '@/components/playground-card';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
-import { BorderTrail } from '@/playground/border-trail/border-trail';
 import { TextShimmer } from '@/playground/text-shimmer/text-shimmer';
 import { Metadata } from 'next';
 
@@ -22,9 +21,6 @@ export default function Playground() {
       <div className="gap-5 space-y-5 md:columns-2">
         <PlaygroundCard title="Avatar Stack" date="May 2025">
           <AvatarStack />
-        </PlaygroundCard>
-        <PlaygroundCard title="Border Trail" date="May 2025">
-          <BorderTrail />
         </PlaygroundCard>
         <PlaygroundCard title="Text Shimmer" date="May 2025">
           <TextShimmer>Generating code</TextShimmer>
