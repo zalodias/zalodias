@@ -1,10 +1,17 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { Search } from '@/components/search';
+import { bookmarks } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { extractFaviconFromUrl, removeProtocolFromUrl } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: bookmarks.title,
+  description: bookmarks.description,
+};
 
 export default async function Bookmarks({
   searchParams,

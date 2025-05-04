@@ -1,8 +1,15 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
+import { notes } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { formatDate, generateSlug } from '@/lib/utils';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: notes.title,
+  description: notes.description,
+};
 
 export default async function Notes() {
   const notes = await fetchDatabaseContent(

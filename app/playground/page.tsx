@@ -1,15 +1,14 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { PlaygroundCard } from '@/components/playground-card';
+import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
 import { TextShimmer } from '@/playground/text-shimmer/text-shimmer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-  },
+  title: playground.title,
+  description: playground.description,
 };
 
 export default function Playground() {
