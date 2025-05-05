@@ -14,13 +14,13 @@
     "tailwindcss": "^4.1.5",
     "@notionhq/client": "^2.3.0",
     "@react-three/fiber": "^9.1.2",
-    "@types/three": "^0.175.0",
+    "@types/three": "^0.176.0",
     "@umami/api-client": "^0.78.0",
-    "lucide-react": "^0.501.0",
+    "lucide-react": "^0.507.0",
     "next": "15.3.1",
     "react": "^19",
     "react-dom": "^19",
-    "three": "^0.175.0"
+    "three": "^0.176.0"
   },
   "devDependencies": {
     "@types/node": "^22",
