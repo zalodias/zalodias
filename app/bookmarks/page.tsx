@@ -3,7 +3,11 @@ import { Intro } from '@/components/intro';
 import { Search } from '@/components/search';
 import { bookmarks } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
-import { extractFaviconFromUrl, removeProtocolFromUrl } from '@/lib/utils';
+import {
+  extractFaviconFromUrl,
+  formatDate,
+  removeProtocolFromUrl,
+} from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -39,6 +43,23 @@ export default async function Bookmarks({
 
     return matchesQuery && matchesCategory;
   });
+
+  const groupedBookmarks = filteredBookmarks.reduce(
+    (acc, bookmark) => {
+      const date = formatDate(bookmark.created_time, {
+        year: 'numeric',
+        month: 'long',
+      });
+
+      if (!acc[date]) {
+        acc[date] = [];
+      }
+      acc[date].push(bookmark);
+
+      return acc;
+    },
+    {} as Record<string, typeof filteredBookmarks>,
+  );
 
   const categories = [
     ...new Set(
