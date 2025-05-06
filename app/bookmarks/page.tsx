@@ -104,35 +104,48 @@ export default async function Bookmarks({
           </div>
         </section>
       </header>
-      <div className="flex flex-col gap-1">
-        {filteredBookmarks.map((bookmark) => (
-          <div key={bookmark.id} className="flex flex-col gap-4">
-            <a
-              className="group hover:bg-background-neutral-faded flex flex-col gap-2 rounded-lg p-2"
-              href={(bookmark.properties.Link as any).url}
-              target="_blank"
-            >
-              <div className="flex grow items-center gap-2">
-                <img
-                  src={extractFaviconFromUrl(
-                    (bookmark.properties.Link as any).url,
-                    64,
-                  )}
-                  alt="favicon"
-                  className="size-4"
-                />
-                <p className="text-body-large-strong line-clamp-1">
-                  {(bookmark.properties.Name as any).title[0].plain_text}
-                </p>
-                <ArrowUpRight
-                  width={16}
-                  className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
-                />
-              </div>
-              <p className="text-body-medium-subtle text-foreground-neutral-faded line-clamp-1">
-                {removeProtocolFromUrl((bookmark.properties.Link as any).url)}
-              </p>
-            </a>
+      <div className="flex flex-col gap-10">
+        {Object.entries(groupedBookmarks).map(([date, bookmarks]) => (
+          <div key={date} className="flex flex-col gap-5">
+            <div className="text-body-medium-subtle flex items-center justify-between gap-5">
+              <h2 className="whitespace-nowrap">{date}</h2>
+              <span className="bg-background-neutral-subtle h-[1px] w-full"></span>
+              <p>{bookmarks.length}</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              {bookmarks.map((bookmark) => (
+                <div key={bookmark.id} className="flex flex-col gap-4">
+                  <a
+                    className="group hover:bg-background-neutral-faded flex flex-col gap-2 rounded-lg p-2"
+                    href={(bookmark.properties.Link as any).url}
+                    target="_blank"
+                  >
+                    <div className="flex grow items-center gap-2">
+                      <img
+                        src={extractFaviconFromUrl(
+                          (bookmark.properties.Link as any).url,
+                          64,
+                        )}
+                        alt="favicon"
+                        className="size-4"
+                      />
+                      <p className="text-body-large-strong line-clamp-1">
+                        {(bookmark.properties.Name as any).title[0].plain_text}
+                      </p>
+                      <ArrowUpRight
+                        width={16}
+                        className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+                      />
+                    </div>
+                    <p className="text-body-medium-subtle text-foreground-neutral-faded line-clamp-1">
+                      {removeProtocolFromUrl(
+                        (bookmark.properties.Link as any).url,
+                      )}
+                    </p>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
