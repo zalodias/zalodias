@@ -26,7 +26,7 @@ export default async function Stack() {
             key={resource.id}
             href={(resource.properties.Link as any).url}
             target="_blank"
-            className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex flex-col gap-4 rounded-xl border p-4 transition"
+            className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex flex-col gap-4 rounded-xl border p-4 transition active:scale-[0.98]"
           >
             <div className="size-14">
               <img

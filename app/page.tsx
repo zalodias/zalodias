@@ -113,7 +113,7 @@ export default async function Home() {
           <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
             {bookmarks.slice(0, 6).map((bookmark) => (
               <a
-                className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex grow flex-col gap-3 rounded-lg border px-4 py-3 transition"
+                className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex grow flex-col gap-3 rounded-lg border px-4 py-3 transition active:scale-[0.98]"
                 href={(bookmark.properties.Link as any).url}
                 key={bookmark.id}
                 target="_blank"
@@ -166,7 +166,7 @@ export default async function Home() {
                 <Link
                   key={note.id}
                   href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-                  className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition"
+                  className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition active:scale-[0.98]"
                 >
                   <div className="flex flex-col gap-2">
                     <p className="text-title-small-strong grow">
