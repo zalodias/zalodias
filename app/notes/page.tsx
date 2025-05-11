@@ -31,7 +31,7 @@ export default async function Notes() {
             <Link
               key={note.id}
               href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-              className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition"
+              className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition active:scale-[0.98]"
             >
               <div className="flex flex-col gap-2">
                 <p className="text-title-small-strong grow">
