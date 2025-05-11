@@ -3,6 +3,7 @@ import { Intro } from '@/components/intro';
 import { PlaygroundCard } from '@/components/playground-card';
 import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
+import { DeleteButton } from '@/playground/delete-button/delete-button';
 import { TextShimmer } from '@/playground/text-shimmer/text-shimmer';
 import { Metadata } from 'next';
 
@@ -23,6 +24,9 @@ export default function Playground() {
         </PlaygroundCard>
         <PlaygroundCard title="Text Shimmer" date="May 2025">
           <TextShimmer>Generating code</TextShimmer>
+        </PlaygroundCard>
+        <PlaygroundCard title="Delete Button" date="May 2025">
+          <DeleteButton />
         </PlaygroundCard>
       </div>
     </Container>
