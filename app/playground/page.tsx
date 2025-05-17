@@ -4,6 +4,7 @@ import { PlaygroundCard } from '@/components/playground-card';
 import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
 import { DeleteButton } from '@/playground/delete-button/delete-button';
+import { TextScramble } from '@/playground/text-scramble';
 import { TextShimmer } from '@/playground/text-shimmer/text-shimmer';
 import { Metadata } from 'next';
 
@@ -27,6 +28,9 @@ export default function Playground() {
         </PlaygroundCard>
         <PlaygroundCard title="Delete Button" date="May 2025">
           <DeleteButton />
+        </PlaygroundCard>
+        <PlaygroundCard title="Text Scramble" date="May 2025">
+          <TextScramble />
         </PlaygroundCard>
       </div>
     </Container>
