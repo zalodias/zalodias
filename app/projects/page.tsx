@@ -20,14 +20,13 @@ export default async function Projects() {
   return (
     <Container>
       <Intro title="Projects">
-        A showcase of my latest design work. Currently designing digital health
-        solutions at{' '}
+        A showcase of my past design work at{' '}
         <a
-          href="https://www.swordhealth.com"
+          href="https://www.concealed.com"
           className="text-body-large-subtle text-foreground-brand-default hover:underline hover:underline-offset-2"
           target="_blank"
         >
-          Sword Health
+          Concealed
         </a>
         .
       </Intro>
