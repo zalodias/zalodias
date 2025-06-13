@@ -69,7 +69,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <h1
           id={heading1Id}
           key={block.id}
-          className="group relative mb-4 mt-10 scroll-mt-32 text-title-large-strong text-foreground-neutral-default md:scroll-mt-8"
+          className="group text-title-large-strong text-foreground-neutral-default relative mt-10 mb-4 scroll-mt-32 md:scroll-mt-8"
         >
           <HeadingAnchor id={heading1Id} />
           {renderRichText(block.heading_1.rich_text)}
@@ -81,7 +81,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <h2
           id={heading2Id}
           key={block.id}
-          className="group relative mb-1 mt-8 scroll-mt-32 text-title-medium-strong text-foreground-neutral-default md:scroll-mt-8"
+          className="group text-title-medium-strong text-foreground-neutral-default relative mt-8 mb-1 scroll-mt-32 md:scroll-mt-8"
         >
           <HeadingAnchor id={heading2Id} />
           {renderRichText(block.heading_2.rich_text)}
@@ -93,7 +93,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <h3
           id={heading3Id}
           key={block.id}
-          className="group relative mb-1 mt-8 scroll-mt-32 text-title-small-strong text-foreground-neutral-default md:scroll-mt-8"
+          className="group text-title-small-strong text-foreground-neutral-default relative mt-8 mb-1 scroll-mt-32 md:scroll-mt-8"
         >
           <HeadingAnchor id={heading3Id} />
           {renderRichText(block.heading_3.rich_text)}
@@ -105,7 +105,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
           ? block.image.external.url
           : block.image.file.url;
       return (
-        <figure key={block.id} className="mb-6 mt-6 grid items-center gap-3">
+        <figure key={block.id} className="mt-6 mb-6 grid items-center gap-3">
           <img
             src={src}
             loading="lazy"
@@ -118,7 +118,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
             className="rounded-xl"
           />
           {block.image.caption && block.image.caption[0]?.text.content && (
-            <figcaption className="text-center text-body-small-default text-foreground-neutral-subtle">
+            <figcaption className="text-body-small-default text-foreground-neutral-subtle text-center">
               {block.image.caption[0].text.content}
             </figcaption>
           )}
@@ -133,7 +133,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
         <video
           key={block.id}
           controls
-          className="mb-6 mt-6 rounded-xl"
+          className="mt-6 mb-6 rounded-xl"
           preload="none"
           autoPlay={true}
           loop={true}
@@ -145,7 +145,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <li
           key={block.id}
-          className="ms-3 list-disc text-body-large-default text-foreground-neutral-subtle"
+          className="text-body-large-default text-foreground-neutral-subtle ms-3 list-disc"
         >
           {renderRichText(block.bulleted_list_item.rich_text)}
         </li>
@@ -154,7 +154,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <li
           key={block.id}
-          className="ms-3 list-decimal text-body-large-default text-foreground-neutral-subtle"
+          className="text-body-large-default text-foreground-neutral-subtle ms-3 list-decimal"
         >
           {renderRichText(block.numbered_list_item.rich_text)}
         </li>
@@ -163,21 +163,19 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <div
           key={block.id}
-          className="my-3 flex gap-2 rounded-lg bg-background-neutral-faded px-5 py-4"
+          className="bg-background-neutral-faded my-3 flex gap-2 rounded-lg px-5 py-4"
         >
           {block.callout.icon && <span>{block.callout.icon.emoji}</span>}
-          <div className="grow">
-            {renderRichText(block.callout.rich_text)}
-          </div>
+          <div className="grow">{renderRichText(block.callout.rich_text)}</div>
         </div>
       );
     case 'divider':
-      return <hr key={block.id} className="my-2 border-border-neutral-faded" />;
+      return <hr key={block.id} className="border-border-neutral-faded my-2" />;
     case 'quote':
       return (
         <blockquote
           key={block.id}
-          className="my-3 border-l-2 border-l-foreground-neutral-default pl-4 font-serif italic text-foreground-neutral-default"
+          className="border-l-foreground-neutral-default text-foreground-neutral-default my-3 border-l-2 pl-4 font-serif italic"
         >
           {renderRichText(block.quote.rich_text)}
         </blockquote>
@@ -185,8 +183,8 @@ export function NotionBlock({ block }: NotionBlockProps) {
     case 'toggle':
       return (
         <details className="group mt-1 first-of-type:mt-2">
-          <summary className="mb-1 flex cursor-pointer items-center gap-2 text-body-large-subtle">
-            <div className="rounded-md p-0.5 transition group-open:rotate-90 group-hover:bg-background-neutral-subtle">
+          <summary className="text-body-large-subtle mb-1 flex cursor-pointer items-center gap-2">
+            <div className="group-hover:bg-background-neutral-subtle rounded-md p-0.5 transition group-open:rotate-90">
               <ChevronRight size={16} />
             </div>
             <span>{renderRichText(block.toggle.rich_text)}</span>
