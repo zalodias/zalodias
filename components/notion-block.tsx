@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { generateSlug } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
 import { HeadingAnchor } from './heading-anchor';
@@ -14,7 +16,7 @@ interface NotionBlockProps {
 }
 
 const renderRichText = (richText: any[]) => {
-  return richText.map(({ annotations, text }: any) => {
+  return richText.map(({ annotations, text }: any, index: number) => {
     const { bold, italic, strikethrough, underline, code } = annotations;
 
     const annotationClassNames = [
@@ -30,7 +32,7 @@ const renderRichText = (richText: any[]) => {
       .join(' ');
 
     return (
-      <>
+      <React.Fragment key={`${text.content}-${index}`}>
         {text.link ? (
           <a
             key={text.link.url}
@@ -45,7 +47,7 @@ const renderRichText = (richText: any[]) => {
             {text.content}
           </span>
         )}
-      </>
+      </React.Fragment>
     );
   });
 };
