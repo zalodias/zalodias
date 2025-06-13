@@ -30,6 +30,7 @@ export async function fetchDatabaseContent(
   options?: {
     sorts?: SortConfig[];
     filter?: FilterConfig;
+    page_size?: number;
   },
 ) {
   const data = await notion.databases.query({
@@ -42,6 +43,7 @@ export async function fetchDatabaseContent(
       property: options.filter.property,
       status: options.filter.status,
     },
+    page_size: options?.page_size ?? 100,
   });
 
   return data.results.filter(isPageObjectResponse);
