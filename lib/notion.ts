@@ -25,8 +25,24 @@ function isPageObjectResponse(response: any): response is PageObjectResponse {
   return !!response.properties;
 }
 
-export async function fetchDatabaseContent(id: string) {
-  const data = await notion.databases.query({ database_id: id });
+export async function fetchDatabaseContent(
+  id: string,
+  options?: {
+    sorts?: SortConfig[];
+    filter?: FilterConfig;
+  },
+) {
+  const data = await notion.databases.query({
+    database_id: id,
+    sorts: options?.sorts?.map((sort) => ({
+      property: sort.property,
+      direction: sort.direction,
+    })),
+    filter: options?.filter && {
+      property: options.filter.property,
+      status: options.filter.status,
+    },
+  });
 
   return data.results.filter(isPageObjectResponse);
 }
