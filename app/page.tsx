@@ -25,8 +25,18 @@ export const metadata: Metadata = {
 export default async function Home() {
   const [projects, bookmarks, notes] = await Promise.all([
     fetchDatabaseContent(process.env.NOTION_PROJECTS_DATABASE_ID!),
-    fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!),
-    fetchDatabaseContent(process.env.NOTION_NOTES_DATABASE_ID!),
+    fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!, {
+      page_size: 6,
+    }),
+    fetchDatabaseContent(process.env.NOTION_NOTES_DATABASE_ID!, {
+      page_size: 4,
+      filter: {
+        property: 'Status',
+        status: {
+          equals: 'Live',
+        },
+      },
+    }),
   ]);
 
   return (
@@ -111,7 +121,7 @@ export default async function Home() {
             </Link>
           </header>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
-            {bookmarks.slice(0, 6).map((bookmark) => (
+            {bookmarks.map((bookmark) => (
               <a
                 className="group border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle relative flex grow flex-col gap-3 rounded-lg border px-4 py-3 transition active:scale-[0.98]"
                 href={(bookmark.properties.Link as any).url}
@@ -156,34 +166,28 @@ export default async function Home() {
             </Link>
           </header>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
-            {notes
-              .slice(0, 4)
-              .filter(
-                (note) =>
-                  (note.properties.Status as any).select.name === 'Ready',
-              )
-              .map((note) => (
-                <Link
-                  key={note.id}
-                  href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
-                  className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition active:scale-[0.98]"
-                >
-                  <div className="flex flex-col gap-2">
-                    <p className="text-title-small-strong grow">
-                      {(note.properties.Name as any).title[0].plain_text}
-                    </p>
-                    <p className="text-foreground-neutral-subtle">
-                      {(note.properties.Summary as any).rich_text[0].plain_text}
-                    </p>
-                  </div>
-                  <span className="text-body-medium-subtle text-foreground-neutral-faded">
-                    {formatDate((note.properties.Date as any).date.start, {
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </span>
-                </Link>
-              ))}
+            {notes.map((note) => (
+              <Link
+                key={note.id}
+                href={`/notes/${generateSlug((note.properties.Name as any).title[0].plain_text)}`}
+                className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition active:scale-[0.98]"
+              >
+                <div className="flex flex-col gap-2">
+                  <p className="text-title-small-strong grow">
+                    {(note.properties.Name as any).title[0].plain_text}
+                  </p>
+                  <p className="text-foreground-neutral-subtle">
+                    {(note.properties.Summary as any).rich_text[0].plain_text}
+                  </p>
+                </div>
+                <span className="text-body-medium-subtle text-foreground-neutral-faded">
+                  {formatDate((note.properties.Date as any).date.start, {
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
       </Transition>
