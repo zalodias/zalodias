@@ -9,6 +9,18 @@ export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
+interface SortConfig {
+  property: string;
+  direction: 'ascending' | 'descending';
+}
+
+interface FilterConfig {
+  property: string;
+  status: {
+    equals: string;
+  };
+}
+
 function isPageObjectResponse(response: any): response is PageObjectResponse {
   return !!response.properties;
 }
