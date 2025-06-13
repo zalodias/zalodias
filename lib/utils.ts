@@ -25,7 +25,7 @@ export function getGreetingFromHours(hours: number): string {
     return 'Good night';
   } else if (hours < 12) {
     return 'Good morning';
-  } else if (hours < 18) {
+  } else if (hours < 20) {
     return 'Good afternoon';
   } else {
     return 'Good evening';
