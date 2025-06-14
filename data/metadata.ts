@@ -12,7 +12,8 @@ export const bookmarks: Metadata = {
 
 export const home: Metadata = {
   title: 'Gonçalo Dias',
-  description: 'Welcome to my corner of the internet.',
+  description:
+    'Software designer crafting intuitive & polished digital experiences — from concept to code.',
 };
 
 export const notes: Metadata = {
