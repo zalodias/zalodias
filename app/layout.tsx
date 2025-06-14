@@ -5,9 +5,16 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Sidebar } from '@/components/sidebar';
 import { home } from '@/data/metadata';
+import type { Viewport } from 'next';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import { PropsWithChildren } from 'react';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   title: home.title,
