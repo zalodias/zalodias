@@ -35,3 +35,8 @@ export const stack: Metadata = {
   title: 'Stack',
   description: 'The essential tools powering my daily workflow.',
 };
+
+export const shots: Metadata = {
+  title: 'Shots',
+  description: 'A collection of memories in visual form.',
+};
