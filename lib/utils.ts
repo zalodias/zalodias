@@ -114,3 +114,13 @@ export function calculateReadingTime(text: string): number {
 export function removeProtocolFromUrl(url: string): string {
   return url.replace(/^https?:\/\//, '');
 }
+
+export function isWithinDateRange(start: string, duration: number): boolean {
+  const startDate = new Date(start);
+  const endDate = new Date(
+    startDate.getTime() + duration * 24 * 60 * 60 * 1000,
+  );
+  const now = new Date();
+
+  return now >= startDate && now <= endDate;
+}
