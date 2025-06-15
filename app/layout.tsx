@@ -5,8 +5,7 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Sidebar } from '@/components/sidebar';
 import { home } from '@/data/metadata';
-import type { Viewport } from 'next';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { PropsWithChildren } from 'react';
 
