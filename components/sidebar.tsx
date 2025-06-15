@@ -19,8 +19,6 @@ export function Sidebar() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      console.log(e.key);
-
       if ((e.metaKey || e.ctrlKey) && e.key === '\\') {
         e.preventDefault();
 
