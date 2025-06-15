@@ -14,6 +14,22 @@ import { NavigationLink } from './navigation-link';
 
 export function Sidebar() {
   const currentTime = useCurrentTime();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      console.log(e.key);
+
+      if ((e.metaKey || e.ctrlKey) && e.key === '\\') {
+        e.preventDefault();
+
+        setIsCollapsed((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <aside className="border-border-neutral-faded bg-background-neutral-faded sticky top-0 z-10 hidden h-screen w-80 flex-col gap-8 border-r px-6 py-4 lg:flex">
