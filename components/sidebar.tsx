@@ -30,6 +30,13 @@ export function Sidebar() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--sidebar-width',
+      isCollapsed ? '5rem' : '20rem',
+    );
+  }, [isCollapsed]);
+
   return (
     <aside
       className={`border-border-neutral-faded bg-background-neutral-faded sticky top-0 z-10 hidden h-screen flex-col gap-8 border-r px-4 py-4 transition-all duration-320 lg:flex ${
