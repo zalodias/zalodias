@@ -61,7 +61,7 @@ export function Sidebar() {
         </div>
         <button
           onClick={() => setIsCollapsed((prev) => !prev)}
-          className={`text-foreground-neutral-faded hover:text-foreground-neutral-default bg-background-neutral-subtle border-border-neutral-subtle absolute -right-[30px] cursor-pointer rounded-full border p-1 transition-all duration-320`}
+          className={`text-foreground-neutral-faded hover:text-foreground-neutral-default bg-background-neutral-subtle border-border-neutral-subtle absolute -right-[30px] cursor-pointer rounded-full border p-1`}
           aria-label={isCollapsed ? 'Expand' : 'Collapse'}
         >
           <ChevronLeft
