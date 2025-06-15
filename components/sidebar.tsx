@@ -39,7 +39,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`border-border-neutral-faded bg-background-neutral-faded sticky top-0 z-10 hidden h-screen flex-col gap-8 border-r px-4 py-4 transition-all duration-320 lg:flex ${
+      className={`border-border-neutral-faded bg-background-neutral-faded sticky top-0 z-10 hidden h-screen flex-col gap-8 border-r px-4 py-4 transition-[width] duration-320 lg:flex ${
         isCollapsed ? 'w-20' : 'w-80'
       }`}
     >
