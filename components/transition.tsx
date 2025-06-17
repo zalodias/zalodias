@@ -23,7 +23,7 @@ export function Transition({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ type: 'easeOut', duration, delay }}
+      transition={{ ease: 'easeOut', duration, delay }}
     >
       {children}
     </motion.div>
