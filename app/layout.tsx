@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description: home.description,
 };
 
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: home.title,
+  url: 'https://zalodias.com',
+};
+
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className="scroll-smooth">
@@ -32,6 +39,13 @@ export default function Layout({ children }: PropsWithChildren) {
       <Script
         src="https://cloud.umami.is/script.js"
         data-website-id="49a480db-8f0e-4ed8-ac4e-3fd0036c097e"
+      />
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+        key="schema"
       />
     </html>
   );
