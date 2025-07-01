@@ -191,6 +191,37 @@ export default async function Home() {
           </div>
         </section>
       </Transition>
+      <Transition delay={0.2}>
+        <div className="bg-background-neutral-faded border-border-neutral-faded grid gap-10 rounded-lg border px-6 py-5 md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-body-large-strong">Join me every month</h2>
+            <p className="text-foreground-neutral-faded text-body-medium-default">
+              Life updates, work in progress, and things I'm curious about. No
+              ads. No sponsors. No spam.
+            </p>
+          </div>
+          <form
+            method="post"
+            action={`https://app.loops.so/api/newsletter-form/${process.env.LOOPS_FORM_ID}`}
+            className="flex items-center gap-3"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              className="border-border-neutral-subtle placeholder:text-foreground-neutral-faded text-body-medium-default w-full min-w-50 rounded-lg border px-4 py-3 transition"
+            />
+            <input type="hidden" name="userGroup" value="Newsletter" />
+            <button
+              type="submit"
+              className="bg-background-neutral-inverse/80 hover:bg-background-neutral-inverse text-foreground-neutral-inverse text-body-medium-subtle rounded-lg border px-5 py-3 transition active:scale-[0.98]"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </Transition>
     </Container>
   );
 }
