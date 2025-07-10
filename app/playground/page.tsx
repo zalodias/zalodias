@@ -3,9 +3,10 @@ import { Intro } from '@/components/intro';
 import { PlaygroundCard } from '@/components/playground-card';
 import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
-import { DeleteButton } from '@/playground/delete-button/delete-button';
+import { DeleteButton } from '@/playground/delete-button';
+import { RichTextToolbar } from '@/playground/rich-text-toolbar';
 import { TextScramble } from '@/playground/text-scramble';
-import { TextShimmer } from '@/playground/text-shimmer/text-shimmer';
+import { TextShimmer } from '@/playground/text-shimmer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,6 +32,9 @@ export default function Playground() {
         </PlaygroundCard>
         <PlaygroundCard title="Text Scramble" date="May 2025">
           <TextScramble />
+        </PlaygroundCard>
+        <PlaygroundCard title="Rich Text Toolbar" date="July 2025">
+          <RichTextToolbar />
         </PlaygroundCard>
       </div>
     </Container>
