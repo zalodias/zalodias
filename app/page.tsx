@@ -4,6 +4,7 @@ import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
 import { Transition } from '@/components/transition';
 import { home } from '@/data/metadata';
+import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { getVisitorCount } from '@/lib/umami';
 import {
@@ -14,7 +15,6 @@ import {
 } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -23,8 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const [projects, bookmarks, notes] = await Promise.all([
-    fetchDatabaseContent(process.env.NOTION_PROJECTS_DATABASE_ID!),
+  const [bookmarks, notes] = await Promise.all([
     fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!, {
       page_size: 6,
     }),
@@ -61,50 +60,34 @@ export default async function Home() {
       <Transition delay={0.4}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
-            <h1 className="text-title-medium-strong grow">Featured Work</h1>
-            <Link
-              href="/projects"
-              className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
-            >
-              View All
-              <MovingArrow />
-            </Link>
+            <h1 className="text-title-medium-strong grow">Work</h1>
           </header>
-          <div className="grid gap-10 md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]">
-            {projects
-              .filter(
-                (project) =>
-                  (project.properties.Status as any).select.name === 'Ready',
-              )
-              .reverse()
-              .map((project) => (
-                <Link
-                  key={project.id}
-                  className="flex flex-col gap-4"
-                  href={`/projects/${generateSlug((project.properties.Name as any).title[0].plain_text)}`}
-                >
-                  <div className="bg-background-neutral-faded relative block w-full overflow-clip rounded-xl">
-                    <Image
-                      src={(project.cover as any).external.url}
-                      alt={(project.properties.Name as any).title[0].plain_text}
-                      width={1920}
-                      height={1440}
-                      className="object-cover duration-200 hover:scale-105"
+          <div className="grid gap-5">
+            {work.map((work) => (
+              <a
+                href={work.link}
+                key={work.company}
+                className="flex flex-col items-start gap-4 py-2 md:flex-row md:items-center"
+              >
+                <div className="overflow-hidden rounded-full">{work.image}</div>
+                <div className="flex grow flex-col">
+                  <div className="group flex items-center gap-2">
+                    <h4 className="text-body-large-strong">{work.company}</h4>
+                    <ArrowUpRight
+                      width={16}
+                      className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
                     />
                   </div>
-                  <div className="flex flex-col gap-1">
-                    <h2 className="text-title-small-strong">
-                      {(project.properties.Name as any).title[0].plain_text}
-                    </h2>
-                    <p className="text-body-large-default text-foreground-neutral-faded">
-                      {
-                        (project.properties.Description as any).rich_text[0]
-                          .plain_text
-                      }
-                    </p>
-                  </div>
-                </Link>
-              ))}
+                  <p className="text-body-large-default text-foreground-neutral-faded whitespace-nowrap">
+                    {work.description}
+                  </p>
+                </div>
+                <span className="bg-background-neutral-subtle hidden h-[1px] w-px md:block" />
+                <time className="text-body-medium-subtle text-foreground-neutral-faded whitespace-nowrap">
+                  {work.date}
+                </time>
+              </a>
+            ))}
           </div>
         </section>
       </Transition>
