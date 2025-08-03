@@ -65,7 +65,7 @@ export default async function Home() {
           <div className="grid gap-5">
             {work.map((work) => (
               <a
-                href={work.link}
+                href={work.website}
                 key={work.company}
                 className="flex flex-col items-start gap-4 py-2 md:flex-row md:items-center"
               >
