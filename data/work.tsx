@@ -4,7 +4,7 @@ import { Sword } from '@/assets/icons/Sword';
 export interface Work {
   company: string;
   image: React.ReactNode;
-  link: string;
+  website: string;
   title: string;
   description: string;
   date: string;
