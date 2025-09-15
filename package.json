@@ -9,18 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@notionhq/client": "^4.0.2",
+    "@notionhq/client": "^5.1.0",
     "@react-three/fiber": "^9.3.0",
-    "@tailwindcss/postcss": "^4.1.12",
-    "@types/three": "^0.178.1",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/three": "^0.180.0",
     "@umami/api-client": "^0.80.0",
-    "lucide-react": "^0.539.0",
-    "next": "15.4.6",
+    "lucide-react": "^0.544.0",
+    "next": "15.5.3",
     "postcss": "^8.5.6",
     "react": "^19",
     "react-dom": "^19",
     "tailwindcss": "^4.1.5",
-    "three": "^0.179.1"
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@types/node": "^24",
@@ -36,8 +36,8 @@
     "raw-loader": "^4.0.2",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.4",
-    "tsx": "^4.20.4",
+    "tsx": "^4.20.5",
     "typescript": "^5",
-    "unsplash-js": "^7.0.19"
+    "unsplash-js": "^7.0.20"
   }
 }
