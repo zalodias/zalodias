@@ -31,7 +31,7 @@ export default async function Project({
   return (
     <Container className="gap-10 pt-0 lg:pt-10">
       <section className="flex flex-col gap-10">
-        <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-clip bg-background-neutral-faded lg:static lg:left-0 lg:order-1 lg:w-full lg:translate-x-0 lg:rounded-xl">
+        <div className="bg-background-neutral-faded relative left-1/2 w-screen -translate-x-1/2 overflow-clip lg:static lg:left-0 lg:order-1 lg:w-full lg:translate-x-0 lg:rounded-xl">
           <Image
             src={(page.cover as any).external.url}
             alt={(page.properties.Name as any).title[0].plain_text}
@@ -52,7 +52,7 @@ export default async function Project({
         </header>
         <section className="flex flex-wrap gap-10 md:gap-20">
           <div className="flex flex-col gap-2">
-            <p className="text-body-small-subtle uppercase text-foreground-neutral-faded">
+            <p className="text-body-small-subtle text-foreground-neutral-faded uppercase">
               Project
             </p>
             <p className="text-body-medium-subtle">
@@ -60,7 +60,7 @@ export default async function Project({
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-body-small-subtle uppercase text-foreground-neutral-faded">
+            <p className="text-body-small-subtle text-foreground-neutral-faded uppercase">
               Year
             </p>
             <p className="text-body-medium-subtle">
@@ -68,7 +68,7 @@ export default async function Project({
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-body-small-subtle uppercase text-foreground-neutral-faded">
+            <p className="text-body-small-subtle text-foreground-neutral-faded uppercase">
               Deliverable
             </p>
             <p className="text-body-medium-subtle">
@@ -76,7 +76,7 @@ export default async function Project({
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-body-small-subtle uppercase text-foreground-neutral-faded">
+            <p className="text-body-small-subtle text-foreground-neutral-faded uppercase">
               Skills
             </p>
             <p className="text-body-medium-subtle">
