@@ -7,7 +7,7 @@ interface TextStreamingProps {
 }
 
 export function TextStreaming({
-  text = 'There’s this gentle pull towards understanding things, even what seems unexplainable? Like the vastness of space, or the sheer luck of being here at all. It doesn’t need a grand answer. Just the willingness to keep wondering, and maybe even find comfort in not knowing.',
+  text = 'Whenever you read my words, my hope is that you imagine me speaking to you.',
 }: TextStreamingProps) {
   const [progress, setProgress] = useState(0);
   const fadeWidth = 40;
