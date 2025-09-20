@@ -7,6 +7,7 @@ import { DeleteButton } from '@/playground/delete-button';
 import { RichTextToolbar } from '@/playground/rich-text-toolbar';
 import { TextScramble } from '@/playground/text-scramble';
 import { TextShimmer } from '@/playground/text-shimmer';
+import { TextStreaming } from '@/playground/text-streaming';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -35,6 +36,9 @@ export default function Playground() {
         </PlaygroundCard>
         <PlaygroundCard title="Rich Text Toolbar">
           <RichTextToolbar />
+        </PlaygroundCard>
+        <PlaygroundCard title="Text Streaming" restart>
+          <TextStreaming />
         </PlaygroundCard>
       </div>
     </Container>
