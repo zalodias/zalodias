@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-type TextScrambleProps = {
+interface TextScrambleProps {
   text?: string;
   glyphs?: string;
   duration?: number;
