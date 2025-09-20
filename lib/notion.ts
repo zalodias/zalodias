@@ -6,6 +6,7 @@ import {
 
 export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
+  timeoutMs: 30000,
 });
 
 interface SortConfig {
@@ -25,25 +26,43 @@ function isPageObjectResponse(response: any): response is PageObjectResponse {
 }
 
 export async function fetchDatabaseContent(
-  id: string,
+  databaseId: string,
   options?: {
     sorts?: SortConfig[];
     filter?: FilterConfig;
     page_size?: number;
   },
+  fetchOptions?: RequestInit,
 ) {
-  const data: any = await notion.dataSources.query({
-    data_source_id: id,
-    sorts: options?.sorts?.map((sort) => ({
-      property: sort.property,
-      direction: sort.direction,
-    })),
-    filter: options?.filter && {
-      property: options.filter.property,
-      status: options.filter.status,
+  const response = await fetch(
+    `https://api.notion.com/v1/databases/${databaseId}/query`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Notion-Version': '2022-06-28',
+      },
+      body: JSON.stringify({
+        sorts: options?.sorts?.map((sort) => ({
+          property: sort.property,
+          direction: sort.direction,
+        })),
+        filter: options?.filter && {
+          property: options.filter.property,
+          status: options.filter.status,
+        },
+        page_size: options?.page_size ?? 100,
+      }),
+      ...fetchOptions,
     },
-    page_size: options?.page_size ?? 100,
-  });
+  );
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch data from Notion: ${response.statusText}`);
+  }
+
+  const data = await response.json();
 
   return data.results.filter(isPageObjectResponse) as PageObjectResponse[];
 }
