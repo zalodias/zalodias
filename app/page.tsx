@@ -91,7 +91,7 @@ export default async function Home() {
           </div>
         </section>
       </Transition>
-      <Transition delay={0.2}>
+      <Transition delay={0.4}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
             <h1 className="text-title-medium-strong grow">Latest Bookmarks</h1>
@@ -136,7 +136,7 @@ export default async function Home() {
           </div>
         </section>
       </Transition>
-      <Transition delay={0.2}>
+      <Transition delay={0.4}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
             <h1 className="text-title-medium-strong grow">Notes</h1>

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 export function Transition({
-  duration = 0.2,
+  duration = 0.4,
   delay = 0,
   offset = 20,
   children,
