@@ -1,4 +1,11 @@
-import { Aperture, Bookmark, Compass, Layers2, PenLine } from 'lucide-react';
+import {
+  Aperture,
+  Bookmark,
+  Compass,
+  FlaskConical,
+  Layers2,
+  PenLine,
+} from 'lucide-react';
 
 export interface NavigationItem {
   path: string;
@@ -28,9 +35,15 @@ export const navigation: NavigationItem[] = [
     shortcut: '4',
   },
   {
+    path: '/playground',
+    label: 'Playground',
+    icon: <FlaskConical width={20} />,
+    shortcut: '5',
+  },
+  {
     path: '/shots',
     label: 'Shots',
     icon: <Aperture width={20} />,
-    shortcut: '5',
+    shortcut: '6',
   },
 ];
