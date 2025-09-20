@@ -8,13 +8,11 @@ interface TextScrambleProps {
   duration?: number;
   interval?: number;
   className?: string;
-};
-
-const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}[]()!@#$%^&*-+=_:;,.<>?/';
+}
 
 export function TextScramble({
-  text = 'Scramble Me',
-  glyphs = GLYPHS,
+  text = 'design engineer',
+  glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}[]()!@#$%^&*-+=_:;,.<>?/',
   duration = 800,
   interval = 20,
 }: TextScrambleProps) {
