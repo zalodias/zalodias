@@ -21,19 +21,19 @@ export default function Playground() {
         A laboratory of UI experiments, crafted with code.
       </Intro>
       <div className="gap-5 space-y-5 md:columns-2">
-        <PlaygroundCard title="Avatar Stack" date="May 2025">
+        <PlaygroundCard title="Avatar Stack">
           <AvatarStack />
         </PlaygroundCard>
-        <PlaygroundCard title="Text Shimmer" date="May 2025">
+        <PlaygroundCard title="Text Shimmer">
           <TextShimmer>Generating code</TextShimmer>
         </PlaygroundCard>
-        <PlaygroundCard title="Delete Button" date="May 2025">
+        <PlaygroundCard title="Delete Button">
           <DeleteButton />
         </PlaygroundCard>
-        <PlaygroundCard title="Text Scramble" date="May 2025">
+        <PlaygroundCard title="Text Scramble" restart>
           <TextScramble />
         </PlaygroundCard>
-        <PlaygroundCard title="Rich Text Toolbar" date="July 2025">
+        <PlaygroundCard title="Rich Text Toolbar">
           <RichTextToolbar />
         </PlaygroundCard>
       </div>
