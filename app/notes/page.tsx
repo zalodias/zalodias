@@ -22,7 +22,6 @@ export default async function Notes() {
         },
       },
     },
-    { next: { revalidate: 3600 } },
   );
 
   return (
