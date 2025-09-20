@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type TextScrambleProps = {
   text?: string;
@@ -62,17 +62,15 @@ export function TextScramble({
     animateScramble(performance.now());
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
+    triggerScramble();
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
   return (
-    <div
-      className="text-foreground-neutral-strong hover:text-foreground-neutral-default text-body-medium-subtle hover:bg-background-neutral-inverse/8 active:bg-background-neutral-strong cursor-pointer rounded-sm px-4 py-2 font-mono uppercase transition active:scale-[0.96]"
-      onClick={triggerScramble}
-    >
+    <div className="text-foreground-neutral-strong text-body-medium-subtle font-mono uppercase">
       {characters.map((char, i) => (
         <span key={i}>{char}</span>
       ))}
