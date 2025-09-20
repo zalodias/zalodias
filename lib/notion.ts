@@ -32,8 +32,8 @@ export async function fetchDatabaseContent(
     page_size?: number;
   },
 ) {
-  const data: any = await notion.databases.query({
-    database_id: id,
+  const data: any = await notion.dataSources.query({
+    data_source_id: id,
     sorts: options?.sorts?.map((sort) => ({
       property: sort.property,
       direction: sort.direction,
