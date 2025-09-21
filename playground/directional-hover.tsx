@@ -1,6 +1,6 @@
 'use client';
 
-export function RichTextToolbar() {
+export function DirectionalHover() {
   return (
     <div className="group bg-background-neutral-default border-border-neutral-faded grid grid-cols-8 place-items-center rounded-xl border p-1">
       <div

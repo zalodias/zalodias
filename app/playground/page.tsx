@@ -4,7 +4,7 @@ import { PlaygroundCard } from '@/components/playground-card';
 import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
 import { DeleteButton } from '@/playground/delete-button';
-import { RichTextToolbar } from '@/playground/rich-text-toolbar';
+import { DirectionalHover } from '@/playground/directional-hover';
 import { TextScramble } from '@/playground/text-scramble';
 import { TextShimmer } from '@/playground/text-shimmer';
 import { TextStreaming } from '@/playground/text-streaming';
@@ -34,8 +34,8 @@ export default function Playground() {
         <PlaygroundCard title="Text Scramble" restart>
           <TextScramble />
         </PlaygroundCard>
-        <PlaygroundCard title="Rich Text Toolbar">
-          <RichTextToolbar />
+        <PlaygroundCard title="Directional Hover  ">
+          <DirectionalHover />
         </PlaygroundCard>
         <PlaygroundCard title="Text Streaming" restart>
           <TextStreaming />
