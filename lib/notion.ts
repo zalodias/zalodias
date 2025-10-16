@@ -8,17 +8,17 @@ export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-interface SortConfig {
-  property: string;
-  direction: 'ascending' | 'descending';
-}
+type SortConfig =
+  | { property: string; direction: 'ascending' | 'descending' }
+  | {
+      timestamp: 'created_time' | 'last_edited_time';
+      direction: 'ascending' | 'descending';
+    };
 
-interface FilterConfig {
+type FilterConfig = {
   property: string;
-  status: {
-    equals: string;
-  };
-}
+  status: { equals: string };
+};
 
 function isPageObjectResponse(response: any): response is PageObjectResponse {
   return !!response.properties;
@@ -34,10 +34,11 @@ export async function fetchDatabaseContent(
 ) {
   const data: any = await notion.dataSources.query({
     data_source_id: id,
-    sorts: options?.sorts?.map((sort) => ({
-      property: sort.property,
-      direction: sort.direction,
-    })),
+    sorts: options?.sorts?.map((sort) =>
+      'property' in sort
+        ? { property: sort.property, direction: sort.direction }
+        : { timestamp: sort.timestamp, direction: sort.direction },
+    ),
     filter: options?.filter && {
       property: options.filter.property,
       status: options.filter.status,
