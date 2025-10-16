@@ -26,6 +26,7 @@ export default async function Home() {
   const [bookmarks, notes] = await Promise.all([
     fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!, {
       page_size: 6,
+      sorts: [{ timestamp: 'created_time', direction: 'descending' }],
     }),
     fetchDatabaseContent(process.env.NOTION_NOTES_DATABASE_ID!, {
       page_size: 4,
@@ -35,6 +36,7 @@ export default async function Home() {
           equals: 'Live',
         },
       },
+      sorts: [{ timestamp: 'created_time', direction: 'descending' }],
     }),
   ]);
 
