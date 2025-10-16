@@ -26,6 +26,7 @@ export default async function Bookmarks({
 
   const bookmarks = await fetchDatabaseContent(
     process.env.NOTION_BOOKMARKS_DATABASE_ID!,
+    { sorts: [{ timestamp: 'created_time', direction: 'descending' }] },
   );
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {

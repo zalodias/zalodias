@@ -21,6 +21,7 @@ export default async function Notes() {
           equals: 'Live',
         },
       },
+      sorts: [{ timestamp: 'created_time', direction: 'descending' }],
     },
   );
 
