@@ -5,12 +5,27 @@ export const umami = getClient({
   apiKey: process.env.UMAMI_API_KEY,
 });
 
-export async function getVisitorCount(url?: string) {
+export async function getTotalUniqueVisitors() {
   const { data } = await umami.getWebsiteStats(process.env.UMAMI_WEBSITE_ID!, {
-    url,
     startAt: 0,
     endAt: Date.now(),
   });
 
-  return data?.visitors.value;
+  return data?.visitors ?? 0;
+}
+
+export async function getVisitorCount(path: string) {
+  const { data } = await umami.getWebsiteMetrics(
+    process.env.UMAMI_WEBSITE_ID!,
+    {
+      type: 'url',
+      startAt: 0,
+      endAt: Date.now(),
+    },
+  );
+
+  const paths = Object.fromEntries(
+    data.map(({ x, y }: { x: string; y: number }) => [x, y]),
+  );
+  return paths[path] ?? 0;
 }
