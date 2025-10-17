@@ -1,4 +1,4 @@
-export function DeleteButton() {
+export function HoldDelete() {
   return (
     <button className="bg-background-neutral-inverse text-foreground-neutral-inverse text-body-large-subtle group relative flex cursor-pointer items-center gap-2 rounded-full px-5 py-2 transition-transform duration-200 ease-out select-none active:scale-[0.98]">
       <div
@@ -13,7 +13,7 @@ export function DeleteButton() {
             fill="currentColor"
           />
         </svg>
-        Hold to Delete
+        Delete file
       </div>
       <svg height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16">
         <path
@@ -23,7 +23,7 @@ export function DeleteButton() {
           fill="currentColor"
         />
       </svg>
-      Hold to Delete
+      Delete file
     </button>
   );
 }

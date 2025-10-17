@@ -4,8 +4,8 @@ import { PlaygroundCard } from '@/components/playground-card';
 import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
 import { BorderTrail } from '@/playground/border-trail';
-import { DeleteButton } from '@/playground/delete-button';
 import { DirectionalHover } from '@/playground/directional-hover';
+import { HoldDelete } from '@/playground/hold-delete';
 import { TextScramble } from '@/playground/text-scramble';
 import { TextShimmer } from '@/playground/text-shimmer';
 import { TextStreaming } from '@/playground/text-streaming';
@@ -29,8 +29,8 @@ export default function Playground() {
         <PlaygroundCard title="Text Shimmer">
           <TextShimmer />
         </PlaygroundCard>
-        <PlaygroundCard title="Delete Button">
-          <DeleteButton />
+        <PlaygroundCard title="Hold to Delete">
+          <HoldDelete />
         </PlaygroundCard>
         <PlaygroundCard title="Text Scramble" restart>
           <TextScramble />
