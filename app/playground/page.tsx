@@ -27,7 +27,7 @@ export default function Playground() {
           <AvatarStack />
         </PlaygroundCard>
         <PlaygroundCard title="Text Shimmer">
-          <TextShimmer>Generating code</TextShimmer>
+          <TextShimmer />
         </PlaygroundCard>
         <PlaygroundCard title="Delete Button">
           <DeleteButton />

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import React, { useMemo, type JSX } from 'react';
 
 interface TextShimmerProps {
-  children: string;
+  children?: string;
   as?: React.ElementType;
   className?: string;
   duration?: number;
@@ -13,7 +13,7 @@ interface TextShimmerProps {
 }
 
 export function TextShimmer({
-  children,
+  children = 'Generating code',
   as: Component = 'p',
   className,
   duration = 2,
@@ -48,7 +48,7 @@ export function TextShimmer({
         } as React.CSSProperties
       }
     >
-      {children}
+      Generating code
     </MotionComponent>
   );
 }
