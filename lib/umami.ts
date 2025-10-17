@@ -11,7 +11,8 @@ export async function getTotalUniqueVisitors() {
     endAt: Date.now(),
   });
 
-  return data?.visitors ?? 0;
+  const visitors = data?.visitors as number | { value: number } | undefined;
+  return (typeof visitors === 'number' ? visitors : visitors?.value) ?? 0;
 }
 
 export async function getVisitorCount(path: string) {
