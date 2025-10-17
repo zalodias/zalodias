@@ -6,7 +6,7 @@ import { Transition } from '@/components/transition';
 import { home } from '@/data/metadata';
 import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
-import { getVisitorCount } from '@/lib/umami';
+import { getTotalUniqueVisitors } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
   formatDate,
@@ -51,7 +51,7 @@ export default async function Home() {
             Welcome to my corner of the internet. You are visitor{' '}
             <AnimatedCounter
               from={0}
-              to={(await getVisitorCount()) ?? 0}
+              to={await getTotalUniqueVisitors()}
               duration={0.8}
               delay={0.4}
               className="text-foreground-neutral-default font-semibold"
