@@ -3,6 +3,7 @@ import { Intro } from '@/components/intro';
 import { PlaygroundCard } from '@/components/playground-card';
 import { playground } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
+import { BorderTrail } from '@/playground/border-trail';
 import { DeleteButton } from '@/playground/delete-button';
 import { DirectionalHover } from '@/playground/directional-hover';
 import { TextScramble } from '@/playground/text-scramble';
@@ -34,11 +35,14 @@ export default function Playground() {
         <PlaygroundCard title="Text Scramble" restart>
           <TextScramble />
         </PlaygroundCard>
-        <PlaygroundCard title="Directional Hover  ">
+        <PlaygroundCard title="Directional Hover">
           <DirectionalHover />
         </PlaygroundCard>
         <PlaygroundCard title="Text Streaming" restart>
           <TextStreaming />
+        </PlaygroundCard>
+        <PlaygroundCard title="Border Trail">
+          <BorderTrail />
         </PlaygroundCard>
       </div>
     </Container>
