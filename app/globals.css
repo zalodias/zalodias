@@ -108,6 +108,12 @@
       transform: rotate(360deg);
     }
   }
+
+  @keyframes trail {
+    to {
+      offset-distance: 100%;
+    }
+  }
 }
 
 @layer color {
