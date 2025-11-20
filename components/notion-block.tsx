@@ -145,7 +145,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <li
           key={block.id}
-          className="text-body-large-default text-foreground-neutral-subtle ms-3 list-disc"
+          className="text-body-large-default text-foreground-neutral-subtle ms-6 list-disc ps-1"
         >
           {renderRichText(block.bulleted_list_item.rich_text)}
         </li>
@@ -154,7 +154,7 @@ export function NotionBlock({ block }: NotionBlockProps) {
       return (
         <li
           key={block.id}
-          className="text-body-large-default text-foreground-neutral-subtle ms-3 list-decimal"
+          className="text-body-large-default text-foreground-neutral-subtle ms-6 list-decimal ps-1"
         >
           {renderRichText(block.numbered_list_item.rich_text)}
         </li>
