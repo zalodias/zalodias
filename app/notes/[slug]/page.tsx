@@ -5,8 +5,24 @@ import {
   fetchDatabaseContent,
   fetchPageContent,
 } from '@/lib/notion';
-import { getVisitorCount } from '@/lib/umami';
 import { formatDate, generateSlug } from '@/lib/utils';
+
+export async function generateStaticParams() {
+  const notes = await fetchDatabaseContent(
+    process.env.NOTION_NOTES_DATABASE_ID!,
+    { filter: { property: 'Status', status: { equals: 'Live' } } },
+  );
+
+  return notes
+    .map((note) => {
+      const title = (note.properties as any).Name?.title?.[0]?.plain_text;
+
+      return {
+        slug: generateSlug(title),
+      };
+    })
+    .filter(Boolean) as { slug: string }[];
+}
 
 async function getPageData(slug: string) {
   const database = await fetchDatabaseContent(
