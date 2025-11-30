@@ -84,7 +84,7 @@ export default async function Home() {
                     {work.description}
                   </p>
                 </div>
-                <span className="bg-background-neutral-subtle hidden h-[1px] w-px md:block" />
+                <span className="bg-background-neutral-subtle hidden h-px w-px md:block" />
                 <time className="text-body-medium-subtle text-foreground-neutral-faded whitespace-nowrap">
                   {work.date}
                 </time>
