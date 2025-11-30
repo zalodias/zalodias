@@ -1,5 +1,6 @@
 import { Container } from '@/components/container';
 import { NotionBlock } from '@/components/notion-block';
+import { ViewCounter } from '@/components/view-counter';
 import {
   fetchBlockContent,
   fetchDatabaseContent,
@@ -81,7 +82,7 @@ export default async function Note({
             <span className="text-title-small-strong text-foreground-neutral-subtle">
               ·
             </span>
-            <p>{(await getVisitorCount(`/notes/${slug}`)) ?? 0} views</p>
+            <ViewCounter path={`/notes/${slug}`} />
           </div>
         </div>
         <div className="flex flex-col gap-2">
