@@ -3,12 +3,9 @@ import '@/playground/avatar-stack/avatar-stack.css';
 export function AvatarStack() {
   return (
     <div className="flex items-center gap-x-16 rounded-full p-2">
-      <span className="grid h-[var(--size)] grid-cols-[repeat(4,var(--column))] content-end">
-        <span
-          data-masked
-          className="grid aspect-[1/2] w-[var(--size)] items-end"
-        >
-          <span className="inline-grid h-[var(--size)] w-full place-items-center rounded-full bg-[#5E6AD2]">
+      <span className="grid h-(--size) grid-cols-[repeat(4,var(--column))] content-end">
+        <span data-masked className="grid aspect-1/2 w-(--size) items-end">
+          <span className="inline-grid h-(--size) w-full place-items-center rounded-full bg-[#5E6AD2]">
             <svg
               role="img"
               viewBox="0 0 24 24"
@@ -23,11 +20,8 @@ export function AvatarStack() {
             </svg>
           </span>
         </span>
-        <span
-          data-masked
-          className="grid aspect-[1/2] w-[var(--size)] items-end"
-        >
-          <span className="inline-grid h-[var(--size)] w-[var(--size)] place-items-center rounded-full bg-[#0055FF]">
+        <span data-masked className="grid aspect-1/2 w-(--size) items-end">
+          <span className="inline-grid h-(--size) w-(--size) place-items-center rounded-full bg-[#0055FF]">
             <svg
               className="h-1/2 w-1/2"
               role="img"
@@ -39,11 +33,8 @@ export function AvatarStack() {
             </svg>
           </span>
         </span>
-        <span
-          data-masked
-          className="grid aspect-[1/2] w-[var(--size)] items-end"
-        >
-          <span className="inline-grid h-[var(--size)] w-[var(--size)] place-items-center rounded-full bg-[#06B6D4]">
+        <span data-masked className="grid aspect-1/2 w-(--size) items-end">
+          <span className="inline-grid h-(--size) w-(--size) place-items-center rounded-full bg-[#06B6D4]">
             <svg
               className="h-1/2 w-1/2"
               role="img"
@@ -58,11 +49,8 @@ export function AvatarStack() {
             </svg>
           </span>
         </span>
-        <span
-          data-masked
-          className="grid aspect-[1/2] w-[var(--size)] items-end"
-        >
-          <span className="inline-grid h-[var(--size)] w-[var(--size)] place-items-center rounded-full bg-[#FF6363]">
+        <span data-masked className="grid aspect-1/2 w-(--size) items-end">
+          <span className="inline-grid h-(--size) w-(--size) place-items-center rounded-full bg-[#FF6363]">
             <svg
               className="h-1/2 w-1/2"
               role="img"

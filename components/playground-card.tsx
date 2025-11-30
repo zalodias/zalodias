@@ -23,7 +23,7 @@ export function PlaygroundCard({
   };
 
   return (
-    <div className="bg-background-neutral-faded border-border-neutral-faded after:from-background-neutral-default relative isolate grid aspect-[4/3] place-items-center overflow-hidden rounded-lg border after:absolute after:inset-x-0 after:bottom-0 after:h-1/4 after:bg-gradient-to-t after:to-transparent">
+    <div className="bg-background-neutral-faded border-border-neutral-faded after:from-background-neutral-default relative isolate grid aspect-4/3 place-items-center overflow-hidden rounded-lg border after:absolute after:inset-x-0 after:bottom-0 after:h-1/4 after:bg-linear-to-t after:to-transparent">
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
           return cloneElement(child, { key });

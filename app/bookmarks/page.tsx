@@ -110,7 +110,7 @@ export default async function Bookmarks({
           <div key={date} className="flex flex-col gap-5">
             <div className="text-body-medium-subtle flex items-center justify-between gap-5">
               <h2 className="whitespace-nowrap">{date}</h2>
-              <span className="bg-background-neutral-subtle h-[1px] w-full"></span>
+              <span className="bg-background-neutral-subtle h-px w-full"></span>
               <p>{bookmarks.length}</p>
             </div>
             <div className="flex flex-col gap-2">
