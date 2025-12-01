@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { HeadingAnchor } from '@/components/heading-anchor';
+import { VideoPlayer } from '@/components/video-player';
 import { generateSlug } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
-import { HeadingAnchor } from './heading-anchor';
 
 interface NotionBlock {
   id: string;
@@ -125,22 +126,11 @@ export function NotionBlock({ block }: NotionBlockProps) {
         </figure>
       );
     case 'video':
-      const videoSrc =
+      const video =
         block.video.type === 'file'
           ? block.video.file.url
           : block.video.external.url;
-      return (
-        <video
-          key={block.id}
-          controls
-          className="mt-6 mb-6 rounded-xl"
-          preload="none"
-          autoPlay={true}
-          loop={true}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
-      );
+      return <VideoPlayer key={block.id} src={video} className="mt-6 mb-6" />;
     case 'bulleted_list_item':
       return (
         <li
