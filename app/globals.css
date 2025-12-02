@@ -13,7 +13,8 @@
   --breakpoint-lg: 960px;
   --breakpoint-xl: 1280px;
 
-  --spacing-height-footer: 72px;
+  --spacing-header-height: 88px;
+  --spacing-footer-height: 72px;
 
   --color-*: initial;
   --color-transparent: transparent;
