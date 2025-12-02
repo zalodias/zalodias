@@ -2,7 +2,7 @@ import { profile } from '@/data/profile';
 
 export function Header() {
   return (
-    <div className="border-border-neutral-faded from-background-neutral-default to-background-neutral-default/80 sticky top-0 z-10 flex gap-5 border-b bg-linear-to-b p-5 backdrop-blur-sm lg:hidden">
+    <div className="border-border-neutral-faded from-background-neutral-default to-background-neutral-default/80 ring-border-neutral-faded sticky top-0 z-10 flex gap-5 bg-linear-to-b p-5 ring backdrop-blur-sm lg:hidden">
       <div className="flex items-center gap-4">
         <div className="relative shrink-0">
           <img
