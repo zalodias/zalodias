@@ -29,7 +29,10 @@ const schema = {
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className="scroll-pt-header-height scroll-smooth lg:scroll-pt-0"
+    >
       <body className="bg-background-neutral-default text-foreground-neutral-default flex min-h-dvh flex-col antialiased lg:flex-row lg:overscroll-none">
         <Header />
         <Footer />
