@@ -15,6 +15,9 @@ export function ViewCounter({ path }: { path: string }) {
       .then((data) => {
         setViews(data.views ?? 0);
         setIsLoaded(true);
+      })
+      .catch(() => {
+        setIsLoaded(true);
       });
   }, [path]);
 
