@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { FetchReveal } from './fetch-reveal';
 
 export function ViewCounter({ path }: { path: string }) {
   const [views, setViews] = useState<number | null>(null);
@@ -17,5 +18,10 @@ export function ViewCounter({ path }: { path: string }) {
       });
   }, [path]);
 
-  return <p>{views ?? 0} views</p>;
+  return (
+    <p className="inline-flex items-center gap-1">
+      <FetchReveal isLoaded={isLoaded}>{views ?? 0}</FetchReveal>
+      <span>views</span>
+    </p>
+  );
 }
