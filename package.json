@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@notionhq/client": "^5.4.0",
+    "@notionhq/client": "^5.6.0",
     "@react-three/fiber": "^9.4.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/three": "^0.182.0",
     "@umami/api-client": "^0.80.0",
-    "lucide-react": "^0.561.0",
-    "next": "16.0.10",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.0",
     "postcss": "^8.5.6",
     "react": "^19",
     "react-dom": "^19",
