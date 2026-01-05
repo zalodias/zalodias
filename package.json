@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@notionhq/client": "^5.6.0",
-    "@react-three/fiber": "^9.4.0",
+    "@react-three/fiber": "^9.5.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/three": "^0.182.0",
     "@umami/api-client": "^0.80.0",
