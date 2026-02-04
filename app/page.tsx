@@ -2,6 +2,7 @@ import { AnimatedCounter } from '@/components/animated-counter';
 import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
+import { Signature } from '@/components/signature';
 import { Transition } from '@/components/transition';
 import { home } from '@/data/metadata';
 import { work } from '@/data/work';
@@ -175,6 +176,18 @@ export default async function Home() {
             ))}
           </div>
         </section>
+      </Transition>
+      <Transition delay={0.4}>
+        <footer className="flex flex-row items-center justify-between">
+          <a
+            href="https://github.com/zalodias/zalodias"
+            className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
+          >
+            v1.0
+            <MovingArrow />
+          </a>
+          <Signature />
+        </footer>
       </Transition>
     </Container>
   );
