@@ -5,7 +5,7 @@ import { VideoPlayer } from '@/components/video-player';
 import { generateSlug } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
 
-interface NotionBlock {
+export interface NotionBlock {
   id: string;
   type: string;
   children?: NotionBlock[];
