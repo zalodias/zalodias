@@ -41,4 +41,7 @@ export const shots: Metadata = {
   description: 'A visual journal of places, moments & memories.',
 };
 
+export const streams: Metadata = {
+  title: 'Streams',
+  description: 'Internal dialogues on half-formed design thoughts.',
 };
