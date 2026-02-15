@@ -151,6 +151,7 @@
       --color-background-neutral-subtle: var(--color-gray-800);
       --color-background-neutral-strong: var(--color-gray-700);
       --color-background-neutral-inverse: var(--color-white);
+      --color-background-brand-default: var(--color-orange-400);
       --color-background-positive-default: var(--color-green-500);
 
       --color-foreground-neutral-default: var(--color-gray-50);
@@ -177,6 +178,7 @@
       --color-background-neutral-subtle: var(--color-gray-100);
       --color-background-neutral-strong: var(--color-gray-300);
       --color-background-neutral-inverse: var(--color-gray-950);
+      --color-background-brand-default: var(--color-orange-500);
       --color-background-positive-default: var(--color-green-500);
 
       --color-foreground-neutral-default: var(--color-gray-900);
