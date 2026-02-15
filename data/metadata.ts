@@ -18,8 +18,7 @@ export const home: Metadata = {
 
 export const notes: Metadata = {
   title: 'Notes',
-  description:
-    'Unplugged thoughts & ideas on design, technology, and everything in between.',
+  description: 'In-depth practical essays on design, interfaces & systems.',
 };
 
 export const playground: Metadata = {
@@ -39,5 +38,7 @@ export const stack: Metadata = {
 
 export const shots: Metadata = {
   title: 'Shots',
-  description: 'A visual journal of my favorite places, moments and memories.',
+  description: 'A visual journal of places, moments & memories.',
+};
+
 };
