@@ -1,12 +1,15 @@
 import { ChatBubble, Message } from '@/components/chat-bubble';
 import { Container } from '@/components/container';
-import { ViewCounter } from '@/components/view-counter';
 import {
   fetchBlockContent,
   fetchDatabaseContent,
   fetchPageContent,
 } from '@/lib/notion';
-import { formatDate, generateSlug } from '@/lib/utils';
+import {
+  calculateReadingTime,
+  extractTextFromBlocks,
+  generateSlug,
+} from '@/lib/utils';
 
 export async function generateStaticParams() {
   const streams = await fetchDatabaseContent(
@@ -64,6 +67,9 @@ export default async function Stream({
   const { page, id } = await getPageData(slug);
   const blocks = await fetchBlockContent(id!);
 
+  const messageCount = blocks.length;
+  const readingTime = calculateReadingTime(extractTextFromBlocks(blocks));
+
   const messages: Message[] = blocks.map((block) => {
     const isQuote = block.type === 'quote';
     const variant = isQuote ? 'right' : 'left';
@@ -78,21 +84,11 @@ export default async function Stream({
             {(page.properties.Name as any).title[0].plain_text}
           </h1>
           <div className="text-body-medium-default text-foreground-neutral-subtle flex items-center gap-2">
-            {(page.properties.Date as any)?.date?.start && (
-              <>
-                <p>
-                  {formatDate((page.properties.Date as any).date.start, {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </p>
-                <span className="text-title-small-strong text-foreground-neutral-subtle">
-                  ·
-                </span>
-              </>
-            )}
-            <ViewCounter path={`/streams/${slug}`} />
+            <span>{messageCount} waves</span>
+            <span className="text-title-small-strong text-foreground-neutral-subtle">
+              ·
+            </span>
+            <span>{readingTime} minutes</span>
           </div>
         </div>
         <div className="flex flex-col gap-3">
