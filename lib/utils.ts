@@ -111,6 +111,17 @@ export function calculateReadingTime(text: string): number {
   return Math.ceil(words / wordsPerMinute);
 }
 
+export function extractTextFromBlocks(
+  blocks: { type: string; [key: string]: any }[],
+): string {
+  return blocks
+    .map((block) => {
+      const richText = block[block.type]?.rich_text ?? [];
+      return richText.map((rt: any) => rt.plain_text).join(' ');
+    })
+    .join(' ');
+}
+
 export function removeProtocolFromUrl(url: string): string {
   return url.replace(/^https?:\/\//, '');
 }
