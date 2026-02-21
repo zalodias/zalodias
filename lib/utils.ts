@@ -117,7 +117,7 @@ export function extractTextFromBlocks(
   return blocks
     .map((block) => {
       const richText = block[block.type]?.rich_text ?? [];
-      return richText.map((rt: any) => rt.plain_text).join(' ');
+      return richText.map((rt: any) => rt.plain_text).join('');
     })
     .join(' ');
 }
