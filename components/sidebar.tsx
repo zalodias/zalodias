@@ -1,9 +1,9 @@
 'use client';
 
-import { Dribbble } from '@/assets/icons/Dribbble';
-import { GitHub } from '@/assets/icons/GitHub';
-import { LinkedIn } from '@/assets/icons/LinkedIn';
-import { Twitter } from '@/assets/icons/Twitter';
+import { Dribbble } from '@/assets/logos/Dribbble';
+import { GitHub } from '@/assets/logos/GitHub';
+import { LinkedIn } from '@/assets/logos/LinkedIn';
+import { Twitter } from '@/assets/logos/Twitter';
 import { Hotkey } from '@/components/hotkey';
 import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';

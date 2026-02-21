@@ -1,5 +1,5 @@
-import { Concealed } from '@/assets/icons/Concealed';
-import { Sword } from '@/assets/icons/Sword';
+import { Concealed } from '@/assets/logos/Concealed';
+import { Sword } from '@/assets/logos/Sword';
 
 export interface Work {
   company: string;
