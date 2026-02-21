@@ -1,14 +1,14 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
-import { notes } from '@/data/metadata';
+import { notes as meta } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { formatDate, generateSlug } from '@/lib/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: notes.title,
-  description: notes.description,
+  title: meta.title,
+  description: meta.description,
 };
 
 export default async function Notes() {
@@ -27,10 +27,7 @@ export default async function Notes() {
 
   return (
     <Container>
-      <Intro title="Notes">
-        Unplugged thoughts & ideas on design, technology, and everything in
-        between.
-      </Intro>
+      <Intro title="Notes">{meta.description}</Intro>
       <section className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
         {notes.map((note) => (
           <Link
