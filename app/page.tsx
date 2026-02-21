@@ -2,6 +2,7 @@ import { AnimatedCounter } from '@/components/animated-counter';
 import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
+import { NewsletterForm } from '@/components/newsletter-form';
 import { Signature } from '@/components/signature';
 import { Transition } from '@/components/transition';
 import { home } from '@/data/metadata';
@@ -14,6 +15,7 @@ import {
   generateSlug,
   getRelativeTimeString,
 } from '@/lib/utils';
+import { TextScramble } from '@/playground/text-scramble';
 import { ArrowUpRight } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -177,6 +179,12 @@ export default async function Home() {
           </div>
         </section>
       </Transition>
+      <Transition delay={0.4}>
+        <section className="bg-background-neutral-faded border-border-neutral-faded rounded-lg border px-6 py-5">
+          <NewsletterForm />
+        </section>
+      </Transition>
+      <div className="bg-border-neutral-faded -mt-5 -mb-10 h-px" />
       <Transition delay={0.4}>
         <footer className="flex flex-row items-center justify-between">
           <a
