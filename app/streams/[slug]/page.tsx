@@ -1,3 +1,4 @@
+import { WaveSine } from '@/assets/icons/wave-sine';
 import { ChatBubble, Message } from '@/components/chat-bubble';
 import { Container } from '@/components/container';
 import {
@@ -84,7 +85,10 @@ export default async function Stream({
             {(page.properties.Name as any).title[0].plain_text}
           </h1>
           <div className="text-body-medium-default text-foreground-neutral-subtle flex items-center gap-2">
-            <span>{messageCount} waves</span>
+            <div className="flex items-center gap-1">
+              <WaveSine className="size-5" />
+              <span>{messageCount} waves</span>
+            </div>
             <span className="text-title-small-strong text-foreground-neutral-subtle">
               ·
             </span>
