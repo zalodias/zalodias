@@ -43,7 +43,7 @@ export function WaveSine({
   className,
   size = 20,
   ref,
-  ...restProps
+  ...props
 }: WaveSineProps & { ref?: React.Ref<WaveSineHandle> }) {
   const controls = useAnimation();
   const isControlledRef = useRef(false);
@@ -84,7 +84,7 @@ export function WaveSine({
       className={cn(className)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      {...restProps}
+      {...props}
     >
       <svg
         fill="none"
