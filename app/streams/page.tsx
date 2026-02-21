@@ -54,7 +54,7 @@ export default async function Streams() {
                 {(stream.properties.Name as any).title[0].plain_text}
               </h3>
               <p className="text-foreground-neutral-subtle">
-                {data[index].preview}
+                {data[index].preview}…
               </p>
             </div>
             <span className="text-body-medium-subtle group-hover:text-foreground-neutral-default text-foreground-neutral-faded flex items-center gap-1 transition">
