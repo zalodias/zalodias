@@ -49,11 +49,19 @@
     var(--color-foreground-neutral-inverse)
   );
   --color-foreground-brand-default: hsl(var(--color-foreground-brand-default));
+  --color-foreground-positive-default: hsl(
+    var(--color-foreground-positive-default)
+  );
+  --color-foreground-negative-default: hsl(
+    var(--color-foreground-negative-default)
+  );
   --color-border-neutral-default: hsl(var(--color-border-neutral-default));
   --color-border-neutral-faded: hsl(var(--color-border-neutral-faded));
   --color-border-neutral-subtle: hsl(var(--color-border-neutral-subtle));
   --color-border-neutral-strong: hsl(var(--color-border-neutral-strong));
   --color-border-brand-default: hsl(var(--color-border-brand-default));
+  --color-border-positive-default: hsl(var(--color-border-positive-default));
+  --color-border-negative-default: hsl(var(--color-border-negative-default));
 
   --text-*: initial;
   --text-body-small-default: 12px;
@@ -136,7 +144,11 @@
     --color-gray-900: var(--hue) 4% 8%;
     --color-gray-950: var(--hue) 4% 4%;
 
+    --color-green-400: 160 80% 64%;
     --color-green-500: 160 80% 48%;
+
+    --color-red-400: 355 80% 64%;
+    --color-red-500: 355 80% 48%;
 
     --color-orange-400: var(--hue) 92% 64%;
     --color-orange-500: var(--hue) 96% 48%;
@@ -152,7 +164,8 @@
       --color-background-neutral-strong: var(--color-gray-700);
       --color-background-neutral-inverse: var(--color-white);
       --color-background-brand-default: var(--color-orange-400);
-      --color-background-positive-default: var(--color-green-500);
+      --color-background-positive-default: var(--color-green-400);
+      --color-background-negative-default: var(--color-red-400);
 
       --color-foreground-neutral-default: var(--color-gray-50);
       --color-foreground-neutral-faded: var(--color-gray-400);
@@ -160,12 +173,16 @@
       --color-foreground-neutral-strong: var(--color-gray-100);
       --color-foreground-neutral-inverse: var(--color-gray-900);
       --color-foreground-brand-default: var(--color-orange-400);
+      --color-foreground-positive-default: var(--color-green-400);
+      --color-foreground-negative-default: var(--color-red-400);
 
       --color-border-neutral-default: var(--color-gray-600);
       --color-border-neutral-faded: var(--color-gray-800);
       --color-border-neutral-strong: var(--color-gray-500);
       --color-border-neutral-subtle: var(--color-gray-700);
       --color-border-brand-default: var(--color-orange-400);
+      --color-border-positive-default: var(--color-green-400);
+      --color-border-negative-default: var(--color-red-400);
     }
   }
 
@@ -180,6 +197,7 @@
       --color-background-neutral-inverse: var(--color-gray-950);
       --color-background-brand-default: var(--color-orange-500);
       --color-background-positive-default: var(--color-green-500);
+      --color-background-negative-default: var(--color-red-500);
 
       --color-foreground-neutral-default: var(--color-gray-900);
       --color-foreground-neutral-faded: var(--color-gray-600);
@@ -187,12 +205,16 @@
       --color-foreground-neutral-strong: var(--color-gray-800);
       --color-foreground-neutral-inverse: var(--color-gray-50);
       --color-foreground-brand-default: var(--color-orange-500);
+      --color-foreground-positive-default: var(--color-green-500);
+      --color-foreground-negative-default: var(--color-red-500);
 
       --color-border-neutral-default: var(--color-gray-300);
       --color-border-neutral-faded: var(--color-gray-100);
       --color-border-neutral-subtle: var(--color-gray-200);
       --color-border-neutral-strong: var(--color-gray-400);
       --color-border-brand-default: var(--color-orange-500);
+      --color-border-positive-default: var(--color-green-500);
+      --color-border-negative-default: var(--color-red-500);
     }
   }
 }
