@@ -1,18 +1,23 @@
+import { WaveSine } from '@/assets/icons/wave-sine';
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
-import { streams } from '@/data/metadata';
-import { fetchDatabaseContent } from '@/lib/notion';
-import { formatDate, generateSlug } from '@/lib/utils';
+import { streams as meta } from '@/data/metadata';
+import { fetchBlockContent, fetchDatabaseContent } from '@/lib/notion';
+import {
+  extractTextFromBlocks,
+  generateSlug,
+  getRelativeTimeString,
+} from '@/lib/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: streams.title,
-  description: streams.description,
+  title: meta.title,
+  description: meta.description,
 };
 
 export default async function Streams() {
-  const streamsList = await fetchDatabaseContent(
+  const streams = await fetchDatabaseContent(
     process.env.NOTION_STREAMS_DATABASE_ID!,
     {
       filter: {
@@ -25,29 +30,37 @@ export default async function Streams() {
     },
   );
 
+  const data = await Promise.all(
+    streams.map(async (stream) => {
+      const blocks = await fetchBlockContent(stream.id);
+      const preview = extractTextFromBlocks(blocks.slice(0, 1));
+      const last = blocks[blocks.length - 1]?.created_time;
+      return { preview, last };
+    }),
+  );
+
   return (
     <Container>
-      <Intro title="Streams">{streams.description}</Intro>
-      <section className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
-        {streamsList.map((stream) => (
+      <Intro title="Streams">{meta.description}</Intro>
+      <section className="grid gap-4">
+        {streams.map((stream, index) => (
           <Link
             key={stream.id}
             href={`/streams/${generateSlug((stream.properties.Name as any).title[0].plain_text)}`}
-            className="border-border-neutral-faded bg-background-neutral-faded hover:bg-background-neutral-subtle flex flex-col gap-4 rounded-lg border p-4 transition active:scale-[0.98]"
+            className="group before:bg-background-neutral-faded relative flex w-full flex-col gap-3 py-4 before:absolute before:-inset-x-6 before:inset-y-0 before:-z-10 before:scale-[0.98] before:rounded-lg before:opacity-0 before:transition-all before:content-[''] hover:before:scale-100 hover:before:opacity-100 md:flex-row"
           >
-            <div className="flex flex-col gap-2">
-              <p className="text-title-small-strong grow">
+            <div className="flex grow flex-col gap-1">
+              <h3 className="text-title-small-strong">
                 {(stream.properties.Name as any).title[0].plain_text}
+              </h3>
+              <p className="text-foreground-neutral-subtle">
+                {data[index].preview}
               </p>
             </div>
-            {(stream.properties.Date as any)?.date?.start && (
-              <span className="text-body-medium-subtle text-foreground-neutral-faded">
-                {formatDate((stream.properties.Date as any).date.start, {
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </span>
-            )}
+            <span className="text-body-medium-subtle group-hover:text-foreground-neutral-default text-foreground-neutral-faded flex items-center gap-1 transition">
+              Last <WaveSine className="size-5" />
+              {getRelativeTimeString(new Date(data[index].last))}
+            </span>
           </Link>
         ))}
       </section>
