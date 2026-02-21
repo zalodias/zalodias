@@ -47,7 +47,7 @@ export default async function Streams() {
           <Link
             key={stream.id}
             href={`/streams/${generateSlug((stream.properties.Name as any).title[0].plain_text)}`}
-            className="group before:bg-background-neutral-faded relative flex w-full flex-col gap-3 py-4 before:absolute before:-inset-x-6 before:inset-y-0 before:-z-10 before:scale-[0.98] before:rounded-lg before:opacity-0 before:transition-all before:content-[''] hover:before:scale-100 hover:before:opacity-100 md:flex-row"
+            className="group before:bg-background-neutral-faded relative flex w-full flex-col gap-3 py-4 transition before:absolute before:-inset-x-6 before:inset-y-0 before:-z-10 before:scale-[0.98] before:rounded-lg before:opacity-0 before:transition-all before:content-[''] hover:before:scale-100 hover:before:opacity-100 active:scale-[0.98] md:flex-row"
           >
             <div className="flex grow flex-col gap-1">
               <h3 className="text-title-small-strong">
