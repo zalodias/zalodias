@@ -1,14 +1,109 @@
-export function WaveSine({ className }: { className?: string }) {
+'use client';
+
+import { mergeTailwindClassNames as cn } from '@/lib/utils';
+import type { Variants } from 'motion/react';
+import { motion, useAnimation } from 'motion/react';
+import type { HTMLAttributes } from 'react';
+import { useCallback, useImperativeHandle, useRef } from 'react';
+
+export interface WaveSineHandle {
+  startAnimation: () => void;
+  stopAnimation: () => void;
+}
+
+interface WaveSineProps extends HTMLAttributes<HTMLDivElement> {
+  size?: number;
+}
+
+const variants: Variants = {
+  normal: {
+    opacity: 1,
+    pathLength: 1,
+    pathOffset: 0,
+    transition: {
+      duration: 0.4,
+      opacity: { duration: 0.1 },
+    },
+  },
+  animate: {
+    opacity: [0, 1],
+    pathLength: [0, 1],
+    pathOffset: [1, 0],
+    transition: {
+      duration: 0.6,
+      ease: 'linear',
+      opacity: { duration: 0.1 },
+    },
+  },
+};
+
+export function WaveSine({
+  onMouseEnter,
+  onMouseLeave,
+  className,
+  size = 20,
+  ref,
+  ...restProps
+}: WaveSineProps & { ref?: React.Ref<WaveSineHandle> }) {
+  const controls = useAnimation();
+  const isControlledRef = useRef(false);
+
+  useImperativeHandle(ref, () => {
+    isControlledRef.current = true;
+
+    return {
+      startAnimation: () => controls.start('animate'),
+      stopAnimation: () => controls.start('normal'),
+    };
+  });
+
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (isControlledRef.current) {
+        onMouseEnter?.(e);
+      } else {
+        controls.start('animate');
+      }
+    },
+    [controls, onMouseEnter],
+  );
+
+  const handleMouseLeave = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (isControlledRef.current) {
+        onMouseLeave?.(e);
+      } else {
+        controls.start('normal');
+      }
+    },
+    [controls, onMouseLeave],
+  );
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
-      fill="currentColor"
-      viewBox="0 0 256 256"
-      className={className}
+    <div
+      className={cn(className)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...restProps}
     >
-      <path d="M239.24,131.4c-22,46.8-41.4,68.6-61.2,68.6-25.1,0-40.73-33.32-57.28-68.6C107.7,103.56,92.9,72,78,72c-16.4,0-36.31,37.21-46.72,59.4a8,8,0,0,1-14.48-6.8C38.71,77.8,58.16,56,78,56c25.1,0,40.73,33.32,57.28,68.6C148.3,152.44,163.1,184,178,184c16.4,0,36.31-37.21,46.72-59.4a8,8,0,0,1,14.48,6.8Z"></path>
-    </svg>
+      <svg
+        fill="none"
+        height={size}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        width={size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <motion.path
+          animate={controls}
+          d="M 22.5,12 C 18.66,18 15.84,18 12,12 C 8.16,6 5.34,6 1.5,12"
+          initial="normal"
+          variants={variants}
+        />
+      </svg>
+    </div>
   );
 }
