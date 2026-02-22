@@ -15,7 +15,6 @@ import {
   generateSlug,
   getRelativeTimeString,
 } from '@/lib/utils';
-import { TextScramble } from '@/playground/text-scramble';
 import { ArrowUpRight } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
