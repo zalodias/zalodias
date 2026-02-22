@@ -70,7 +70,7 @@ export function NewsletterForm() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="bg-background-neutral-inverse text-foreground-neutral-inverse text-body-large-subtle rounded-lg px-5 py-2 transition hover:opacity-90 disabled:opacity-50"
+              className="bg-background-neutral-inverse text-foreground-neutral-inverse text-body-large-subtle rounded-lg px-5 py-3 transition hover:opacity-90 disabled:opacity-50"
             >
               {status === 'loading' ? 'Subscribing…' : 'Subscribe'}
             </button>
