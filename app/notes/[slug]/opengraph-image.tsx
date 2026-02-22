@@ -11,11 +11,17 @@ export const size = {
 
 export const contentType = 'image/png';
 
-export default async function Image({ params }: { params: { slug: string } }) {
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
   const inter = await readFile(join(process.cwd(), 'assets/fonts/Inter.ttf'));
 
   return new ImageResponse(
-    <Thumbnail title={generateTitleFromSlug(params.slug)} size={80} />,
+    <Thumbnail title={generateTitleFromSlug(slug)} size={80} />,
     {
       ...size,
       fonts: [
