@@ -41,7 +41,7 @@ export default async function Streams() {
 
   return (
     <Container>
-      <Intro title="Streams">{meta.description}</Intro>
+      <Intro title={meta.title}>{meta.description}</Intro>
       <section className="grid gap-4">
         {streams.map((stream, index) => (
           <Link

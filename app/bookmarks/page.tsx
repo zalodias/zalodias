@@ -1,7 +1,7 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { Search } from '@/components/search';
-import { bookmarks } from '@/data/metadata';
+import { bookmarks as meta } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import {
   extractFaviconFromUrl,
@@ -13,8 +13,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: bookmarks.title,
-  description: bookmarks.description,
+  title: meta.title,
+  description: meta.description,
 };
 
 export default async function Bookmarks({
@@ -76,9 +76,7 @@ export default async function Bookmarks({
   return (
     <Container>
       <header className="flex flex-col gap-10">
-        <Intro title="Bookmarks">
-          A curated list of my favorite resources on the web.
-        </Intro>
+        <Intro title={meta.title}>{meta.description}</Intro>
         <section className="flex flex-col gap-5">
           <Search placeholder="Search bookmarks" />
           <div className="flex flex-wrap gap-3">
