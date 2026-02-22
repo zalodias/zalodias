@@ -1,3 +1,4 @@
+import { escapeMarkup } from '@/lib/utils';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
@@ -52,6 +53,13 @@ export async function POST(request: NextRequest) {
       { status: 500 },
     );
   }
+
+  await resend.emails.send({
+    from: process.env.RESEND_FROM_EMAIL!,
+    to: process.env.RESEND_TO_EMAIL!,
+    subject: 'New subscriber',
+    html: `<p><strong>${escapeMarkup(email)}</strong> has joined your newsletter.</p>`,
+  });
 
   return NextResponse.json({ success: true });
 }

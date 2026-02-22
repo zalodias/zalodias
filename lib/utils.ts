@@ -126,6 +126,14 @@ export function removeProtocolFromUrl(url: string): string {
   return url.replace(/^https?:\/\//, '');
 }
 
+export function escapeMarkup(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 export function isWithinDateRange(start: string, duration: number): boolean {
   const startDate = new Date(start);
   const endDate = new Date(
