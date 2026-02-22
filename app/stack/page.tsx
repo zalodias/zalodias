@@ -1,13 +1,13 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
-import { stack } from '@/data/metadata';
+import { stack as meta } from '@/data/metadata';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { ArrowUpRight } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: stack.title,
-  description: stack.description,
+  title: meta.title,
+  description: meta.description,
 };
 
 export default async function Stack() {
@@ -17,9 +17,7 @@ export default async function Stack() {
 
   return (
     <Container>
-      <Intro title="Stack">
-        The essential tools powering my daily workflow.
-      </Intro>
+      <Intro title={meta.title}>{meta.description}</Intro>
       <section className="grid gap-5 md:grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
         {stack.map((resource) => (
           <a

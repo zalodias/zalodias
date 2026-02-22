@@ -27,7 +27,7 @@ export default async function Notes() {
 
   return (
     <Container>
-      <Intro title="Notes">{meta.description}</Intro>
+      <Intro title={meta.title}>{meta.description}</Intro>
       <section className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-4">
         {notes.map((note) => (
           <Link

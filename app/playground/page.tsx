@@ -1,7 +1,7 @@
 import { Container } from '@/components/container';
 import { Intro } from '@/components/intro';
 import { PlaygroundCard } from '@/components/playground-card';
-import { playground } from '@/data/metadata';
+import { playground as meta } from '@/data/metadata';
 import { AvatarStack } from '@/playground/avatar-stack/avatar-stack';
 import { BorderTrail } from '@/playground/border-trail';
 import { DirectionalHover } from '@/playground/directional-hover';
@@ -12,16 +12,14 @@ import { TextStreaming } from '@/playground/text-streaming';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: playground.title,
-  description: playground.description,
+  title: meta.title,
+  description: meta.description,
 };
 
 export default function Playground() {
   return (
     <Container>
-      <Intro title="Playground">
-        A laboratory of UI experiments, crafted with code.
-      </Intro>
+      <Intro title={meta.title}>{meta.description}</Intro>
       <div className="gap-5 space-y-5 md:columns-2">
         <PlaygroundCard title="Avatar Stack">
           <AvatarStack />

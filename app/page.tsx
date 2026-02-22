@@ -5,7 +5,7 @@ import { MovingArrow } from '@/components/moving-arrow';
 import { NewsletterForm } from '@/components/newsletter-form';
 import { Signature } from '@/components/signature';
 import { Transition } from '@/components/transition';
-import { home } from '@/data/metadata';
+import { home as meta } from '@/data/metadata';
 import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
 import { getTotalUniqueVisitors } from '@/lib/umami';
@@ -20,8 +20,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: home.title,
-  description: home.description,
+  title: meta.title,
+  description: meta.description,
 };
 
 export default async function Home() {
