@@ -40,10 +40,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (emailError) {
-    return NextResponse.json(
-      { error: 'Subscribed, but failed to send notification.' },
-      { status: 500 },
-    );
+    console.error('Failed to send subscriber notification:', emailError);
   }
 
   return NextResponse.json({ success: true });
