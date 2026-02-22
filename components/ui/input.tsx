@@ -10,7 +10,7 @@ export function Input({
       type={type}
       data-slot="input"
       className={cn(
-        'border-border-neutral-subtle bg-background-neutral-faded hover:bg-background-neutral-subtle text-body-large-default placeholder:text-foreground-neutral-faded focus:border-border-neutral-default min-w-0 grow rounded-lg border px-4 py-3 transition outline-none disabled:opacity-50',
+        'ring-border-neutral-subtle bg-background-neutral-faded hover:bg-background-neutral-subtle text-body-large-subtle placeholder:text-foreground-neutral-faded focus:ring-border-neutral-default min-w-0 grow rounded-lg px-4 py-3 ring-1 transition outline-none ring-inset disabled:opacity-50',
         className,
       )}
       {...props}
