@@ -185,15 +185,20 @@ export default async function Home() {
       </Transition>
       <div className="bg-border-neutral-faded -mt-5 -mb-10 h-px" />
       <Transition delay={0.4}>
-        <footer className="flex flex-row items-center justify-between">
+        <footer className="flex flex-row flex-wrap items-center justify-between gap-4">
           <a
             href="https://github.com/zalodias/zalodias"
-            className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
+            className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default order-2 flex items-center gap-2 md:order-1"
           >
             v1.0
             <MovingArrow />
           </a>
-          <Signature />
+          <span className="text-body-small-subtle text-foreground-neutral-faded order-1 w-full font-mono tracking-widest uppercase md:order-2 md:w-auto">
+            everything around you was made by a human
+          </span>
+          <div className="order-3">
+            <Signature />
+          </div>
         </footer>
       </Transition>
     </Container>
