@@ -8,27 +8,27 @@ import { Hotkey } from '@/components/hotkey';
 import { navigation } from '@/data/navigation';
 import { profile } from '@/data/profile';
 import { useCurrentTime } from '@/hooks/useCurrentTime';
+import { useHint } from '@/hooks/useHint';
+import { useHotkey } from '@/hooks/useHotkey';
 import { getWikiFromLocation } from '@/lib/utils';
 import { ChevronLeft } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { NavigationLink } from './navigation-link';
 
 export function Sidebar() {
   const currentTime = useCurrentTime();
+  const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const showHint = useHint();
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === '\\') {
-        e.preventDefault();
-
-        setIsCollapsed((prev) => !prev);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  useHotkey([
+    ...navigation.map((item) => ({
+      combo: `meta+${item.shortcut}`,
+      handler: () => router.push(item.path),
+    })),
+    { combo: 'meta+\\', handler: () => setIsCollapsed((prev) => !prev) },
+  ]);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -91,7 +91,7 @@ export function Sidebar() {
                 </div>
               </div>
               <div
-                className={`transition-opacity duration-160 ${isCollapsed ? 'opacity-0' : 'opacity-100 delay-200'}`}
+                className={`transition ${isCollapsed || !showHint ? 'translate-x-1 opacity-0' : 'opacity-100'}`}
               >
                 <Hotkey>{item.shortcut}</Hotkey>
               </div>
