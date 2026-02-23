@@ -2,27 +2,15 @@
 
 import { NavigationItem } from '@/data/navigation';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function NavigationLink({
   path,
-  shortcut,
   label,
   children,
 }: NavigationItem & { children?: React.ReactNode }) {
-  const router = useRouter();
   const pathname = usePathname();
   const isActive = pathname === path;
-
-  useEffect(() => {
-    window.addEventListener('keydown', (e) => {
-      if (e.key === shortcut) {
-        e.preventDefault();
-        router.push(path);
-      }
-    });
-  }, [router]);
 
   return (
     <Link
