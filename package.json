@@ -26,6 +26,8 @@
     "three": "^0.183.2"
   },
   "devDependencies": {
+    "@react-email/components": "^1.0.8",
+    "@react-email/preview-server": "^5.2.9",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
