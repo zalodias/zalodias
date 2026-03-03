@@ -1,3 +1,4 @@
+import NewsletterConfirmation from '@/emails/newsletter-confirmation';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
@@ -20,16 +21,32 @@ export async function POST(request: NextRequest) {
     if (event.type === 'contact.created') {
       const { email } = event.data;
 
-      const { error } = await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL!,
-        to: process.env.RESEND_TO_EMAIL!,
-        subject: `New subscriber: ${email}`,
-        text: `${email} just subscribed to your newsletter!`,
-      });
+      const [{ error: notificationError }, { error: confirmationError }] =
+        await Promise.all([
+          resend.emails.send({
+            from: process.env.RESEND_FROM_EMAIL!,
+            to: process.env.RESEND_TO_EMAIL!,
+            subject: `New subscriber: ${email}`,
+            text: `${email} just subscribed to your newsletter!`,
+          }),
+          resend.emails.send({
+            from: process.env.RESEND_FROM_EMAIL!,
+            to: email,
+            subject: "You're subscribed — thanks for joining!",
+            react: NewsletterConfirmation(),
+          }),
+        ]);
 
-      if (error) {
-        console.error('Failed to send subscriber notification:', error);
-        return new NextResponse('Failed to send notification', { status: 500 });
+      if (notificationError) {
+        console.error('Failed to send notification email:', notificationError);
+      }
+
+      if (confirmationError) {
+        console.error('Failed to send confirmation email:', confirmationError);
+      }
+
+      if (notificationError || confirmationError) {
+        return new NextResponse('Failed to send emails', { status: 500 });
       }
     }
 
