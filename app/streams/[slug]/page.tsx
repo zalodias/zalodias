@@ -1,16 +1,11 @@
-import { WaveSine } from '@/assets/icons/wave-sine';
-import { ChatBubble, Message } from '@/components/chat-bubble';
 import { Container } from '@/components/container';
+import { NotionBlock } from '@/components/notion-block';
 import {
   fetchBlockContent,
   fetchDatabaseContent,
   fetchPageContent,
 } from '@/lib/notion';
-import {
-  calculateReadingTime,
-  extractTextFromBlocks,
-  generateSlug,
-} from '@/lib/utils';
+import { generateSlug } from '@/lib/utils';
 
 export async function generateStaticParams() {
   const streams = await fetchDatabaseContent(
@@ -68,36 +63,17 @@ export default async function Stream({
   const { page, id } = await getPageData(slug);
   const blocks = await fetchBlockContent(id!);
 
-  const messageCount = blocks.length;
-  const readingTime = calculateReadingTime(extractTextFromBlocks(blocks));
-
-  const messages: Message[] = blocks.map((block) => {
-    const isQuote = block.type === 'quote';
-    const variant = isQuote ? 'right' : 'left';
-    return { variant, block };
-  });
-
   return (
     <Container>
       <section className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
-          <h1 className="text-title-large-strong">
+          <h1 className="text-title-small-strong">
             {(page.properties.Name as any).title[0].plain_text}
           </h1>
-          <div className="text-body-medium-subtle text-foreground-neutral-subtle flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <WaveSine className="size-5" />
-              <span>{messageCount} waves</span>
-            </div>
-            <span className="text-title-small-strong text-foreground-neutral-subtle">
-              ·
-            </span>
-            <span>{readingTime} minutes</span>
-          </div>
         </div>
         <div className="flex flex-col gap-3">
-          {messages.map((message, index) => (
-            <ChatBubble key={index} message={message} />
+          {blocks.map((block) => (
+            <NotionBlock key={block.id} block={block} />
           ))}
         </div>
       </section>
