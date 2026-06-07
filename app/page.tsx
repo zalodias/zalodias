@@ -98,7 +98,7 @@ export default async function Home() {
       <Transition delay={0.4}>
         <section className="flex flex-col gap-6">
           <header className="flex gap-4">
-            <h1 className="text-title-medium-strong grow">Latest Bookmarks</h1>
+            <h1 className="text-title-medium-strong grow">Bookmarks</h1>
             <Link
               href="/bookmarks"
               className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
