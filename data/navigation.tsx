@@ -5,6 +5,7 @@ import {
   FlaskConical,
   Layers2,
   PenLine,
+  Waves,
 } from 'lucide-react';
 
 export interface NavigationItem {
@@ -35,15 +36,21 @@ export const navigation: NavigationItem[] = [
     shortcut: '4',
   },
   {
+    path: '/streams',
+    label: 'Streams',
+    icon: <Waves width={20} />,
+    shortcut: '5',
+  },
+  {
     path: '/playground',
     label: 'Playground',
     icon: <FlaskConical width={20} />,
-    shortcut: '5',
+    shortcut: '6',
   },
   {
     path: '/shots',
     label: 'Shots',
     icon: <Aperture width={20} />,
-    shortcut: '6',
+    shortcut: '7',
   },
 ];

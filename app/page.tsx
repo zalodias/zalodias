@@ -5,6 +5,7 @@ import { MovingArrow } from '@/components/moving-arrow';
 import { NewsletterForm } from '@/components/newsletter-form';
 import { Signature } from '@/components/signature';
 import { Transition } from '@/components/transition';
+import { WaveSine } from '@/components/wave-sine';
 import { home as meta } from '@/data/metadata';
 import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const [bookmarks, notes] = await Promise.all([
+  const [bookmarks, notes, streams] = await Promise.all([
     fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!, {
       page_size: 6,
       sorts: [{ timestamp: 'created_time', direction: 'descending' }],
@@ -39,6 +40,15 @@ export default async function Home() {
         },
       },
       sorts: [{ timestamp: 'created_time', direction: 'descending' }],
+    }),
+    fetchDatabaseContent(process.env.NOTION_STREAMS_DATABASE_ID!, {
+      page_size: 4,
+      filter: {
+        property: 'Status',
+        status: {
+          equals: 'Live',
+        },
+      },
     }),
   ]);
 
@@ -173,6 +183,46 @@ export default async function Home() {
                     day: 'numeric',
                   })}
                 </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </Transition>
+      <Transition delay={0.4}>
+        <section className="flex flex-col gap-6">
+          <header className="flex gap-4">
+            <h1 className="text-title-medium-strong grow">Streams</h1>
+            <Link
+              href="/streams"
+              className="group text-body-medium-subtle text-foreground-neutral-faded hover:text-foreground-neutral-default flex items-center gap-2"
+            >
+              View All
+              <MovingArrow />
+            </Link>
+          </header>
+          <div className="group grid gap-4">
+            {streams.map((stream) => (
+              <Link
+                key={stream.id}
+                href={`/streams/${generateSlug((stream.properties.Name as any).title[0].plain_text)}`}
+                className="py-1 transition group-hover:opacity-50 hover:opacity-100"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="bg-background-neutral-faded border-border-neutral-faded hover:bg-background-neutral-subtle rounded-md border p-1">
+                    <WaveSine className="size-5" />
+                  </div>
+                  <p className="text-body-large-subtle grow">
+                    {(stream.properties.Name as any).title[0].plain_text}
+                  </p>
+                  <p className="text-body-medium-subtle text-foreground-neutral-faded">
+                    {new Date(
+                      (stream.properties.Date as any).date.start,
+                    ).toLocaleDateString('en-US', {
+                      day: '2-digit',
+                      month: '2-digit',
+                    })}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>
