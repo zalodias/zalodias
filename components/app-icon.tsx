@@ -10,7 +10,7 @@ interface AppIconProps {
 export function AppIcon({ icon, title, description, className }: AppIconProps) {
   return (
     <div className={cn('flex items-center gap-4', className)}>
-      <div className="rounded-xl border border-border-neutral-faded bg-background-neutral-faded p-2">
+      <div className="border-border-neutral-faded bg-background-neutral-faded rounded-xl border p-2">
         {icon}
       </div>
       <div className="flex flex-col gap-0.5">

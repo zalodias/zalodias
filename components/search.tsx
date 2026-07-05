@@ -26,11 +26,11 @@ export function Search({ placeholder }: { placeholder: string }) {
       <input
         type="search"
         placeholder={placeholder}
-        className="block w-full rounded-lg border border-border-neutral-subtle bg-background-neutral-default py-3 pe-3 ps-10 text-body-medium-default placeholder:text-foreground-neutral-faded"
+        className="border-border-neutral-subtle bg-background-neutral-default text-body-medium-default placeholder:text-foreground-neutral-faded block w-full rounded-lg border py-3 ps-10 pe-3"
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get('q')?.toString()}
       />
-      <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+      <div className="pointer-events-none absolute inset-y-0 inset-s-0 flex items-center ps-3">
         <SearchIcon width={16} className="text-foreground-neutral-faded" />
       </div>
     </div>
