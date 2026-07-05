@@ -28,8 +28,13 @@ export async function GET(req: Request) {
     return NextResponse.json({ views: previous });
   }
 
-  const views = await getVisitorCount(path);
-  cache.set(path, { value: views, expires: now + TTL });
+  try {
+    const views = await getVisitorCount(path);
+    cache.set(path, { value: views, expires: now + TTL });
 
-  return NextResponse.json({ views });
+    return NextResponse.json({ views });
+  } catch (error) {
+    console.error('Failed to fetch visitor count:', error);
+    return NextResponse.json({ views: 0 });
+  }
 }
