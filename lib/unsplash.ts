@@ -4,82 +4,63 @@ export const unsplash = createApi({
   accessKey: process.env.UNSPLASH_ACCESS_KEY!,
 });
 
-interface Photo {
-  id: string;
-  urls: {
-    raw: string;
-    full: string;
-    regular: string;
-    small: string;
-    thumb: string;
-  };
-  alt_description: string | null;
-  description: string | null;
-  created_at: string;
-  updated_at: string;
-  width: number;
-  height: number;
-  color: string;
-  user: {
-    name: string;
-    username: string;
-  };
-  exif?: {
-    make: string | null;
-    model: string | null;
-    exposure_time: string | null;
-    aperture: string | null;
-    focal_length: string | null;
-    iso: number | null;
-  };
-}
-
 export async function fetchPhotos() {
   try {
-    const result = await unsplash.users.getPhotos({
-      username: process.env.UNSPLASH_USERNAME!,
+    const { data, error } = await unsplash.GET('/users/{username}/photos', {
+      params: {
+        path: { username: process.env.UNSPLASH_USERNAME! },
+      },
     });
 
-    if (!result.response) {
+    if (error || !data) {
       throw new Error('Failed to fetch photos');
     }
 
     const photos = await Promise.all(
-      result.response.results.map(async (p) => {
-        const photo = await unsplash.photos.get({ photoId: p.id });
-        return photo.response as Photo;
+      data.map(async (p) => {
+        const { data } = await unsplash.GET('/photos/{assetSlug}', {
+          params: {
+            path: { assetSlug: p.id },
+          },
+        });
+
+        return data;
       }),
     );
 
-    return photos;
+    return photos.filter((photo) => photo !== undefined);
   } catch (error) {
     console.error('Error fetching photos:', error);
     return [];
   }
 }
 
-export async function fetchPhotoStats(photoId: string) {
+export async function fetchStats(photoId: string) {
   try {
-    const result = await unsplash.photos.getStats({
-      photoId,
+    const { data } = await unsplash.GET('/photos/{assetSlug}/statistics', {
+      params: {
+        path: { assetSlug: photoId },
+      },
     });
 
-    return result.response;
+    return data ?? null;
   } catch (error) {
-    console.error('Error fetching photo stats:', error);
+    console.error('Error fetching stats:', error);
     return null;
   }
 }
 
-export async function fetchUserProfile() {
+export async function fetchUser() {
   try {
-    const result = await unsplash.users.get({
-      username: process.env.UNSPLASH_USERNAME!,
+    const { data } = await unsplash.GET('/users/{username}', {
+      params: {
+        path: { username: process.env.UNSPLASH_USERNAME! },
+      },
     });
 
-    return result.response;
+    return data ?? null;
   } catch (error) {
-    console.error('Error fetching user profile:', error);
+    console.error('Error fetching user:', error);
     return null;
   }
 }
