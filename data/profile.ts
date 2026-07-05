@@ -16,7 +16,7 @@ export const profile: Profile = {
   description:
     'Software designer crafting intuitive & polished digital experiences — from concept to code.',
   tagline: 'Making the world a better place, 1px at a time.',
-  avatar: '/headshot@640.jpg',
+  avatar: 'https://media.zalodias.com/profile/avatar.jpg',
   location: 'Coimbra',
   timezone: 'Europe/Lisbon',
 };
