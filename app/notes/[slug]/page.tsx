@@ -79,10 +79,6 @@ export default async function Note({
                 day: 'numeric',
               })}
             </p>
-            <span className="text-title-small-strong text-foreground-neutral-subtle">
-              ·
-            </span>
-            <ViewCounter path={`/notes/${slug}`} />
           </div>
         </div>
         <div className="flex flex-col gap-2">

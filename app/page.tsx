@@ -1,4 +1,3 @@
-import { AnimatedCounter } from '@/components/animated-counter';
 import { Container } from '@/components/container';
 import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
@@ -9,7 +8,6 @@ import { WaveSine } from '@/components/wave-sine';
 import { home as meta } from '@/data/metadata';
 import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
-import { getTotalUniqueVisitors } from '@/lib/umami';
 import {
   extractFaviconFromUrl,
   formatDate,
@@ -60,14 +58,7 @@ export default async function Home() {
         </Transition>
         <Transition delay={0.3}>
           <p className="text-foreground-neutral-faded">
-            Welcome to my corner of the internet. You are visitor{' '}
-            <AnimatedCounter
-              from={0}
-              to={await getTotalUniqueVisitors()}
-              duration={0.8}
-              delay={0.4}
-              className="text-foreground-neutral-default font-semibold"
-            />
+            Welcome to my corner of the internet.
           </p>
         </Transition>
       </div>
