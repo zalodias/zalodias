@@ -32,6 +32,7 @@ export default function Layout({ children }: PropsWithChildren) {
     <html
       lang="en"
       className="scroll-pt-header-height scroll-smooth lg:scroll-pt-0"
+      data-scroll-behavior="smooth"
     >
       <body className="bg-background-neutral-default text-foreground-neutral-default flex min-h-dvh flex-col antialiased lg:flex-row lg:overscroll-none">
         <Header />
