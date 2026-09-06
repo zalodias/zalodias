@@ -35,6 +35,9 @@
   --color-background-positive-default: hsl(
     var(--color-background-positive-default)
   );
+  --color-background-negative-default: hsl(
+    var(--color-background-negative-default)
+  );
   --color-foreground-neutral-default: hsl(
     var(--color-foreground-neutral-default)
   );
