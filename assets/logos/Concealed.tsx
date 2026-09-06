@@ -1,9 +1,9 @@
 export function Concealed() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
       width={40}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
       className="rounded-full bg-[#101418] p-1"
     >
       <path

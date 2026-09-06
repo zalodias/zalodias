@@ -1,9 +1,9 @@
 export function Sword() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 48 48"
       width={40}
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg"
       className="rounded-full bg-[#fff] ring-1 ring-[#ebebeb] dark:ring-0"
     >
       <path
