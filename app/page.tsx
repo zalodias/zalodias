@@ -6,6 +6,7 @@ import { Signature } from '@/components/signature';
 import { Transition } from '@/components/transition';
 import { WaveSine } from '@/components/wave-sine';
 import { home as meta } from '@/data/metadata';
+import { talks } from '@/data/talks';
 import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
 import {
@@ -215,6 +216,43 @@ export default async function Home() {
                   </p>
                 </div>
               </Link>
+            ))}
+          </div>
+        </section>
+      </Transition>
+      <Transition delay={0.4}>
+        <section className="flex flex-col gap-6">
+          <header className="flex gap-4">
+            <h1 className="text-title-medium-strong grow">Talks</h1>
+          </header>
+          <div className="grid gap-4">
+            {talks.map((talk) => (
+              <a
+                href={talk.link}
+                target="_blank"
+                key={talk.title}
+                className="group"
+              >
+                <div className="flex items-start gap-2">
+                  <img
+                    src={extractFaviconFromUrl(talk.link, 64)}
+                    alt=""
+                    className="h-lh p-0.5"
+                  />
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <p className="text-body-large-subtle">{talk.title}</p>
+                      <ArrowUpRight
+                        width={16}
+                        className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+                      />
+                    </div>
+                    <p className="text-body-medium-subtle text-foreground-neutral-subtle">
+                      {talk.event}
+                    </p>
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
         </section>
