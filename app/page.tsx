@@ -225,32 +225,56 @@ export default async function Home() {
           <header className="flex gap-4">
             <h1 className="text-title-medium-strong grow">Talks</h1>
           </header>
-          <div className="grid gap-4">
+          <div className="grid gap-10">
             {talks.map((talk) => (
               <a
                 href={talk.link}
-                target="_blank"
                 key={talk.title}
-                className="group"
+                target="_blank"
+                className="group after:bg-border-neutral-faded relative after:absolute after:inset-x-0 after:-bottom-5 after:-mx-5 after:h-px last:after:hidden lg:after:mx-0"
               >
-                <div className="flex items-start gap-2">
-                  <img
-                    src={extractFaviconFromUrl(talk.link, 64)}
-                    alt=""
-                    className="h-lh p-0.5"
-                  />
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <p className="text-body-large-subtle">{talk.title}</p>
-                      <ArrowUpRight
-                        width={16}
-                        className="scale-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
-                      />
-                    </div>
+                <div className="grid grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-2 gap-y-1">
+                  <div className="col-span-2 row-start-1 flex items-center gap-2 md:col-span-1">
+                    <p className="text-body-large-subtle">{talk.title}</p>
+                    {talk.link && <MovingArrow />}
+                  </div>
+                  <div className="col-start-1 row-start-2 flex items-center gap-2">
                     <p className="text-body-medium-subtle text-foreground-neutral-subtle">
                       {talk.event}
                     </p>
+                    <span className="text-body-medium-subtle text-foreground-neutral-subtle md:hidden">
+                      •
+                    </span>
+                    <span className="text-body-medium-subtle text-foreground-neutral-subtle whitespace-nowrap md:hidden">
+                      {formatDate(talk.date, {
+                        year: 'numeric',
+                        month: 'long',
+                      })}
+                    </span>
+                    {talk.link && (
+                      <>
+                        <span className="text-body-medium-subtle text-foreground-neutral-subtle">
+                          •
+                        </span>
+                        <span className="text-body-medium-subtle text-foreground-neutral-subtle hidden md:block">
+                          Available on
+                        </span>
+                        <span className="text-body-medium-subtle text-foreground-neutral-subtle">
+                          <img
+                            src={extractFaviconFromUrl(talk.link, 64)}
+                            alt={talk.title}
+                            className="h-lh"
+                          />
+                        </span>
+                      </>
+                    )}
                   </div>
+                  <span className="text-body-medium-subtle text-foreground-neutral-subtle hidden whitespace-nowrap md:col-start-2 md:row-span-2 md:row-start-1 md:block">
+                    {formatDate(talk.date, {
+                      year: 'numeric',
+                      month: 'long',
+                    })}
+                  </span>
                 </div>
               </a>
             ))}
