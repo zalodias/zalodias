@@ -7,7 +7,14 @@ const nextConfig = {
       },
     ],
   },
-
+  turbopack: {
+    rules: {
+      '*.{glsl,vs,fs,vert,frag}': {
+        loaders: ['./assets/shaders/raw-loader.cjs'],
+        as: '*.js',
+      },
+    },
+  },
   async redirects() {
     return [
       {

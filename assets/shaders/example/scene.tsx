@@ -1,7 +1,7 @@
 'use client';
 
-import fragmentShader from '!!raw-loader!./fragment.glsl';
-import vertexShader from '!!raw-loader!./vertex.glsl';
+import fragmentShader from './fragment.glsl';
+import vertexShader from './vertex.glsl';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Mesh, ShaderMaterial } from 'three';
