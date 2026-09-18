@@ -10,7 +10,8 @@ export function NavigationLink({
   children,
 }: NavigationItem & { children?: React.ReactNode }) {
   const pathname = usePathname();
-  const isActive = pathname === path;
+  const isActive =
+    pathname === path || (path !== '/' && pathname.startsWith(`${path}/`));
 
   return (
     <Link
