@@ -1,32 +1,26 @@
-import { getClient } from '@umami/api-client';
+import { UmamiClient } from '@umami/api-client';
 
-export const umami = getClient({
-  apiEndpoint: process.env.UMAMI_API_CLIENT_ENDPOINT,
+const umami = new UmamiClient({
+  baseUrl: process.env.UMAMI_API_CLIENT_ENDPOINT,
   apiKey: process.env.UMAMI_API_KEY,
 });
 
 export async function getTotalUniqueVisitors() {
-  const { data } = await umami.getWebsiteStats(process.env.UMAMI_WEBSITE_ID!, {
+  const stats = await umami.getWebsiteStats(process.env.UMAMI_WEBSITE_ID!, {
     startAt: 0,
     endAt: Date.now(),
   });
 
-  const visitors = data?.visitors as number | { value: number } | undefined;
-  return (typeof visitors === 'number' ? visitors : visitors?.value) ?? 0;
+  return stats.visitors ?? 0;
 }
 
 export async function getVisitorCount(path: string) {
-  const { data } = await umami.getWebsiteMetrics(
-    process.env.UMAMI_WEBSITE_ID!,
-    {
-      type: 'url',
-      startAt: 0,
-      endAt: Date.now(),
-    },
-  );
+  const rows = await umami.getWebsiteMetrics(process.env.UMAMI_WEBSITE_ID!, {
+    type: 'path',
+    startAt: 0,
+    endAt: Date.now(),
+  });
 
-  const paths = Object.fromEntries(
-    data.map(({ x, y }: { x: string; y: number }) => [x, y]),
-  );
+  const paths = Object.fromEntries(rows.map(({ x, y }) => [x, y]));
   return paths[path] ?? 0;
 }
