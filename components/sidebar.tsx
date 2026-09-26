@@ -12,15 +12,19 @@ import { useHint } from '@/hooks/useHint';
 import { useHotkey } from '@/hooks/useHotkey';
 import { getWikiFromLocation } from '@/lib/utils';
 import { ChevronLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { NavigationLink } from './navigation-link';
 
 export function Sidebar() {
   const currentTime = useCurrentTime();
   const router = useRouter();
+  const pathname = usePathname();
+  const ref = useRef<HTMLElement>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const showHint = useHint();
+  const [indicator, setIndicator] = useState({ top: 0, height: 0 });
 
   useHotkey([
     ...navigation.map((item) => ({
@@ -37,6 +41,17 @@ export function Sidebar() {
     );
   }, [isCollapsed]);
 
+  useLayoutEffect(() => {
+    const active = ref.current?.querySelector<HTMLElement>(
+      '[aria-current="page"]',
+    );
+    if (!active) {
+      setIndicator({ top: 0, height: 0 });
+      return;
+    }
+    setIndicator({ top: active.offsetTop, height: active.offsetHeight });
+  }, [pathname, isCollapsed]);
+
   return (
     <aside
       className={`border-border-neutral-faded bg-background-neutral-faded sticky top-0 z-10 hidden h-screen flex-col gap-8 border-r px-4 py-4 transition-[width] duration-320 lg:flex ${
@@ -49,7 +64,7 @@ export function Sidebar() {
             <img
               src={profile.avatar}
               alt={profile.name}
-              className={`border-border-neutral-faded w-full rounded-full border transition-all ${isCollapsed ? 'size-10' : 'size-12'}`}
+              className={`border-border-neutral-faded aspect-square w-full rounded-full border transition-all ${isCollapsed ? 'size-10' : 'size-12'}`}
             />
           </div>
           <div
@@ -70,7 +85,23 @@ export function Sidebar() {
           />
         </button>
       </div>
-      <nav className="flex grow flex-col items-start gap-2">
+      <nav
+        ref={ref}
+        className="relative isolate flex grow flex-col items-start gap-2"
+      >
+        {indicator.height > 0 && (
+          <motion.span
+            aria-hidden
+            className="border-border-neutral-subtle bg-background-neutral-subtle pointer-events-none absolute inset-x-0 -z-10 rounded-lg border"
+            initial={false}
+            animate={indicator}
+            transition={{
+              type: 'spring',
+              bounce: 0.2,
+              duration: 0.4,
+            }}
+          />
+        )}
         {navigation.map((item) => {
           return (
             <NavigationLink
