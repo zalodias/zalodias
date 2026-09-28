@@ -1,6 +1,6 @@
 'use client';
 
-import { mergeTailwindClassNames as cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
 

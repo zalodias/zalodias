@@ -1,7 +1,7 @@
 'use client';
 
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { mergeTailwindClassNames as cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { useEffect } from 'react';
 
 interface VideoPlayerProps {

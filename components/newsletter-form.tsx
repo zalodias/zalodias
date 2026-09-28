@@ -1,7 +1,7 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import { mergeTailwindClassNames as cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
