@@ -1,6 +1,6 @@
 'use client';
 
-import { mergeTailwindClassNames as cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import type { HTMLAttributes } from 'react';
