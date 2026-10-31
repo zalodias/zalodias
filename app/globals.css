@@ -26,6 +26,8 @@
   --color-background-neutral-inverse: hsl(
     var(--color-background-neutral-inverse)
   );
+  --color-background-neutral-light: hsl(var(--color-background-neutral-light));
+  --color-background-neutral-dark: hsl(var(--color-background-neutral-dark));
   --color-background-brand-default: hsl(var(--color-background-brand-default));
   --color-background-positive-default: hsl(
     var(--color-background-positive-default)
@@ -47,6 +49,8 @@
   --color-foreground-neutral-inverse: hsl(
     var(--color-foreground-neutral-inverse)
   );
+  --color-foreground-neutral-light: hsl(var(--color-foreground-neutral-light));
+  --color-foreground-neutral-dark: hsl(var(--color-foreground-neutral-dark));
   --color-foreground-brand-default: hsl(var(--color-foreground-brand-default));
   --color-foreground-positive-default: hsl(
     var(--color-foreground-positive-default)
@@ -166,6 +170,8 @@
     --color-background-neutral-subtle: var(--color-gray-800);
     --color-background-neutral-strong: var(--color-gray-700);
     --color-background-neutral-inverse: var(--color-white);
+    --color-background-neutral-light: var(--color-white);
+    --color-background-neutral-dark: var(--color-gray-950);
     --color-background-brand-default: var(--color-orange-400);
     --color-background-positive-default: var(--color-green-400);
     --color-background-negative-default: var(--color-red-400);
@@ -175,6 +181,8 @@
     --color-foreground-neutral-subtle: var(--color-gray-300);
     --color-foreground-neutral-strong: var(--color-gray-100);
     --color-foreground-neutral-inverse: var(--color-gray-900);
+    --color-foreground-neutral-light: var(--color-gray-50);
+    --color-foreground-neutral-dark: var(--color-gray-900);
     --color-foreground-brand-default: var(--color-orange-400);
     --color-foreground-positive-default: var(--color-green-400);
     --color-foreground-negative-default: var(--color-red-400);
@@ -198,6 +206,8 @@
     --color-background-neutral-subtle: var(--color-gray-100);
     --color-background-neutral-strong: var(--color-gray-300);
     --color-background-neutral-inverse: var(--color-gray-950);
+    --color-background-neutral-light: var(--color-white);
+    --color-background-neutral-dark: var(--color-gray-950);
     --color-background-brand-default: var(--color-orange-500);
     --color-background-positive-default: var(--color-green-500);
     --color-background-negative-default: var(--color-red-500);
@@ -207,6 +217,8 @@
     --color-foreground-neutral-subtle: var(--color-gray-700);
     --color-foreground-neutral-strong: var(--color-gray-800);
     --color-foreground-neutral-inverse: var(--color-gray-50);
+    --color-foreground-neutral-light: var(--color-gray-50);
+    --color-foreground-neutral-dark: var(--color-gray-900);
     --color-foreground-brand-default: var(--color-orange-500);
     --color-foreground-positive-default: var(--color-green-500);
     --color-foreground-negative-default: var(--color-red-500);
