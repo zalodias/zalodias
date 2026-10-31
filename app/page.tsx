@@ -3,12 +3,14 @@ import { Greeting } from '@/components/greeting';
 import { MovingArrow } from '@/components/moving-arrow';
 import { NewsletterForm } from '@/components/newsletter-form';
 import { Signature } from '@/components/signature';
+import { SpotifyPlayer } from '@/components/spotify-player';
 import { Transition } from '@/components/transition';
 import { WaveSine } from '@/components/wave-sine';
 import { home as meta } from '@/data/metadata';
 import { talks } from '@/data/talks';
 import { work } from '@/data/work';
 import { fetchDatabaseContent } from '@/lib/notion';
+import { getLastPlayed } from '@/lib/spotify';
 import {
   extractFaviconFromUrl,
   formatDate,
@@ -25,6 +27,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
+  const track = await getLastPlayed();
+
   const [bookmarks, notes, streams] = await Promise.all([
     fetchDatabaseContent(process.env.NOTION_BOOKMARKS_DATABASE_ID!, {
       page_size: 6,
@@ -286,6 +290,11 @@ export default async function Home() {
           <NewsletterForm />
         </section>
       </Transition>
+      {track && (
+        <Transition delay={0.4}>
+          <SpotifyPlayer key={track.id} track={track} />
+        </Transition>
+      )}
       <div className="bg-border-neutral-faded -mt-5 -mb-10 h-px" />
       <Transition delay={0.4}>
         <footer className="flex flex-row flex-wrap items-center justify-between gap-4">
