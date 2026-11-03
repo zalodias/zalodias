@@ -227,7 +227,7 @@ export function SpotifyPlayer({ track }: { track: Track }) {
   }
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex w-full min-w-0 items-center gap-4">
       <button
         type="button"
         onClick={toggle}
@@ -293,19 +293,17 @@ export function SpotifyPlayer({ track }: { track: Track }) {
           )}
         </span>
       </button>
-      <div className="flex grow flex-col gap-1">
+      <div className="flex min-w-0 grow flex-col gap-1">
         <span className="text-body-small-subtle text-foreground-neutral-faded font-mono tracking-widest uppercase">
           Last played
         </span>
-        <div className="flex gap-1">
-          <span className="text-body-medium-subtle truncate">{track.name}</span>
-          <span className="text-body-medium-subtle text-foreground-neutral-faded">
-            by
+        <p className="text-body-medium-subtle truncate">
+          {track.name}
+          <span className="text-foreground-neutral-faded">
+            {' '}
+            by {track.artists}
           </span>
-          <p className="text-body-medium-subtle text-foreground-neutral-faded truncate">
-            {track.artists}
-          </p>
-        </div>
+        </p>
       </div>
       <div ref={hostRef} className="sr-only" aria-hidden />
     </div>
